@@ -1,12 +1,13 @@
 import React from "react";
 import logo from '../images/wordmark.png';
+import { Link } from 'react-router-dom';
 
 export const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-sm navbar-dark justify-content-end sticky-top">
-      <a className="navbar-brand" href="#">
+      <Link className="navbar-brand" to="/">
         <img src={logo} alt="wordmark" style={{ height: '25px'}} />
-      </a>
+      </Link>
       <button className="btn btn-info ml-auto mr-1">Login</button>
       <button
         className="navbar-toggler"
@@ -22,14 +23,14 @@ export const Navbar = () => {
       >
         <ul className="navbar-nav text-right">
           <li className="nav-item">
-            <a className="nav-link" href="#">
+            <Link className="nav-link" to="#">
               Sign Up
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">
+            <Link className="nav-link" to="/about">
               About Us
-            </a>
+            </Link>
           </li>
         </ul>
       </div>
