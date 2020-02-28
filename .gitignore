@@ -31,6 +31,9 @@ yarn-error.log*
 !.vscode/extensions.json
 .history/*
 
+# environment #
+env/
+
 # Django #
 *.log
 *.pot
