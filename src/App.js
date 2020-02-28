@@ -1,25 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Navbar } from "./components/Navbar";
+import { Cards } from "./components/Cards";
+import { Masthead } from "./components/Masthead";
+import { Footer } from "./components/Footer";
+import { AboutUs } from "./components/AboutUs";
+import { Favorites } from "./components/Favorites";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <Navbar />
+        <Route path="/" exact component={Masthead} />
+        <Route path="/favorites" component={Favorites} />
+        <Route path="/about" component={AboutUs} />
+        <Cards />
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
