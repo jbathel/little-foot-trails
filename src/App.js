@@ -14,9 +14,11 @@ function App() {
     <Router>
       <div>
         <Navbar />
-        <Route path="/" exact component={Masthead} />
-        <Route path="/favorites" component={Favorites} />
-        <Route path="/about" component={AboutUs} />
+        <Switch>
+          <Route path="/" exact component={Masthead} />
+          <Route path="/favorites" component={Favorites} />
+          <Route path="/about" component={AboutUs} />
+        </Switch>
         <Cards />
         <Footer />
       </div>
