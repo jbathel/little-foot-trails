@@ -1,38 +1,130 @@
-.App {
-  text-align: center;
+/* Color Scheme */
+/* #171717 - Almost Black (Body Text) */
+/* #FDA216 - Yellow (Headers) */
+/* #294C51 - Dark Green (Background) */
+/* #D0D2D1 - Gray (Body Background) */
+/* #F85A5D - Red (Buttons) */
+/* #02B0B0 - Teal (Buttons) */
+
+/* Body Styles */
+body {
+    background-color: #D0D2D1;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Navbar */
+
+.navbar {
+    background-color: #294C51;    
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.navbar-brand {
+    background-color: #294C51;
+    text-shadow: 1px 2px 4px rgba(0, 0, 0, .5);   
+}
+
+.navbar .btn-info {
+    Font-Family: 'Roboto', Sans-Serif;
+    /* Font-Family: 'Droid Serif', Serif; */
+    Font-Size: 1em;
+    background-color: #F85A5D;
+    border-color: #F85A5D;
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+}
+
+.navbar .btn-info:hover {
+    background-color: #02B0B0;
+    border-color: #02B0B0;
+}
+
+/* Card Styles */
+.card {
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+}
+
+.card .btn-info {
+    Font-Family: 'Roboto', Sans-Serif;
+    /* Font-Family: 'Droid Serif', Serif; */
+    Font-Size: 1em;
+    background-color: #02B0B0;
+    border-color: #02B0B0;
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+}
+
+/* Masthead */
+.masthead {
+    position: relative;
+    background-color: #343a40;
+    background: url("./images/background.png") no-repeat center center;
+    background-size: auto 100%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
   }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  .masthead .overlay {
+    position: absolute;
+    background-color: #294C51;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0.5;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .masthead h1 {
+    /* font-size: 1em; */
+    color: #FDA216;
   }
+  
+  @media (min-width: 768px) {
+    .masthead {
+      padding-top: 12rem;
+      padding-bottom: 12rem;
+    }
+    .masthead h1 {
+      font-size: 3rem;          
+      Font-Family: 'Droid Serif', Serif;
+      color: #FDA216;
+    }
+  }
+
+  .masthead .btn-info {
+    Font-Family: 'Roboto', Sans-Serif;
+    /* Font-Family: 'Droid Serif', Serif; */
+    Font-Size: 1em;
+    background-color: #02B0B0;
+    border-color: #02B0B0;
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
 }
+
+/* Footer Styles */
+
+  .footer {
+    background-color: #294C51;
+    color: #FAFAFA;
+    Font-Family: 'Droid Serif', Serif;
+    font-size: 1rem;  
+  }
+
+  .form-group hr {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid #FDA216;
+  }
+
+  /* hr {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid #FDA216;
+  } */
+
+  .footer .list-group-item {
+    background-color: #294C51;
+    border: 0;
+    padding: 0px 0px 0px 1rem;
+    color: #FAFAFA;
+    /* Font-Family: 'Droid Serif', Serif; */
+    Font-Family: 'Roboto', Sans-Serif;
+    font-size: 1rem;  
+  }
