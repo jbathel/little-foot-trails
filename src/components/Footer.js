@@ -1,5 +1,6 @@
 import React from "react";
 import logoComp from "../images/LogoComp.png";
+import { Link } from "react-router-dom";
 
 export const Footer = () => {
   return (
@@ -21,22 +22,33 @@ export const Footer = () => {
               <h6 className="fa fa-sitemap" aria-hidden="true">
                 Sitemap
               </h6>
-              <hr />
-              <li className="list-group-item">Home</li>
-              <li className="list-group-item">Login</li>
-              <li className="list-group-item">About Us</li>
+              <hr className="hr-primary" />
+              <Link to="/">
+                <li className="list-group-item">Home</li>
+              </Link>
+              <Link to="#">
+                <li className="list-group-item">Login</li>
+              </Link>
+              <Link to="/about">
+                <li className="list-group-item">About Us</li>
+              </Link>
             </ul>
           </div>
           <div className="col-2 mt-1">
             <ul>
               <h6 className="fa fa-sitemap" aria-hidden="true">
                 Discover
-                {/* <hr /> */}
               </h6>
-              <hr />
-              <li className="list-group-item">Trails</li>
-              <li className="list-group-item">Search</li>
-              <li className="list-group-item">Sign Up</li>
+              <hr className="hr-primary" />
+              <Link>
+                <li className="list-group-item">Trails</li>
+              </Link>
+              <Link>
+                <li className="list-group-item">Search</li>
+              </Link>
+              <Link>
+                <li className="list-group-item">Sign Up</li>
+              </Link>
             </ul>
           </div>
           <div className="form-group col-12">

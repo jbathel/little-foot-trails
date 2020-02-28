@@ -112,12 +112,13 @@ body {
     border-top: 1px solid #FDA216;
   }
 
-  /* hr {
-    margin-top: 2rem;
+  .hr-primary {
+    border-top: 2px solid #FDA216;
+    border-radius: 5px;
+    margin-top: 0rem;
     margin-bottom: 1rem;
-    border: 0;
-    border-top: 1px solid #FDA216;
-  } */
+    /* border-top: 1px solid #FDA216; */
+  }
 
   .footer .list-group-item {
     background-color: #294C51;
