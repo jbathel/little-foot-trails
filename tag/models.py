@@ -1,6 +1,7 @@
 from django.db import models
 from trail.models import Trail
 
+
 class Tag(models.Model):
     name = models.CharField(max_length=30)
     trail_id = models.ForeignKey(Trail, on_delete=models.CASCADE)

@@ -39,11 +39,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
-    'rest_framework',
+
+    # App Components
     'trail',
     'user',
     'review',
     'tag',
+
+    # Third Party Libraries
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

@@ -17,7 +17,7 @@ class UserManager(BaseUserManager):
         )
 
         user.set_password(password)
-        user.full_name=full_name,
+        user.full_name = full_name,
         user.active = is_active
         user.staff = is_staff
         user.admin = is_admin
@@ -40,7 +40,8 @@ class User(AbstractBaseUser):
     full_name = models.CharField(max_length=60, blank=True, null=True)
     email = models.EmailField(
         verbose_name='email address',
-        max_length=255, unique=True)
+        max_length=255, unique=True
+    )
     phone_number = models.IntegerField(blank=True, null=True)
     favorites = models.CharField(max_length=250)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -55,7 +56,7 @@ class User(AbstractBaseUser):
         return self.full_name
 
     def __str__(self):
-         return self.full_name
+        return self.full_name
 
     def has_perm(self, perm, obj=None):
         return True

@@ -15,4 +15,4 @@ class Review(models.Model):
     trail_id = models.ForeignKey(Trail, on_delete=models.CASCADE)
 
     def __str__(self):
-         return self.name
+        return self.name
