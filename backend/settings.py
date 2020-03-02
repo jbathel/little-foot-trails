@@ -39,6 +39,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
+
+    # App Components
+    'trail',
+    'user',
+    'review',
+    'tag',
+
+    # Third Party Libraries
     'rest_framework',
 ]
 
@@ -84,6 +92,7 @@ DATABASES = {
     }
 }
 
+AUTH_USER_MODEL = 'user.User'
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
