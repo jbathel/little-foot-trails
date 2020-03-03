@@ -84,3 +84,4 @@ nosetests.xml
 coverage.xml 
 *.cover 
 .hypothesis/ 
+src/temp.html

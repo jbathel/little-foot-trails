@@ -1,131 +1,155 @@
 /* Color Scheme */
+
 /* #171717 - Almost Black (Body Text) */
+
 /* #FDA216 - Yellow (Headers) */
+
 /* #294C51 - Dark Green (Background) */
+
 /* #D0D2D1 - Gray (Body Background) */
+
 /* #F85A5D - Red (Buttons) */
+
 /* #02B0B0 - Teal (Buttons) */
 
 /* Body Styles */
+
 body {
-    background-color: #D0D2D1;
+  background-color: #FAFAFA;
+  Font-Family: 'Roboto', Sans-Serif;
+}
+
+h2 {
+  color: #FDA216;
+  font-weight: 600;
+  padding: 1rem;
+}
+
+.btn-info {
+  Font-Size: 1rem;
+  background-color: #02B0B0;
+  border-color: #02B0B0;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
 }
 
 /* Navbar */
 
 .navbar {
-    background-color: #294C51;    
+  background-color: #294C51;
 }
 
 .navbar-brand {
-    background-color: #294C51;
-    text-shadow: 1px 2px 4px rgba(0, 0, 0, .5);   
+  background-color: #294C51;
+  text-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
 }
 
 .navbar .btn-info {
-    Font-Family: 'Roboto', Sans-Serif;
-    /* Font-Family: 'Droid Serif', Serif; */
-    Font-Size: 1em;
-    background-color: #F85A5D;
-    border-color: #F85A5D;
-    box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+  Font-Family: 'Roboto', Sans-Serif;
+  Font-Size: 1em;
+  background-color: #F85A5D;
+  border-color: #F85A5D;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
 }
 
 .navbar .btn-info:hover {
-    background-color: #02B0B0;
-    border-color: #02B0B0;
+  background-color: #02B0B0;
+  border-color: #02B0B0;
 }
 
 /* Card Styles */
-.card {
-    box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
-}
 
-.card .btn-info {
-    Font-Family: 'Roboto', Sans-Serif;
-    /* Font-Family: 'Droid Serif', Serif; */
-    Font-Size: 1em;
-    background-color: #02B0B0;
-    border-color: #02B0B0;
-    box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+.card {
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
 }
 
 /* Masthead */
-.masthead {
-    position: relative;
-    background-color: #343a40;
-    background: url("./images/background.png") no-repeat center center;
-    background-size: auto 100%;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-  }
 
-  .masthead .overlay {
-    position: absolute;
-    background-color: #294C51;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    opacity: 0.5;
+.masthead {
+  position: relative;
+  background-color: #343a40;
+  background: url("./images/background.png") no-repeat center center;
+  background-size: 100%;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.masthead .overlay {
+  position: absolute;
+  background-color: #294C51;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0.4;
+}
+
+.masthead h1 {
+  color: #FDA216;
+}
+
+@media (min-width: 768px) {
+  .masthead {
+    padding-top: 12rem;
+    padding-bottom: 12rem;
   }
-  
   .masthead h1 {
-    /* font-size: 1em; */
+    font-size: 3rem;
+    Font-Family: 'Droid Serif', Serif;
     color: #FDA216;
   }
-  
-  @media (min-width: 768px) {
-    .masthead {
-      padding-top: 12rem;
-      padding-bottom: 12rem;
-    }
-    .masthead h1 {
-      font-size: 3rem;          
-      Font-Family: 'Droid Serif', Serif;
-      color: #FDA216;
-    }
-  }
-
-  .masthead .btn-info {
-    Font-Family: 'Roboto', Sans-Serif;
-    /* Font-Family: 'Droid Serif', Serif; */
-    Font-Size: 1em;
-    background-color: #02B0B0;
-    border-color: #02B0B0;
-    box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
 }
 
 /* Footer Styles */
 
-  .footer {
-    background-color: #294C51;
-    color: #FAFAFA;
-    Font-Family: 'Droid Serif', Serif;
-    font-size: 1rem;  
-  }
+.footer {
+  background-color: #294C51;
+  color: #FAFAFA;
+  Font-Family: 'Droid Serif', Serif;
+  font-size: 1rem;
+}
 
-  .form-group hr {
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-    border: 0;
-    border-top: 1px solid #FDA216;
-  }
+.form-group hr {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid #FDA216;
+}
 
-  .hr-primary {
-    border-top: 2px solid #FDA216;
-    border-radius: 5px;
-    margin-top: 0rem;
-    margin-bottom: 1rem;
-    /* border-top: 1px solid #FDA216; */
-  }
+.hr-primary {
+  border-top: 2px solid #FDA216;
+  border-radius: 5px;
+  margin-top: 0rem;
+  margin-bottom: 1rem;
+}
 
-  .footer .list-group-item {
-    background-color: #294C51;
-    border: 0;
-    padding: 0px 0px 0px 1rem;
-    color: #FAFAFA;
-    /* Font-Family: 'Droid Serif', Serif; */
-    Font-Family: 'Roboto', Sans-Serif;
-    font-size: 1rem;  
-  }
+.footer .list-group-item {
+  background-color: #294C51;
+  border: 0;
+  padding: 0px 0px 0px 1rem;
+  color: #FAFAFA;
+  font-size: 1rem;
+}
+
+/* About Us Styles */
+
+.row .img-thumbnail {
+  height: auto;
+  width: 15rem;
+  padding: 12px;
+  margin: 10px;
+  border-radius: 50%;
+  border-color: #294C51;
+}
+
+.col-sm-4 p {
+  color: #171717;
+}
+
+.col-sm-4 h3 {
+  color: #FDA216;
+  font-weight: 400;
+}
+
+.section-subheading {
+
+}

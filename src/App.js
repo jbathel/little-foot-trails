@@ -3,7 +3,6 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Navbar } from "./components/Navbar";
-import { Cards } from "./components/Cards";
 import { Masthead } from "./components/Masthead";
 import { Footer } from "./components/Footer";
 import { AboutUs } from "./components/AboutUs";
@@ -19,7 +18,6 @@ function App() {
           <Route path="/favorites" component={Favorites} />
           <Route path="/about" component={AboutUs} />
         </Switch>
-        <Cards />
         <Footer />
       </div>
     </Router>
