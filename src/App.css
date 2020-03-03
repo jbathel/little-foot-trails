@@ -152,7 +152,7 @@ body {
 }
 
 .col-sm-4 p {
-  color: #F85A5D;
+  color: #171717;
   Font-Family: 'Roboto', Sans-Serif;
 }
 
@@ -164,4 +164,8 @@ body {
   background-color: #02B0B0;
   border-color: #02B0B0;
   box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+}
+
+.h2 {
+  color: #FDA216;
 }
