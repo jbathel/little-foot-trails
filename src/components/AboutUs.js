@@ -10,7 +10,12 @@ export const AboutUs = () => {
         <div className="row justify-content-center">
           <div className="col-lg-12 text-center">
             <h2>Our Awesome Team</h2>
-            <h6 class="section-subheading text-muted mb-4 ml-5 mr-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo provident ipsam nisi odio autem nihil pariatur hic aperiam voluptates voluptas modi exercitationem magni culpa, natus quis fugit laboriosam! Velit, expedita!</h6>
+            <h6 className="section-subheading text-muted mb-4 ml-5 mr-5">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo
+              provident ipsam nisi odio autem nihil pariatur hic aperiam
+              voluptates voluptas modi exercitationem magni culpa, natus quis
+              fugit laboriosam! Velit, expedita!
+            </h6>
           </div>
         </div>
         <div className="row">
@@ -23,7 +28,11 @@ export const AboutUs = () => {
               earum excepturi illum odio atque cumque, neque, assumenda vero,
               est sed officia. Maxime est eveniet dolore magni sed mollitia.
             </p>
-            <a href="https://github.com/rmiyazaki6499" className="btn btn-lg btn-info" target="blank">
+            <a
+              href="https://github.com/rmiyazaki6499"
+              className="btn btn-lg btn-info"
+              target="blank"
+            >
               GitHub
             </a>
           </div>
@@ -37,7 +46,11 @@ export const AboutUs = () => {
               quaerat natus magni minima unde vero voluptas expedita tenetur.
               Sapiente amet aperiam eligendi.
             </p>
-            <a href="https://github.com/banuaksom" target="blank" className="btn btn-lg btn-info mb-5">
+            <a
+              href="https://github.com/banuaksom"
+              target="blank"
+              className="btn btn-lg btn-info mb-5"
+            >
               GitHub
             </a>
           </div>
@@ -55,7 +68,11 @@ export const AboutUs = () => {
               architecto animi, sed sunt harum praesentium explicabo assumenda
               ullam sint.
             </p>
-            <a href="https://github.com/jbathel/" target="blank" className="btn btn-lg btn-info">
+            <a
+              href="https://github.com/jbathel/"
+              target="blank"
+              className="btn btn-lg btn-info"
+            >
               GitHub
             </a>
           </div>
