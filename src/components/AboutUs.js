@@ -9,12 +9,13 @@ export const AboutUs = () => {
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-lg-12 text-center">
-            <h2 className="mt-5">Our Awesome Team</h2>
+            <h2>Our Awesome Team</h2>
+            <h6 class="section-subheading text-muted mb-4 ml-5 mr-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo provident ipsam nisi odio autem nihil pariatur hic aperiam voluptates voluptas modi exercitationem magni culpa, natus quis fugit laboriosam! Velit, expedita!</h6>
           </div>
         </div>
-        <div class="row">
+        <div className="row">
           <div className="col-sm-4 text-center">
-            <h3>Project Manager/Back-End</h3>
+            <h3 className="title">Project Manager/Back-End</h3>
             <img className="img-thumbnail" src={ryu} alt="Ryuichi's headshot" />
             <h4>Ryuichi Miyazaki</h4>
             <p className="m-3">
@@ -22,9 +23,9 @@ export const AboutUs = () => {
               earum excepturi illum odio atque cumque, neque, assumenda vero,
               est sed officia. Maxime est eveniet dolore magni sed mollitia.
             </p>
-            <button type="submit" className="btn btn-lg btn-info">
+            <a href="https://github.com/rmiyazaki6499" className="btn btn-lg btn-info" target="blank">
               GitHub
-            </button>
+            </a>
           </div>
           <div className="col-sm-4 text-center">
             <h3>Back-End/Dev-Ops</h3>
@@ -36,9 +37,9 @@ export const AboutUs = () => {
               quaerat natus magni minima unde vero voluptas expedita tenetur.
               Sapiente amet aperiam eligendi.
             </p>
-            <button type="submit" className="btn btn-lg btn-info mb-5">
+            <a href="https://github.com/banuaksom" target="blank" className="btn btn-lg btn-info mb-5">
               GitHub
-            </button>
+            </a>
           </div>
           <div className="col-sm-4 text-center">
             <h3>Front-End/UI/UX</h3>
@@ -54,9 +55,9 @@ export const AboutUs = () => {
               architecto animi, sed sunt harum praesentium explicabo assumenda
               ullam sint.
             </p>
-            <button type="submit" className="btn btn-lg btn-info">
+            <a href="https://github.com/jbathel/" target="blank" className="btn btn-lg btn-info">
               GitHub
-            </button>
+            </a>
           </div>
         </div>
       </div>
