@@ -13,7 +13,7 @@ export const HomePage = () => {
               <img
                 src={logo}
                 alt="Company logo"
-                style={{ width: "45em"}}
+                style={{ width: "40rem"}}
               />
             </div>
             <div className="col-md-10 col-lg-8 col-xl-7 mx-auto">
