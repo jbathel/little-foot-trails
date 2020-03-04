@@ -1,9 +1,9 @@
-from django.shortcuts import render
 from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
-from .serializers import *
+
+from .serializers import UserSerializer
 from .models import User
 
 
@@ -18,5 +18,5 @@ class UserViewSet(viewsets.ModelViewSet):
         return Response(serializer.data)
 
     def get(self, request, format=None):
-        content = {'status': 'ok'}
+        content = {'status': 'OK'}
         return Response(content)
