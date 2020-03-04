@@ -17,6 +17,8 @@
 body {
   background-color: #FAFAFA;
   Font-Family: 'Roboto', Sans-Serif;
+  padding: 0;
+  margin: 0;
 }
 
 h2 {
@@ -67,10 +69,11 @@ h2 {
 .masthead {
   position: relative;
   background-color: #343a40;
-  background: url("./images/background.png") no-repeat center center;
-  background-size: 100%;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  background: url("./images/background.png");
+  background-repeat: no-repeat;
+  /* background-attachment: scroll; */
+  background-position: center center;
+  background-size: cover;
 }
 
 .masthead .overlay {

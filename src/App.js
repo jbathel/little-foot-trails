@@ -3,10 +3,9 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Navbar } from "./components/Navbar";
-import { Masthead } from "./components/Masthead";
+import { HomePage } from "./components/HomePage";
 import { Footer } from "./components/Footer";
 import { AboutUs } from "./components/AboutUs";
-import { Favorites } from "./components/Favorites";
 
 function App() {
   return (
@@ -14,8 +13,7 @@ function App() {
       <div>
         <Navbar />
         <Switch>
-          <Route path="/" exact component={Masthead} />
-          <Route path="/favorites" component={Favorites} />
+          <Route path="/" exact component={HomePage} />
           <Route path="/about" component={AboutUs} />
         </Switch>
         <Footer />
