@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import (
     BaseUserManager, AbstractBaseUser
 )
+from trail.models import Trail
 
 
 class UserManager(BaseUserManager):
@@ -43,7 +44,7 @@ class User(AbstractBaseUser):
         max_length=255, unique=True
     )
     phone_number = models.IntegerField(blank=True, null=True)
-    favorites = models.CharField(max_length=250)
+    favorites = models.ManyToManyField(Trail)
     created_at = models.DateTimeField(auto_now_add=True)
     active = models.BooleanField(default=False)
     staff = models.BooleanField(default=False)
