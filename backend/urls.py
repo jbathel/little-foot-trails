@@ -18,16 +18,12 @@ from django.urls import path, include
 from rest_framework import routers
 from .views import index
 from trail.views import TrailViewSet
-from tag.views import TagViewSet
 from review.views import ReviewViewSet
-from user.views import UserViewSet
 
 
 router = routers.DefaultRouter()
 router.register(r'trails', TrailViewSet)
-router.register(r'tags', TagViewSet)
 router.register(r'reviews', ReviewViewSet)
-router.register(r'users', UserViewSet)
 
 
 urlpatterns = [
