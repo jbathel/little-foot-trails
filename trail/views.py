@@ -1,3 +1,4 @@
+from django.db.models import Count
 from django.shortcuts import render
 from rest_framework import viewsets
 from rest_framework.response import Response
@@ -13,8 +14,14 @@ class TrailViewSet(viewsets.ModelViewSet):
     permission_classes = (IsAuthenticatedOrReadOnly,)
 
     def list(self, request, *args, **kwargs):
-        filters = request.query_params.get('filters', None)
-        trails = Trail.objects.filter(tag=filters)
+        tags = request.query_params.getlist('tags', [])
+        # annotate creates a "virtual" column num_tags that counts how many tags were matched.
+        # Later we can filter by the virtual column "num_tags" to make sure that we found all
+        # the tags that were passed as parameters
+        if tags:
+            trails = Trail.objects.filter(tag__name__in=tags).annotate(num_tags=Count('tag')).filter(num_tags=len(tags))
+        else:
+            trails = Trail.objects.all()
         serializer = TrailSerializer(trails, many=True)
         return Response(serializer.data)
 

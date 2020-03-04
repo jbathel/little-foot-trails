@@ -1,7 +1,7 @@
 from django.db import models
 from trail.models import Trail
 from django.conf import settings
-
+from rest_framework import serializers
 
 class Review(models.Model):
     name = models.CharField(max_length=30)
@@ -12,7 +12,8 @@ class Review(models.Model):
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE
     )
-    trail_id = models.ForeignKey(Trail, on_delete=models.CASCADE)
+    trail = models.ForeignKey(Trail, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
+
