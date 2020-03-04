@@ -8,11 +8,11 @@ class Review(models.Model):
     review = models.CharField(max_length=250)
     stars = models.IntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
-    user_id = models.ForeignKey(
+    user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE
     )
-    trail_id = models.ForeignKey(Trail, on_delete=models.CASCADE)
+    trail = models.ForeignKey(Trail, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
