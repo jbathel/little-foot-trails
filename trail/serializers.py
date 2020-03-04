@@ -6,4 +6,4 @@ class TrailSerializer(serializers.ModelSerializer):
     class Meta:
         model = Trail
         fields = ('name', 'description', 'picture', 'location', 'latitude',
-                  'longitude', 'tag', 'slug', 'created_at', 'featured')
+                  'longitude', 'tags', 'created_at', 'featured')
