@@ -1,6 +1,7 @@
 from django.db import models
 from tag.models import Tag
 
+
 class Trail(models.Model):
     name = models.CharField(max_length=30)
     description = models.CharField(max_length=250)
@@ -18,7 +19,7 @@ class Trail(models.Model):
         blank=True,
         null=True
     )
-    tag = models.ManyToManyField(Tag)
+    tags = models.ManyToManyField(Tag)
     slug = models.CharField(max_length=30)
     created_at = models.DateTimeField(auto_now_add=True)
     featured = models.BooleanField(default=False)
