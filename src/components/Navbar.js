@@ -9,7 +9,7 @@ export const Navbar = (props) => {
       <Link className="navbar-brand" to="/">
         <img src={logo} alt="wordmark" style={{ height: '25px'}} />
       </Link>
-      <button className="btn btn-info ml-auto mr-1" onClick={() => props.display_form('login')}>Login</button>
+      <button className="btn btn-info ml-auto mr-1">Login</button>
       <button
         className="navbar-toggler"
         type="button"
@@ -24,13 +24,8 @@ export const Navbar = (props) => {
       >
         <ul className="navbar-nav text-right">
           <li className="nav-item">
-            <Link className="nav-link" onClick={() => props.display_form('signup')}>
+            <Link className="nav-link">
               Sign Up
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link" onClick={props.handle_logout}>
-            Log Out
             </Link>
           </li>
           <li className="nav-item">
