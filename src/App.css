@@ -17,6 +17,8 @@
 body {
   background-color: #FAFAFA;
   Font-Family: 'Roboto', Sans-Serif;
+  padding: 0;
+  margin: 0;
 }
 
 h2 {

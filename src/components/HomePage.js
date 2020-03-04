@@ -1,7 +1,8 @@
 import React from "react";
 import logo from "../images/lockup.png";
+import Featured from "./Featured";
 
-export const Masthead = () => {
+export const HomePage = () => {
   return (
     <div>
       <header className="masthead text-center">
@@ -12,7 +13,7 @@ export const Masthead = () => {
               <img
                 src={logo}
                 alt="Company logo"
-                style={{ width: "30em", padding: "0" }}
+                style={{ width: "45em"}}
               />
             </div>
             <div className="col-md-10 col-lg-8 col-xl-7 mx-auto">
@@ -42,6 +43,9 @@ export const Masthead = () => {
           </div>
         </div>
       </header>
+      <div>
+        <Featured />
+      </div>
     </div>
   );
 };
