@@ -44,7 +44,8 @@ class User(AbstractBaseUser):
         max_length=255, unique=True
     )
     phone_number = models.IntegerField(blank=True, null=True)
-    favorites = models.ManyToManyField(Trail)
+    favorites = models.ManyToManyField(
+        Trail, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     active = models.BooleanField(default=False)
     staff = models.BooleanField(default=False)
