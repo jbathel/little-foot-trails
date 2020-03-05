@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "../images/lockup.png";
 import Featured from "./Featured";
+import { Link } from "react-router-dom";
 
 export const HomePage = () => {
   return (
@@ -27,12 +28,13 @@ export const HomePage = () => {
                     />
                   </div>
                   <div className="col-12 col-md-3">
-                    <button
+                    <Link
                       type="submit"
                       className="btn btn-block btn-lg btn-info"
+                      to="/results"
                     >
                       Search
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </form>
