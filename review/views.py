@@ -1,6 +1,6 @@
 from rest_framework import viewsets
 from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from rest_framework.permissions import IsAuthenticated
 
 from .serializers import ReviewSerializer
 from .models import Review
@@ -9,7 +9,7 @@ from .models import Review
 class ReviewViewSet(viewsets.ModelViewSet):
     queryset = Review.objects.all()
     serializer_class = ReviewSerializer
-    permission_classes = (IsAuthenticatedOrReadOnly,)
+    permission_classes = (IsAuthenticated,)
 
     def list(self, request, *args, **kwargs):
         filters = request.query_params.get('filters', None)
