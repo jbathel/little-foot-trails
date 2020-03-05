@@ -1,9 +1,8 @@
 import React from "react";
 import logo from '../images/wordmark.png';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
 
-export const Navbar = (props) => {
+export const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-sm navbar-dark justify-content-end sticky-top">
       <Link className="navbar-brand" to="/">
