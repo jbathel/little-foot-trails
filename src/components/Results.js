@@ -30,7 +30,7 @@ export const Results = () => {
                 />
                 <h4 className="card-title">{trail.name}</h4>
                 <p className="card-text text-muted">{trail.description}</p>
-                <Link href="#" className="btn btn-info">
+                <Link to="/detail" className="btn btn-info">
                   Explore
                 </Link>
               </div>
