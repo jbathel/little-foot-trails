@@ -1,7 +1,10 @@
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from rest_framework_jwt.views import obtain_jwt_token
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+)
 
 from .views import index
 from trail.views import TrailViewSet
@@ -16,7 +19,9 @@ router.register(r'reviews', ReviewViewSet)
 urlpatterns = [
     path('', index, name='index'),
     path('admin/', admin.site.urls),
-    path('token-auth/', obtain_jwt_token),
-    path('user/', include('user.urls')),
     path('api/', include(router.urls)),
+    path('api/token/',
+         TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/refresh/',
+         TokenRefreshView.as_view(), name='token_refresh'),
 ]
