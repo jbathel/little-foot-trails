@@ -2,7 +2,7 @@ from django.db.models import Count
 from django.shortcuts import render
 from rest_framework import viewsets
 from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from .permissions import ReadOnly
 
 
 from .serializers import TrailSerializer
@@ -12,7 +12,7 @@ from .models import Trail
 class TrailViewSet(viewsets.ModelViewSet):
     queryset = Trail.objects.all()
     serializer_class = TrailSerializer
-    permission_classes = (IsAuthenticatedOrReadOnly,)
+    permission_classes = [ReadOnly]
 
     def list(self, request, *args, **kwargs):
         tags = request.query_params.getlist('tags', [])
