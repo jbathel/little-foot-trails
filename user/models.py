@@ -38,14 +38,15 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractBaseUser):
-    full_name = models.CharField(max_length=60, blank=False, null=True)
     email = models.EmailField(
         verbose_name='email address',
         max_length=255, unique=True
     )
+    full_name = models.CharField(
+        max_length=60, default=None, blank=True, null=True)
     phone_number = models.IntegerField(blank=True, null=True)
     favorites = models.ManyToManyField(
-        Trail, blank=True, null=True)
+        Trail, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     active = models.BooleanField(default=False)
     staff = models.BooleanField(default=False)
@@ -54,11 +55,13 @@ class User(AbstractBaseUser):
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
 
+    objects = UserManager()
+
     def get_full_name(self):
         return self.full_name
 
     def __str__(self):
-        return self.full_name
+        return self.email
 
     def has_perm(self, perm, obj=None):
         return True
@@ -77,5 +80,3 @@ class User(AbstractBaseUser):
     @property
     def is_admin(self):
         return self.admin
-
-    objects = UserManager()

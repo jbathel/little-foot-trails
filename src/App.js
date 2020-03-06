@@ -6,6 +6,7 @@ import { Navbar } from "./components/Navbar";
 import { HomePage } from "./components/HomePage";
 import { Footer } from "./components/Footer";
 import { AboutUs } from "./components/AboutUs";
+import { Results } from "./components/Results";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Switch>
           <Route path="/" exact component={HomePage} />
           <Route path="/about" component={AboutUs} />
+          <Route path="/results" component={Results} />
         </Switch>
         <Footer />
       </div>
