@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, re_path, include
 from rest_framework import routers
 from rest_framework_jwt.views import obtain_jwt_token
 
@@ -19,4 +19,5 @@ urlpatterns = [
     path('token-auth/', obtain_jwt_token),
     path('user/', include('user.urls')),
     path('api/', include(router.urls)),
+    re_path(r'^(?:.*)/?$', index, name='index'),
 ]
