@@ -13,7 +13,7 @@ export default function Cards() {
           <p className="card-text text-muted">
             Some short description of the trail can go here.
           </p>
-          <Link href="#" class="btn btn-info">
+          <Link href="#" className="btn btn-info">
             Explore
           </Link>
         </div>

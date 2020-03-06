@@ -42,8 +42,13 @@ h2 {
 
 .navbar-brand {
   background-color: #294C51;
-  text-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
 }
+
+.navbar a{
+  color: #FAFAFA !important;
+  font-size: 1rem;
+}
+
 
 .navbar .btn-info {
   Font-Family: 'Roboto', Sans-Serif;
@@ -71,7 +76,6 @@ h2 {
   background-color: #343a40;
   background: url("./images/background.png");
   background-repeat: no-repeat;
-  /* background-attachment: scroll; */
   background-position: center center;
   background-size: cover;
 }
@@ -153,6 +157,6 @@ h2 {
   font-weight: 400;
 }
 
-.section-subheading {
+/* .section-subheading {
 
-}
+} */
