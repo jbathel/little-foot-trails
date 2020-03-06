@@ -7,7 +7,7 @@ export const Footer = () => {
     <footer className="footer" style={{ height: "auto" }}>
       <div className="container">
         <div className="row">
-          <div class="form-group col-12">
+          <div className="form-group col-12">
             <hr />
           </div>
           <div className="col-4 mt-1">

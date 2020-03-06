@@ -1,29 +1,43 @@
 import React, { useState, useEffect } from "react";
 import { Image } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 export const Results = () => {
+  const [trails, setTrails] = useState([]);
+
+  async function fetchTrails() {
+    const results = await fetch("http://localhost:8000/api/trails/");
+    const trails = await results.json();
+    console.log(trails);
+    setTrails(trails);
+  }
+
   useEffect(() => {
-    fetchData();
+    fetchTrails();
   }, []);
 
-  const [nasaData, setData] = useState({});
-
-  async function fetchData () {
-      const data = await fetch(
-          "http://localhost:8000/api/trails/"
-          );
-
-          const nasaData = await data.json();
-          console.log(nasaData);
-          setData(nasaData);
-      };
-
-
   return (
-    <div>
-      <h2 id="daily-pic-title">{nasaData.name}</h2>
-      <Image id="jumbo-photo" src={nasaData.picture} />
-      <h4 id="daily-pic-info">{nasaData.location}</h4>
+    <div className="container">
+      <div className="row">
+        {trails.map(trail => (
+          <div className="col d-flex align-content-start flex-wrap">
+            <div className="card m-3" style={{ width: "20rem" }}>
+              <div className="card-body">
+                <Image
+                  className="card-img-top"
+                  src={trail.picture}
+                  alt="trail"
+                />
+                <h4 className="card-title">{trail.name}</h4>
+                <p className="card-text text-muted">{trail.description}</p>
+                <Link href="#" className="btn btn-info">
+                  Explore
+                </Link>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
