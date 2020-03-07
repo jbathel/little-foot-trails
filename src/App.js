@@ -10,6 +10,10 @@ import { Results } from "./components/Results";
 
 function App() {
     const [trailId, setTrailId] = useState('');
+    function getTrailId(trailId) {
+        setTrailId(trailId)
+        console.log(trailId)
+    }
 
   return (
     <Router>
@@ -18,7 +22,7 @@ function App() {
         <Switch>
           <Route path="/" exact component={HomePage} />
           <Route path="/about" component={AboutUs} />
-          <Route path="/results" render={(props) => <Results {...props} setTrailId={setTrailId} />}
+          <Route path="/results" render={(props) => <Results {...props} getTrailId={getTrailId} />}
           />
         </Switch>
         <Footer />
