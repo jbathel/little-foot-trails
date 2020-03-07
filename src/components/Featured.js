@@ -4,11 +4,9 @@ import Cards from './CardUI'
 
 export default function Featured() {
     const [trails, setTrails] = useState([]);
-    const [trailId, setTrailId] = useState('');
 
     async function fetchTrails() {
       const results = await fetch("http://localhost:8000/api/trails/");
-      // Why is there an await here VVV?
       const trails = await results.json();
       setTrails(trails);
     }
@@ -17,17 +15,12 @@ export default function Featured() {
       fetchTrails();
     }, []);
 
-    function getTrailId(trailId) {
-        setTrailId(trailId);
-        console.log(trailId)
-    }
-
     return (
     <div className="container">
       {trails.length > 0 &&
       <div className="row">
-        {trails.map(trail => (
-            <Cards trail={trail} onCardClick={getTrailId}/>
+        {trails.map((trail, index) => (
+            <Cards key={index} trail={trail} />
         ))}
       </div>
       }

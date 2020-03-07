@@ -13,7 +13,6 @@ export default function Cards({trail, onCardClick}) {
         <img className="card-img-top" src={image} alt="trail" />
         <div className="card-body">
           <h4 className="card-title">{trail.name}</h4>
-          <h4 className="card-title">{trail.id}</h4>
           <p className="card-text text-muted">
       {trail.description}
         </p>

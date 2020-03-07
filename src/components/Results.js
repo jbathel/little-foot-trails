@@ -7,7 +7,6 @@ export const Results = () => {
 
   async function fetchTrails() {
     const results = await fetch("http://localhost:8000/api/trails/");
-    // Why is there an await here VVV?
     const trails = await results.json();
     setTrails(trails);
   }
@@ -24,8 +23,8 @@ export const Results = () => {
     <div className="container">
       {trails.length > 0 &&
       <div className="row">
-        {trails.map(trail => (
-            <Cards trail={trail} onCardClick={getTrailId}/>
+        {trails.map((trail, index) => (
+            <Cards key={index} trail={trail} onCardClick={getTrailId}/>
        ))}
       </div>
       }
