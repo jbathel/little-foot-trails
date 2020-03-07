@@ -3,15 +3,19 @@ import image from "../images/Img_01.jpg";
 import { Link } from "react-router-dom";
 
 
-export default function Cards(props) {
+export default function Cards({trail, onCardClick}) {
+    function cardClick(trailId) {
+        onCardClick(trail.id)
+    }
   return (
     <div>
-      <div class="card m-3" style={{ width: "20rem" }}>
+      <div class="card m-3" style={{ width: "20rem" }} onClick={cardClick}>
         <img className="card-img-top" src={image} alt="trail" />
         <div className="card-body">
-          <h4 className="card-title">{props.trail.name}</h4>
+          <h4 className="card-title">{trail.name}</h4>
+          <h4 className="card-title">{trail.id}</h4>
           <p className="card-text text-muted">
-      {props.trail.description}
+      {trail.description}
         </p>
           <Link href="#" className="btn btn-info">
             Explore
