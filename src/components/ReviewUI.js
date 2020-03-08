@@ -21,9 +21,7 @@ export const ReviewUI = () => {
                 <p>NAME</p>
                 <p className="text-muted">DATE</p>
               </div>
-              {/* <div className="col-3 justify-content-right">STARS</div> */}
               <div className="w-100">
-                  {/* <hr className="m-0 mb-1" /> */}
               </div>
               <div className="col-auto">
                   <p>
