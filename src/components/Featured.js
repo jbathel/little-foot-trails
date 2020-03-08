@@ -1,24 +1,29 @@
-import React from 'react'
-import Card from './CardUI'
+import React, { useState, useEffect } from 'react'
+import Cards from './CardUI'
+
 
 export default function Featured() {
+    const [trails, setTrails] = useState([]);
+
+    async function fetchTrails() {
+      const results = await fetch("http://localhost:8000/api/trails/");
+      const trails = await results.json();
+      setTrails(trails);
+    }
+
+    useEffect(() => {
+      fetchTrails();
+    }, []);
+
     return (
-        <div className="container-fluid d-flex justify-content-center mt-5 mb-5">
-            <div className="row">
-                <div className="col-md-4">
-                    <Card />
-                </div>
-            </div>
-            <div className="row">
-                <div className="col-md-4">
-                    <Card />
-                </div>
-            </div>
-            <div className="row">
-                <div className="col-md-4">
-                    <Card />
-                </div>
-            </div>
-        </div>
+    <div className="container">
+      {trails.length > 0 &&
+      <div className="row">
+        {trails.map((trail, index) => (
+            <Cards key={index} trail={trail} />
+        ))}
+      </div>
+      }
+    </div>
     )
 }
