@@ -7,6 +7,7 @@ import { HomePage } from "./components/HomePage";
 import { Footer } from "./components/Footer";
 import { AboutUs } from "./components/AboutUs";
 import { Results } from "./components/Results";
+import { Detail } from "./components/Detail";
 
 function App() {
   const [trailId, setTrailId] = useState("");
@@ -26,6 +27,7 @@ function App() {
             path="/results"
             render={props => <Results {...props} getTrailId={getTrailId} />}
           />
+          <Detail path="/detail" component={Detail} />
         </Switch>
         <Footer />
       </div>
