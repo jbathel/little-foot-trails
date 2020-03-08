@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -7,9 +7,14 @@ import { HomePage } from "./components/HomePage";
 import { Footer } from "./components/Footer";
 import { AboutUs } from "./components/AboutUs";
 import { Results } from "./components/Results";
-import { Detail } from "./components/Detail";
 
 function App() {
+  const [trailId, setTrailId] = useState("");
+  function getTrailId(trailId) {
+    setTrailId(trailId);
+    console.log(trailId);
+  }
+
   return (
     <Router>
       <div>
@@ -17,8 +22,10 @@ function App() {
         <Switch>
           <Route path="/" exact component={HomePage} />
           <Route path="/about" component={AboutUs} />
-          <Route path="/results" component={Results} />
-          <Route path="/detail" component={Detail} />
+          <Route
+            path="/results"
+            render={props => <Results {...props} getTrailId={getTrailId} />}
+          />
         </Switch>
         <Footer />
       </div>
