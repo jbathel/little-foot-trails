@@ -23,8 +23,8 @@ function App() {
         <Switch>
           <Route path="/" exact component={HomePage} />
           <Route path="/about" component={AboutUs} />
-          <Route path="/results" render={(props) => <Results {...props} getTrailId={getTrailId} />}
-          />
+          <Route path="/results" render={(props) => <Results {...props} getTrailId={getTrailId} />}/>         
+          <Route path="/detail" exact component={Detail}/>} />
         </Switch>
         <Footer />
       </div>
