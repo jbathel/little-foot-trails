@@ -9,14 +9,14 @@ export default function Cards({trail, onCardClick}) {
     }
   return (
     <div>
-      <div class="card m-3" style={{ width: "20rem" }} onClick={cardClick}>
+      <div class="card m-3" style={{ width: "20rem" }} >
         <img className="card-img-top" src={image} alt="trail" />
         <div className="card-body">
           <h4 className="card-title">{trail.name}</h4>
           <p className="card-text text-muted">
       {trail.description}
         </p>
-          <Link href="#" className="btn btn-info">
+          <Link to="/detail" className="btn btn-info" onClick={cardClick}>
             Explore
           </Link>
         </div>
