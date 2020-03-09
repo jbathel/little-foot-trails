@@ -7,6 +7,7 @@ import { HomePage } from "./components/HomePage";
 import { Footer } from "./components/Footer";
 import { AboutUs } from "./components/AboutUs";
 import { Results } from "./components/Results";
+import { Detail } from "./components/Detail";
 
 function App() {
     const [trailId, setTrailId] = useState('');
@@ -22,8 +23,8 @@ function App() {
         <Switch>
           <Route path="/" exact component={HomePage} />
           <Route path="/about" component={AboutUs} />
-          <Route path="/results" render={(props) => <Results {...props} getTrailId={getTrailId} />}
-          />
+          <Route path="/results" render={(props) => <Results {...props} getTrailId={getTrailId} />}/>         
+          <Route path="/detail" exact component={Detail}/>} />
         </Switch>
         <Footer />
       </div>
