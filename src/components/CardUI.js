@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 
 
 export default function Cards({trail, onCardClick}) {
-    function cardClick(trailId) {
-        onCardClick(trail.id)
+    function cardClick(trailObject) {
+        onCardClick(trail)
     }
   return (
     <div>
