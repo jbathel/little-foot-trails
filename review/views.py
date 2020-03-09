@@ -12,8 +12,8 @@ class ReviewViewSet(viewsets.ModelViewSet):
     permission_classes = (IsAuthenticatedOrReadOnly,)
 
     def list(self, request, *args, **kwargs):
-        filters = request.query_params.get('filters', None)
-        reviews = Review.objects.filter(trail=filters)
+        trail = request.query_params.get('trail', None)
+        reviews = Review.objects.filter(trail=trail)
         serializer = ReviewSerializer(reviews, many=True)
         return Response(serializer.data)
 
