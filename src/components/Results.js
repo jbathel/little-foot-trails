@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Cards from "./CardUI";
 
-export const Results = ({getTrailId}) => {
+export const Results = ({getTrail}) => {
   const [trails, setTrails] = useState([]);
 
   async function fetchTrails() {
@@ -14,8 +14,8 @@ export const Results = ({getTrailId}) => {
     fetchTrails();
   }, []);
 
-    function getCardTrailId(trailId) {
-        getTrailId(trailId);
+    function getCardTrail(trailObject) {
+        getTrail(trailObject);
     }
 
   return (
@@ -23,7 +23,7 @@ export const Results = ({getTrailId}) => {
       {trails.length > 0 &&
       <div className="row">
         {trails.map((trail, index) => (
-            <Cards key={index} trail={trail} onCardClick={getCardTrailId}/>
+            <Cards key={index} trail={trail} onCardClick={getCardTrail}/>
        ))}
       </div>
       }

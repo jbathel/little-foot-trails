@@ -10,10 +10,10 @@ import { Results } from "./components/Results";
 import { Detail } from "./components/Detail";
 
 function App() {
-    const [trailId, setTrailId] = useState('');
-    function getTrailId(trailId) {
-        setTrailId(trailId)
-        console.log(trailId)
+    const [trail, setTrail] = useState('');
+    function getTrail(trail) {
+        setTrail(trail)
+        console.log(trail)
     }
 
   return (
@@ -23,7 +23,7 @@ function App() {
         <Switch>
           <Route path="/" exact component={HomePage} />
           <Route path="/about" component={AboutUs} />
-          <Route path="/results" render={(props) => <Results {...props} getTrailId={getTrailId} />}/>         
+          <Route path="/results" render={(props) => <Results {...props} getTrail={getTrail} />}/>
           <Route path="/detail" exact component={Detail}/>} />
         </Switch>
         <Footer />
