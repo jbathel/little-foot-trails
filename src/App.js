@@ -9,6 +9,8 @@ import { AboutUs } from "./components/AboutUs";
 import { Results } from "./components/Results";
 import { Detail } from "./components/Detail";
 
+import { Register } from "./components/Register";
+
 function App() {
     const [trail, setTrail] = usePersistedState("trail", {});
     function getTrail(trail) {
@@ -34,6 +36,8 @@ function App() {
           <Route path="/about" component={AboutUs} />
           <Route path="/results" render={(props) => <Results {...props} getTrail={getTrail} />}/>
           <Route path="/detail" render={(props) => <Detail {...props} trail={trail} />}/>
+
+          <Route path="/register" exact component={Register} />
         </Switch>
         <Footer />
       </div>
