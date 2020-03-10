@@ -5,7 +5,7 @@ from django.conf import settings
 
 class Review(models.Model):
     name = models.CharField(max_length=30)
-    review = models.CharField(max_length=250)
+    review = models.CharField(max_length=1250)
     stars = models.IntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(
