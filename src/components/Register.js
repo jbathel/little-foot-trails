@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import {
-  HelpBlock,
+  FormText,
   FormGroup,
   FormControl,
-  ControlLabel
+  FormLabel
 } from "react-bootstrap";
 
 export function Register() {
@@ -62,14 +62,14 @@ export function Register() {
     return (
       <form onSubmit={handleConfirmationSubmit}>
         <FormGroup controlId="confirmationCode" bsSize="large">
-          <ControlLabel>Confirmation Code</ControlLabel>
+          <FormLabel>Confirmation Code</FormLabel>
           <FormControl
             autoFocus
             type="tel"
             onChange={handleFieldChange}
             value={fields.confirmationCode}
           />
-          <HelpBlock>Please check your email for the code.</HelpBlock>
+          <FormText>Please check your email for the code.</FormText>
         </FormGroup>
         <button
           block
@@ -88,7 +88,7 @@ export function Register() {
     return (
       <form onSubmit={handleSubmit}>
         <FormGroup controlId="email" bsSize="large">
-          <ControlLabel>Email</ControlLabel>
+          <FormLabel>Email</FormLabel>
           <FormControl
             autoFocus
             type="email"
@@ -97,7 +97,7 @@ export function Register() {
           />
         </FormGroup>
         <FormGroup controlId="password" bsSize="large">
-          <ControlLabel>Password</ControlLabel>
+          <FormLabel>Password</FormLabel>
           <FormControl
             type="password"
             value={fields.password}
@@ -105,7 +105,7 @@ export function Register() {
           />
         </FormGroup>
         <FormGroup controlId="confirmPassword" bsSize="large">
-          <ControlLabel>Confirm Password</ControlLabel>
+          <FormLabel>Confirm Password</FormLabel>
           <FormControl
             type="password"
             onChange={handleFieldChange}
