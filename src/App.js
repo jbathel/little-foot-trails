@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -10,11 +10,21 @@ import { Results } from "./components/Results";
 import { Detail } from "./components/Detail";
 
 function App() {
-    const [trail, setTrail] = useState('');
+    const [trail, setTrail] = usePersistedState("trail", {});
     function getTrail(trail) {
         setTrail(trail)
         console.log(trail)
     }
+
+    function usePersistedState(key, defaultValue) {
+  const [state, setState] = React.useState(
+    () => JSON.parse(localStorage.getItem(key)) || defaultValue
+  );
+  useEffect(() => {
+    localStorage.setItem(key, JSON.stringify(state));
+  }, [key, state]);
+  return [state, setState];
+}
 
   return (
     <Router>
