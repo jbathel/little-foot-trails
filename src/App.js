@@ -13,7 +13,6 @@ function App() {
     const [trail, setTrail] = useState('');
     function getTrail(trail) {
         setTrail(trail)
-        console.log(trail)
     }
 
   return (
@@ -24,7 +23,7 @@ function App() {
           <Route path="/" exact component={HomePage} />
           <Route path="/about" component={AboutUs} />
           <Route path="/results" render={(props) => <Results {...props} getTrail={getTrail} />}/>
-          <Route path="/detail" exact component={Detail}/>} />
+          <Route path="/detail" render={(props) => <Detail {...props} trail={trail} />}/>
         </Switch>
         <Footer />
       </div>

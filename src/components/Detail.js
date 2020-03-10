@@ -1,8 +1,20 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Search } from "./Search";
-import { ReviewUI } from "./ReviewUI";
+import ReviewUI from "./ReviewUI";
 
-export const Detail = () => {
+export const Detail = ({trail}) => {
+    const [reviews, setReviews] = useState([]);
+
+  useEffect(() => {
+    async function fetchReviews() {
+    const results = await fetch("http://localhost:8000/api/reviews/?trail=" + trail.id);
+    const reviews = await results.json();
+    setReviews(reviews);
+    };
+    fetchReviews();
+  }, []);
+
+
   return (
     <div>
       <h2>Trail Name</h2>
@@ -13,12 +25,16 @@ export const Detail = () => {
         <div className="col-7">AMENITIES</div>
         <div className="col-auto">MAP</div>
       </div>
+      { reviews.length > 0 &&
       <div className="container">
         <hr />
         <h2>REVIEWS</h2>
-        <ReviewUI />
+          {reviews.map((review, index) => (
+              <ReviewUI key={index} review={review}/>
+          ))}
         <hr />
       </div>
+    }
       <div className="container mb-5">
         <Search />
       </div>

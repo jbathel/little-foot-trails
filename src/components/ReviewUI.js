@@ -1,7 +1,7 @@
 import React from "react";
 import profilePic from "../images/default.png";
 
-export const ReviewUI = () => {
+export default function ReviewUI({review}) {
   return (
     <div>
       <div className="card">
@@ -18,15 +18,13 @@ export const ReviewUI = () => {
                 />
               </div>
               <div className="col-7 m-0">
-                <p>NAME</p>
-                <p className="text-muted">DATE</p>
+                <p>{review.name}</p>
+                <p className="text-muted">{review.created_at}</p>
               </div>
               <div className="w-100">
               </div>
               <div className="col-auto">
-                  <p>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam fuga consectetur dolores ea voluptatum at id maxime ad sunt reiciendis ipsa, quos ut, maiores ab adipisci sequi blanditiis harum delectus!
-                  </p>
+                  <p>{review.review}</p>
               </div>
             </div>
           </blockquote>
