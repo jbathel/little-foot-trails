@@ -40,19 +40,19 @@ export const Navbar = () => {
         </ul>
         <form className="form-inline my-2 my-lg-0">
           {/* <input className="form-control mr-sm-2" type="search" placeholder="Search" /> */}
-          <button
-            className="btn btn-info my-2 m-1 my-sm-0"
-            type="submit"
-          >
-            Login
-          </button>
-          <button
+          <Link
             className="btn btn-info my-2 m-1 my-sm-0"
             type="submit"
             to="/login"
           >
+            Login
+          </Link>
+          <Link
+            className="btn btn-info my-2 m-1 my-sm-0"
+            type="submit"
+          >
             Sign Up
-          </button>
+          </Link>
         </form>
       </div>
     </nav>
