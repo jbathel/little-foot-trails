@@ -49,6 +49,7 @@ export const Navbar = () => {
           <button
             className="btn btn-info my-2 m-1 my-sm-0"
             type="submit"
+            to="/login"
           >
             Sign Up
           </button>
