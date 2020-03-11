@@ -32,7 +32,7 @@ function App() {
       <div>
         <Navbar />
         <Switch>
-          <Route path="/" exact component={HomePage} />
+          <Route exact path="/" render={(props) => <HomePage {...props} getTrail={getTrail} />}/>
           <Route path="/about" component={AboutUs} />
           <Route path="/results" render={(props) => <Results {...props} getTrail={getTrail} />}/>
           <Route path="/detail" render={(props) => <Detail {...props} trail={trail} />}/>

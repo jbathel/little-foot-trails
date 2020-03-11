@@ -1,9 +1,14 @@
 import React from "react";
 import logo from "../images/lockup.png";
-import Featured from "./Featured";
+import { Featured } from "./Featured";
 import { Search } from "./Search";
 
-export const HomePage = () => {
+export const HomePage = ({getTrail}) => {
+
+    function getCardTrail(trailObject) {
+        getTrail(trailObject)
+    }
+
   return (
     <div>
       <header className="masthead text-center">
@@ -25,7 +30,7 @@ export const HomePage = () => {
         </div>
       </header>
       <div>
-        <Featured />
+        <Featured onClickFeatured={getCardTrail}/>
       </div>
     </div>
   );
