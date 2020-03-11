@@ -15,15 +15,21 @@ class TrailViewSet(viewsets.ModelViewSet):
     permission_classes = (IsAuthenticatedOrReadOnly,)
 
     def list(self, request, *args, **kwargs):
+        filters = {}
         tags = request.query_params.getlist('tags', [])
-        # annotate creates a "virtual" column num_tags that counts how many tags were matched.
-        # Later we can filter by the virtual column "num_tags" to make sure that we found all
-        # the tags that were passed as parameters
+        featured = request.query_params.get('featured', None)
+        if featured and featured in ['true', 'false']:
+            if featured == 'true':
+                filters['featured'] = True
+            else:
+                filters['featured'] = False
         if tags:
-            trails = Trail.objects.filter(tags__name__in=tags)\
+            filters['tags__name__in'] = tags
+            trails = Trail.objects.filter(**filters)\
                 .annotate(num_tags=Count('tags')).filter(num_tags=len(tags))
         else:
-            trails = Trail.objects.all()
+            trails = Trail.objects.filter(**filters)
+
         serializer = TrailSerializer(trails, many=True)
         return Response(serializer.data)
 
