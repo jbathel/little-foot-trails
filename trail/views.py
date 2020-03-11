@@ -20,8 +20,8 @@ class TrailViewSet(viewsets.ModelViewSet):
         # Later we can filter by the virtual column "num_tags" to make sure that we found all
         # the tags that were passed as parameters
         if tags:
-            trails = Trail.objects.filter(tag__name__in=tags)\
-                .annotate(num_tags=Count('tag')).filter(num_tags=len(tags))
+            trails = Trail.objects.filter(tags__name__in=tags)\
+                .annotate(num_tags=Count('tags')).filter(num_tags=len(tags))
         else:
             trails = Trail.objects.all()
         serializer = TrailSerializer(trails, many=True)
