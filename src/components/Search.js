@@ -19,25 +19,25 @@ const useStyles = makeStyles(theme => ({
   formControl: {
     margin: theme.spacing(1),
     minWidth: 120,
-    maxWidth: 300
+    maxWidth: 1000
   },
   noLabel: {
     marginTop: theme.spacing(3)
   }
 }));
 
-const ITEM_HEIGHT = 48;
+const ITEM_HEIGHT = 100;
 const ITEM_PADDING_TOP = 8;
 const MenuProps = {
   PaperProps: {
     style: {
       maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-      width: 250
+      width: 300
     }
   }
 };
 
-const names = [
+const tags = [
   "Paved",
   "Bathrooms",
   "Educational Facilities",
@@ -50,10 +50,10 @@ const names = [
   "Emergency Services Close"
 ];
 
-function getStyles(name, personName, theme) {
+function getStyles(name, trailTag, theme) {
   return {
     fontWeight:
-      personName.indexOf(name) === -1
+      trailTag.indexOf(name) === -1
         ? theme.typography.fontWeightRegular
         : theme.typography.fontWeightMedium
   };
@@ -62,10 +62,10 @@ function getStyles(name, personName, theme) {
 export const Search = () => {
   const classes = useStyles();
   const theme = useTheme();
-  const [personName, setPersonName] = React.useState([]);
+  const [trailTag, setTrailTag] = React.useState([]);
 
   function handleChange(event) {
-    setPersonName(event.target.value);
+    setTrailTag(event.target.value);
   }
 
   return (
@@ -74,46 +74,16 @@ export const Search = () => {
         <InputLabel htmlFor="select-multiple-checkbox">Tag</InputLabel>
         <Select
           multiple
-          value={personName}
+          value={trailTag}
           onChange={handleChange}
           input={<Input id="select-multiple-checkbox" />}
           renderValue={selected => selected.join(", ")}
           MenuProps={MenuProps}
         >
-          {names.map(name => (
+          {tags.map(name => (
             <MenuItem key={name} value={name}>
-              <Checkbox checked={personName.indexOf(name) > -1} />
+              <Checkbox checked={trailTag.indexOf(name) > -1} />
               <ListItemText primary={name} />
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-      <FormControl className={clsx(classes.formControl, classes.noLabel)}>
-        <Select
-          multiple
-          displayEmpty
-          value={personName}
-          onChange={handleChange}
-          input={<Input id="select-multiple-placeholder" />}
-          renderValue={selected => {
-            if (selected.length === 0) {
-              return <em>Placeholder</em>;
-            }
-
-            return selected.join(", ");
-          }}
-          MenuProps={MenuProps}
-        >
-          <MenuItem disabled value="">
-            <em>Placeholder</em>
-          </MenuItem>
-          {names.map(name => (
-            <MenuItem
-              key={name}
-              value={name}
-              style={getStyles(name, personName, theme)}
-            >
-              {name}
             </MenuItem>
           ))}
         </Select>
