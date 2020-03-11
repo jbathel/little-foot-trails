@@ -26,7 +26,7 @@ export const Footer = () => {
               <Link to="/">
                 <li className="list-group-item">Home</li>
               </Link>
-              <Link to="#">
+              <Link to="/login">
                 <li className="list-group-item">Login</li>
               </Link>
               <Link to="/about">
@@ -40,13 +40,10 @@ export const Footer = () => {
                 Discover
               </h6>
               <hr className="hr-primary" />
-              <Link>
-                <li className="list-group-item">Trails</li>
-              </Link>
-              <Link>
+              <Link to="/results">
                 <li className="list-group-item">Search</li>
               </Link>
-              <Link>
+              <Link to="/register">
                 <li className="list-group-item">Sign Up</li>
               </Link>
             </ul>
