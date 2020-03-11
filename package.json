@@ -3,16 +3,24 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.9.5",
+    "@material-ui/icons": "^4.9.1",
+    "@popperjs/core": "^2.1.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.0",
     "@testing-library/user-event": "^7.2.1",
     "bootstrap": "^4.4.1",
+    "funding": "^1.0.9",
+    "jquery": "^1.9.1",
+    "material-ui-icons": "^1.0.0-beta.36",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-bootstrap": "^0.32.4",
     "react-dom": "^16.12.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.4.0"
+    "react-scripts": "3.4.0",
+    "update": "^0.7.4",
+    "upgrade": "^1.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -35,5 +43,10 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:8000"
+  "proxy": "http://localhost:8000",
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-flowtype": "^4.6.0"
+  }
 }
