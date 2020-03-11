@@ -7,12 +7,14 @@ from rest_framework_simplejwt.views import (
 )
 
 from .views import index
+from tag.views import TagsViewSet
 from trail.views import TrailViewSet
 from review.views import ReviewViewSet
 
 
 router = routers.DefaultRouter()
 router.register(r'trails', TrailViewSet)
+router.register(r'tags', TagsViewSet)
 router.register(r'reviews', ReviewViewSet)
 
 
