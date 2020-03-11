@@ -10,6 +10,7 @@ import FormControl from "@material-ui/core/FormControl";
 import ListItemText from "@material-ui/core/ListItemText";
 import Select from "@material-ui/core/Select";
 import Checkbox from "@material-ui/core/Checkbox";
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -19,7 +20,7 @@ const useStyles = makeStyles(theme => ({
   formControl: {
     margin: theme.spacing(1),
     minWidth: 120,
-    maxWidth: 1000
+    maxWidth: 500
   },
   noLabel: {
     marginTop: theme.spacing(3)
@@ -88,6 +89,15 @@ export const Search = () => {
           ))}
         </Select>
       </FormControl>
+      <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+            className={classes.submit}
+          >
+            Find Your Trail
+      </Button>
     </div>
   );
 };
