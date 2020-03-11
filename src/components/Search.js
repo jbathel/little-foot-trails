@@ -1,31 +1,42 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+
+const people = [
+  "Paved",
+  "Bathrooms",
+  "Snack Shop",
+  "Gift Shop",
+  "Educational Facilities",
+  "Events",
+  "Emergency Services"
+];
 
 export const Search = () => {
+  const [searchTerm, setSearchTerm] = React.useState("");
+  const [searchResults, setSearchResults] = React.useState([]);
+  const handleChange = e => {
+    setSearchTerm(e.target.value);
+  };
+  React.useEffect(() => {
+    const results = people.filter(person =>
+      person.toLowerCase().includes(searchTerm)
+    );
+    setSearchResults(results);
+  }, [searchTerm]);
+
   return (
-    <div>
-      <div className="col-md-10 col-lg-8 col-xl-7 mx-auto">
-        <form>
-          <div className="form-row">
-            <div className="col-12 col-md-9 mb-2 mb-md-0">
-              <input
-                type="search"
-                className="form-control form-control-lg"
-                placeholder="Find your trail..."
-              />
-            </div>
-            <div className="col-12 col-md-3">
-              <Link
-                type="submit"
-                className="btn btn-block btn-lg btn-info"
-                to="/results"
-              >
-                Search
-              </Link>
-            </div>
-          </div>
-        </form>
-      </div>
+    <div className="App">
+      <input
+        type="text"
+        placeholder="Search"
+        value={searchTerm}
+        onChange={handleChange}
+      />
+      <ul>
+        {searchResults.map(item => (
+          <li>{item}</li>
+        ))}
+      </ul>
     </div>
-  );
-};
+    )
+}

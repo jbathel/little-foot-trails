@@ -2,9 +2,12 @@ import React from "react";
 import profilePic from "../images/default.png";
 
 export default function ReviewUI({review}) {
+  let date = review.created_at,
+  cdate = (new Date(date)).toLocaleDateString();
+  
   return (
     <div>
-      <div className="card">
+      <div className="card mb-3">
         {/* <div className="card-header">Quote</div> */}
         <div className="card-body">
           <blockquote className="blockquote mb-0">
@@ -19,7 +22,9 @@ export default function ReviewUI({review}) {
               </div>
               <div className="col-7 m-0">
                 <p>{review.name}</p>
-                <p className="text-muted">{review.created_at}</p>
+                <p className="text-muted">
+                {cdate}
+                </p>
               </div>
               <div className="w-100">
               </div>
