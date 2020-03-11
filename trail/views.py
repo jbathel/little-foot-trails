@@ -23,12 +23,8 @@ class TrailViewSet(viewsets.ModelViewSet):
                 filters['featured'] = True
             else:
                 filters['featured'] = False
-        # annotate creates a "virtual" column num_tags that counts how many tags were matched.
-        # Later we can filter by the virtual column "num_tags" to make sure that we found all
-        # the tags that were passed as parameters
         if tags:
             filters['tags__name__in'] = tags
-            print("FOOO filters: ", filters)
             trails = Trail.objects.filter(**filters)\
                 .annotate(num_tags=Count('tags')).filter(num_tags=len(tags))
         else:
