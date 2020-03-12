@@ -1,7 +1,8 @@
 // import { Link } from "react-router-dom";
 
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import React, { useContext } from "react";
+import clsx from "clsx";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Input from "@material-ui/core/Input";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -53,10 +54,13 @@ const tags = [
 export const Search = () => {
   const classes = useStyles();
   const [trailTag, setTrailTag] = React.useState([]);
+  const TrailTags = useContext(trailTag);
 
   function handleChange(event) {
     setTrailTag(event.target.value);
   }
+
+
 
   return (
     <div className={classes.root}>
