@@ -20,8 +20,7 @@ def upload_image_path(instance, filename):
 class Trail(models.Model):
     name = models.CharField(max_length=30)
     description = models.CharField(max_length=250)
-    picture = models.ImageField(upload_to=upload_image_path,
-                                null=True, blank=True)
+    picture = models.ImageField(upload_to='images')
     location = models.CharField(max_length=250)
     latitude = models.DecimalField(
         max_digits=9,
