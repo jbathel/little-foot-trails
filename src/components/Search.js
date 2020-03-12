@@ -1,8 +1,7 @@
 // import { Link } from "react-router-dom";
 
 import React from "react";
-import clsx from "clsx";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import Input from "@material-ui/core/Input";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -51,18 +50,8 @@ const tags = [
   "Emergency Services Close"
 ];
 
-function getStyles(name, trailTag, theme) {
-  return {
-    fontWeight:
-      trailTag.indexOf(name) === -1
-        ? theme.typography.fontWeightRegular
-        : theme.typography.fontWeightMedium
-  };
-}
-
 export const Search = () => {
   const classes = useStyles();
-  const theme = useTheme();
   const [trailTag, setTrailTag] = React.useState([]);
 
   function handleChange(event) {
