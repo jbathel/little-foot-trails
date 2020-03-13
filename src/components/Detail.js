@@ -28,6 +28,7 @@ const MyMarker = props => {
   </>
 }
 
+console.log("FOOO trail:", trail)
   return (
     <div>
       <h2>{trail.name}</h2>
