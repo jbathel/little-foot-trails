@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Search } from "./Search";
 import ReviewUI from "./ReviewUI";
+import "./../marker.css";
+import GoogleMapReact from 'google-map-react';
+
 
 export const Detail = ({trail}) => {
     const [reviews, setReviews] = useState([]);
@@ -14,6 +17,16 @@ export const Detail = ({trail}) => {
     fetchReviews();
   }, []);
 
+const center = {lat: parseFloat(trail.latitude), lng: parseFloat(trail.longitude)};
+
+const AnyReactComponent = ({ text }) => <div>{text}</div>;
+
+const MyMarker = props => {
+  return <>
+    <div className="pin"></div>
+    <div className="pulse"></div>
+  </>
+}
 
   return (
     <div>
@@ -23,7 +36,18 @@ export const Detail = ({trail}) => {
         <div className="col-auto"><img src={trail.picture}/></div>
         <div className="w-100"></div>
         <div className="col-7">AMENITIES</div>
-        <div className="col-auto">MAP</div>
+        <div style={{ height: '50vh', width: '90%' }}>
+        <GoogleMapReact
+            bootstrapURLKeys={{ key: 'AIzaSyA8es01yV0Zj8KiWKqnUeTljFGlrkT71Gs' }}
+            defaultCenter={center}
+            defaultZoom={12}
+        >
+        <MyMarker
+            lat={center.lat}
+            lng={center.lng}
+          />
+        </GoogleMapReact>
+        </div>
       </div>
       { reviews.length > 0 &&
       <div className="container">
