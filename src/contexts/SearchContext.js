@@ -1,3 +1,3 @@
 import React, { createContext } from 'react';
 
-export const SearchContext = createContext(["Paved", "Bathrooms", "Educational Facilities"]);
+export const SearchContext = createContext(["Gift Shop"]);

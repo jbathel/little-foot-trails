@@ -12,6 +12,8 @@ import Select from "@material-ui/core/Select";
 import Checkbox from "@material-ui/core/Checkbox";
 import Button from '@material-ui/core/Button';
 
+import { SearchContext } from "../contexts/SearchContext";
+
 const useStyles = makeStyles(theme => ({
   root: {
     display: "flex",
@@ -54,21 +56,22 @@ const tags = [
 export const Search = () => {
   const classes = useStyles();
   const [trailTag, setTrailTag] = React.useState([]);
-  const TrailTags = useContext(trailTag);
+  const [trailTags, setTrailTags] = useContext(SearchContext);
 
   function handleChange(event) {
-    setTrailTag(event.target.value);
+    setTrailTags(event.target.value);
   }
 
 
-
   return (
+      <SearchContext.Consumer>
+      {trailTags => (
     <div className={classes.root}>
       <FormControl className={classes.formControl}>
         <InputLabel htmlFor="select-multiple-checkbox">Tag</InputLabel>
         <Select
           multiple
-          value={trailTag}
+          value={trailTags}
           onChange={handleChange}
           input={<Input id="select-multiple-checkbox" />}
           renderValue={selected => selected.join(", ")}
@@ -76,7 +79,7 @@ export const Search = () => {
         >
           {tags.map(name => (
             <MenuItem key={name} value={name}>
-              <Checkbox checked={trailTag.indexOf(name) > -1} />
+              <Checkbox checked={trailTags.indexOf(name) > -1} />
               <ListItemText primary={name} />
             </MenuItem>
           ))}
@@ -92,5 +95,7 @@ export const Search = () => {
             Find Your Trail
       </Button>
     </div>
+      )}
+      </SearchContext.Consumer>
   );
 };
