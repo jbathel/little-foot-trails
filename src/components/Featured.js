@@ -6,7 +6,7 @@ export const Featured = ({onClickFeatured}) => {
     const [trails, setTrails] = useState([]);
 
     async function fetchTrails() {
-      const results = await fetch("http://localhost:8000/api/trails/");
+      const results = await fetch("http://localhost:8000/api/trails/?featured=true");
       const trails = await results.json();
       setTrails(trails);
     }

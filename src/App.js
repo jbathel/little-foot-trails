@@ -1,5 +1,8 @@
 import React, { useEffect } from "react";
 import "./App.css";
+import { ThemeProvider } from "@material-ui/core/styles";
+import theme from "./theme";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Navbar } from "./components/Navbar";
@@ -12,36 +15,48 @@ import { Login } from "./components/Login";
 import { Register } from "./components/Register";
 
 function App() {
-    const [trail, setTrail] = usePersistedState("trail", {});
-    function getTrail(trail) {
-        setTrail(trail)
-    }
+  const [trail, setTrail] = usePersistedState("trail", {});
+  function getTrail(trail) {
+    setTrail(trail);
+  }
 
-    function usePersistedState(key, defaultValue) {
-  const [state, setState] = React.useState(
-    () => JSON.parse(localStorage.getItem(key)) || defaultValue
-  );
-  useEffect(() => {
-    localStorage.setItem(key, JSON.stringify(state));
-  }, [key, state]);
-  return [state, setState];
-}
+  function usePersistedState(key, defaultValue) {
+    const [state, setState] = React.useState(
+      () => JSON.parse(localStorage.getItem(key)) || defaultValue
+    );
+    useEffect(() => {
+      localStorage.setItem(key, JSON.stringify(state));
+    }, [key, state]);
+    return [state, setState];
+  }
 
   return (
-    <Router>
-      <div>
-        <Navbar />
-        <Switch>
-          <Route exact path="/" render={(props) => <HomePage {...props} getTrail={getTrail} />}/>
-          <Route path="/about" component={AboutUs} />
-          <Route path="/results" render={(props) => <Results {...props} getTrail={getTrail} />}/>
-          <Route path="/detail" render={(props) => <Detail {...props} trail={trail} />}/>
-          <Route path="/login" component={Login} />
-          <Route path="/register" component={Register} />
-        </Switch>
-        <Footer />
-      </div>
-    </Router>
+    <ThemeProvider theme={theme}>
+      <Router>
+        <div>
+          <Navbar />
+          <Switch>
+            <Route
+              exact
+              path="/"
+              render={props => <HomePage {...props} getTrail={getTrail} />}
+            />
+            <Route path="/about" component={AboutUs} />
+            <Route
+              path="/results"
+              render={props => <Results {...props} getTrail={getTrail} />}
+            />
+            <Route
+              path="/detail"
+              render={props => <Detail {...props} trail={trail} />}
+            />
+            <Route path="/login" component={Login} />
+            <Route path="/register" component={Register} />
+          </Switch>
+          <Footer />
+        </div>
+      </Router>
+    </ThemeProvider>
   );
 }
 
