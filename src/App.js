@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import { ThemeProvider } from "@material-ui/core/styles";
 import theme from "./theme";
@@ -18,7 +18,7 @@ import { SearchContext } from "./contexts/SearchContext";
 
 function App() {
   const [trail, setTrail] = usePersistedState("trail", {});
-  const [trailTags, setTrailTags] = usePersistedState("trailTags", []);
+  const [trailTags, setTrailTags] = useState([])
   const searchStore = [trailTags, setTrailTags]
 
   function getTrail(trail) {

@@ -55,12 +55,10 @@ const tags = [
 
 export const Search = () => {
   const classes = useStyles();
-  const [trailTag, setTrailTag] = React.useState([]);
   const [trailTags, setTrailTags] = useContext(SearchContext);
 
   function handleChange(event) {
     setTrailTags(event.target.value);
-    console.log(trailTags)
   }
 
 
