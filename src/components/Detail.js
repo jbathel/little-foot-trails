@@ -33,7 +33,7 @@ const MyMarker = props => {
       <h2>{trail.name}</h2>
       <div className="row justify-content-center">
   <div className="col-7">{trail.description}</div>
-        <div className="col-auto">IMAGE</div>
+        <div className="col-auto"><img src={trail.picture}/></div>
         <div className="w-100"></div>
         <div className="col-7">AMENITIES</div>
         <div style={{ height: '50vh', width: '90%' }}>
