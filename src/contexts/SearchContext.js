@@ -1,5 +1,3 @@
 import React, { createContext } from 'react';
 
-export const SearchContext = createContext([]);
-
-export default SearchContext;
+export const SearchContext = createContext(["Paved", "Bathrooms", "Educational Facilities"]);

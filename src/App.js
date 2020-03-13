@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import { ThemeProvider } from "@material-ui/core/styles";
 import theme from "./theme";
@@ -14,14 +14,17 @@ import { Detail } from "./components/Detail";
 import { Login } from "./components/Login";
 import { Register } from "./components/Register";
 
+import { SearchContext } from "./contexts/SearchContext";
+
 function App() {
+  const trailTags = SearchContext
   const [trail, setTrail] = usePersistedState("trail", {});
   function getTrail(trail) {
     setTrail(trail);
   }
 
   function usePersistedState(key, defaultValue) {
-    const [state, setState] = React.useState(
+    const [state, setState] = useState(
       () => JSON.parse(localStorage.getItem(key)) || defaultValue
     );
     useEffect(() => {
@@ -31,7 +34,7 @@ function App() {
   }
 
   return (
-    <ThemeProvider theme={theme}>
+    <SearchContext.Provider value={trailTags}>
       <Router>
         <div>
           <Navbar />
@@ -56,7 +59,7 @@ function App() {
           <Footer />
         </div>
       </Router>
-    </ThemeProvider>
+    </SearchContext.Provider>
   );
 }
 
