@@ -11,6 +11,7 @@
     "@testing-library/user-event": "^7.2.1",
     "bootstrap": "^4.4.1",
     "funding": "^1.0.9",
+    "google-map-react": "^1.1.6",
     "jquery": "^1.9.1",
     "material-ui-icons": "^1.0.0-beta.36",
     "prop-types": "^15.7.2",
@@ -45,7 +46,6 @@
   },
   "proxy": "http://localhost:8000",
   "devDependencies": {
-    "babel-eslint": "^10.1.0",
     "eslint": "^6.8.0",
     "eslint-plugin-flowtype": "^4.6.0"
   }
