@@ -60,12 +60,13 @@ export const Search = () => {
 
   function handleChange(event) {
     setTrailTags(event.target.value);
+    console.log(trailTags)
   }
 
 
   return (
       <SearchContext.Consumer>
-      {trailTags => (
+      {searchStore => (
     <div className={classes.root}>
       <FormControl className={classes.formControl}>
         <InputLabel htmlFor="select-multiple-checkbox">Tag</InputLabel>

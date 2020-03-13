@@ -17,8 +17,10 @@ import { Register } from "./components/Register";
 import { SearchContext } from "./contexts/SearchContext";
 
 function App() {
-  const trailTags = useContext(SearchContext)
   const [trail, setTrail] = usePersistedState("trail", {});
+  const [trailTags, setTrailTags] = usePersistedState("trailTags", []);
+  const searchStore = [trailTags, setTrailTags]
+
   function getTrail(trail) {
     setTrail(trail);
   }
@@ -34,7 +36,7 @@ function App() {
   }
 
   return (
-    <SearchContext.Provider value={trailTags}>
+    <SearchContext.Provider value={searchStore}>
       <Router>
         <div>
           <Navbar />

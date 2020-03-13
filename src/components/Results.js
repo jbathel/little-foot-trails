@@ -5,7 +5,7 @@ import { SearchContext } from "../contexts/SearchContext";
 
 export const Results = ({getTrail}) => {
   const [trails, setTrails] = useState([]);
-  const trailTags = useContext(SearchContext)
+  const [trailTags, setTrailTags] = useContext(SearchContext)
 
     function makeQuery(array, param) {
         let jsonObject = Object.assign({}, array)
