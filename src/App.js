@@ -37,6 +37,7 @@ function App() {
 
   return (
     <SearchContext.Provider value={searchStore}>
+      <ThemeProvider  theme={theme}>
       <Router>
         <div>
           <Navbar />
@@ -61,6 +62,7 @@ function App() {
           <Footer />
         </div>
       </Router>
+      </ThemeProvider>
     </SearchContext.Provider>
   );
 }
