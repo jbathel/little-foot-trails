@@ -1,11 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Search } from "./Search";
 import ReviewUI from "./ReviewUI";
 import "./../marker.css";
 import GoogleMapReact from "google-map-react";
 
-export const Detail = ({ trail }) => {
+import { Context } from "../Context";
+
+export const Detail = () => {
   const [reviews, setReviews] = useState([]);
+    const {
+        trail: [trail]
+    } = useContext(Context)
 
   useEffect(() => {
     async function fetchReviews() {
@@ -16,7 +21,7 @@ export const Detail = ({ trail }) => {
       setReviews(reviews);
     }
     fetchReviews();
-  }, []);
+  }, [trail.id]);
 
   const center = {
     lat: parseFloat(trail.latitude),

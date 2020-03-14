@@ -14,15 +14,17 @@ import { Detail } from "./components/Detail";
 import { Login } from "./components/Login";
 import { Register } from "./components/Register";
 
-import { SearchContext } from "./contexts/SearchContext";
+import { Context } from "./Context";
 
 function App() {
   const [trail, setTrail] = usePersistedState("trail", {});
   const [trailTags, setTrailTags] = useState([])
-  const searchStore = [trailTags, setTrailTags]
+  // const [loggedIn, setLoggedIn] =
 
-  function getTrail(trail) {
-    setTrail(trail);
+  const store = {
+      trail: [trail, setTrail],
+      tags: [trailTags, setTrailTags],
+      // auth: [loggedIn, setLoggedIn]
   }
 
   function usePersistedState(key, defaultValue) {
@@ -36,25 +38,21 @@ function App() {
   }
 
   return (
-    <SearchContext.Provider value={searchStore}>
+    <Context.Provider value={store}>
       <ThemeProvider  theme={theme}>
       <Router>
         <div>
           <Navbar />
           <Switch>
-            <Route
-              exact
-              path="/"
-              render={props => <HomePage {...props} getTrail={getTrail} />}
-            />
+            <Route exact path="/" component={HomePage} />
             <Route path="/about" component={AboutUs} />
             <Route
               path="/results"
-              render={props => <Results {...props} getTrail={getTrail} />}
+              render={props => <Results {...props} />}
             />
             <Route
               path="/detail"
-              render={props => <Detail {...props} trail={trail} />}
+              render={props => <Detail {...props} />}
             />
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
@@ -63,7 +61,7 @@ function App() {
         </div>
       </Router>
       </ThemeProvider>
-    </SearchContext.Provider>
+    </Context.Provider>
   );
 }
 
