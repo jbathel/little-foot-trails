@@ -63,10 +63,10 @@ export const Search = () => {
     setTrailTags(event.target.value);
   }
 
-    function clearTrailTags() {
-        setTrailTags([])
-        console.log(trailTags)
-    }
+  function clearTrailTags() {
+      setTrailTags([])
+      console.log(trailTags)
+  }
 
   return (
     <div className={classes.root}>

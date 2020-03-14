@@ -15,16 +15,15 @@ export const Results = () => {
       return queryString
   }
 
-  async function fetchTrails() {
-    let query = makeQuery(trailTags, 'tags')
-    const results = await fetch("http://localhost:8000/api/trails/?" + query);
-    const trails = await results.json();
-    setTrails(trails);
-  }
-
   useEffect(() => {
-    fetchTrails();
-  }, []);
+      async function fetchTrails() {
+        let query = makeQuery(trailTags, 'tags')
+        const results = await fetch("http://localhost:8000/api/trails/?" + query);
+        const trails = await results.json();
+        setTrails(trails);
+      };
+      fetchTrails();
+  }, [trailTags]);
 
   return (
     <div className="container">
