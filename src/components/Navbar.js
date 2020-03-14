@@ -1,8 +1,54 @@
-import React from "react";
+import React, { useContext } from "react";
 import logo from "../images/wordmark.png";
 import { Link } from "react-router-dom";
 
-export const Navbar = () => {
+import { Context } from "../Context";
+
+export let Navbar = () => {
+    const {
+        auth: [loggedIn, setLoggedIn]
+    } = useContext(Context);
+
+    function clearToken() {
+        localStorage.removeItem("access");
+        setLoggedIn(false);
+    }
+
+    const loginOrGuest = (loggedIn) => {
+
+        return !loggedIn ?
+            <div>
+          <Link
+            className="btn btn-info my-2 m-1 my-sm-0"
+            type="submit"
+            to="/login"
+          >
+            Login
+          </Link>
+          <Link
+            className="btn btn-info my-2 m-1 my-sm-0"
+            type="submit"
+            to="/register"
+          >
+            Sign Up
+          </Link>
+            </div>
+
+            :
+
+            <div>
+          <Link
+            className="btn btn-info my-2 m-1 my-sm-0"
+            type="submit"
+            to="/login"
+            onClick={clearToken}
+          >
+            Log Out
+          </Link>
+            </div>
+    }
+
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark">
       <Link className="navbar-brand" to="/">
@@ -39,21 +85,7 @@ export const Navbar = () => {
           </li>
         </ul>
         <form className="form-inline my-2 my-lg-0">
-          {/* <input className="form-control mr-sm-2" type="search" placeholder="Search" /> */}
-          <Link
-            className="btn btn-info my-2 m-1 my-sm-0"
-            type="submit"
-            to="/login"
-          >
-            Login
-          </Link>
-          <Link
-            className="btn btn-info my-2 m-1 my-sm-0"
-            type="submit"
-            to="/register"
-          >
-            Sign Up
-          </Link>
+          {loginOrGuest(loggedIn)}
         </form>
       </div>
     </nav>
