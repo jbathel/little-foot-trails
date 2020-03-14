@@ -19,12 +19,12 @@ import { Context } from "./Context";
 function App() {
   const [trail, setTrail] = usePersistedState("trail", {});
   const [trailTags, setTrailTags] = useState([])
-  // const [loggedIn, setLoggedIn] =
+  const [loggedIn, setLoggedIn] = useJWTToken()
 
   const store = {
       trail: [trail, setTrail],
       tags: [trailTags, setTrailTags],
-      // auth: [loggedIn, setLoggedIn]
+      auth: [loggedIn, setLoggedIn]
   }
 
   function usePersistedState(key, defaultValue) {
@@ -35,6 +35,18 @@ function App() {
       localStorage.setItem(key, JSON.stringify(state));
     }, [key, state]);
     return [state, setState];
+  }
+
+  function useJWTToken() {
+    const [state, setState] = useState(false);
+    useEffect(() => {
+        if (localStorage.getItem("access") == null) {
+            setState(false);
+        } else {
+            setState(true);
+        };
+    }, [state]);
+      return [state, setState];
   }
 
   return (
