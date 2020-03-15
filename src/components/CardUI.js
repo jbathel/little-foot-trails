@@ -5,11 +5,11 @@ import { Context } from "../Context";
 
 export default function Cards({ trail }) {
   const {
-    trail: [setData],
+    trail: [setTrail],
   } = useContext(Context)
 
   function setTrailObject() {
-      setData(trail)
+      setTrail(trail)
   }
 
   return (
