@@ -39,8 +39,9 @@ function App() {
 
   function useJWTToken() {
     const [state, setState] = useState(false);
+    const token = localStorage.getItem("access");
     useEffect(() => {
-        if (localStorage.getItem("access") === null) {
+        if (token === null) {
             setState(false);
         } else {
             setState(true);
