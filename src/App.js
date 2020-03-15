@@ -46,7 +46,7 @@ function App() {
         } else {
             setState(true);
         };
-    }, [state]);
+    }, [state, token]);
       return [state, setState];
   }
 
