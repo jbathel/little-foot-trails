@@ -19,14 +19,14 @@ export const HomePage = () => {
               />
             </div>
             <div className="col-md-10 col-md-10 col-md-10 mx-auto">
-              <Search />}
+              <Search />
               <h1 className="mt-1">Parenting Is An Adventure</h1>
             </div>
           </div>
         </div>
       </header>
       <div>
-        <Featured />}
+        <Featured />
       </div>
     </div>
   );
