@@ -18,14 +18,14 @@ import { Context } from "./Context";
 
 function App() {
   const [trail, setTrail] = usePersistedState("trail", {});
-  const [trailTags, setTrailTags] = useState([])
-  const [loggedIn, setLoggedIn] = useJWTToken()
+  const [trailTags, setTrailTags] = useState([]);
+  const [loggedIn, setLoggedIn] = useJWTToken();
 
   const store = {
-      trail: [trail, setTrail],
-      tags: [trailTags, setTrailTags],
-      auth: [loggedIn, setLoggedIn]
-  }
+    trail: [trail, setTrail],
+    tags: [trailTags, setTrailTags],
+    auth: [loggedIn, setLoggedIn]
+  };
 
   function usePersistedState(key, defaultValue) {
     const [state, setState] = useState(
@@ -41,38 +41,32 @@ function App() {
     const [state, setState] = useState(false);
     const token = localStorage.getItem("access");
     useEffect(() => {
-        if (token === null) {
-            setState(false);
-        } else {
-            setState(true);
-        };
+      if (token === null) {
+        setState(false);
+      } else {
+        setState(true);
+      }
     }, [state, token]);
-      return [state, setState];
+    return [state, setState];
   }
 
   return (
     <Context.Provider value={store}>
-      <ThemeProvider  theme={theme}>
-      <Router>
-        <div>
-          <Navbar />
-          <Switch>
-            <Route exact path="/" component={HomePage} />
-            <Route path="/about" component={AboutUs} />
-            <Route
-              path="/results"
-              render={props => <Results {...props} />}
-            />
-            <Route
-              path="/detail"
-              render={props => <Detail {...props} />}
-            />
-            <Route path="/login" component={Login} />
-            <Route path="/register" component={Register} />
-          </Switch>
-          <Footer />
-        </div>
-      </Router>
+      <ThemeProvider theme={theme}>
+        <Router>
+          <div>
+            <Navbar />
+            <Switch>
+              <Route exact path="/" component={HomePage} />
+              <Route path="/about" component={AboutUs} />
+              <Route path="/results" render={props => <Results {...props} />} />
+              <Route path="/detail" render={props => <Detail {...props} />} />
+              <Route path="/login" component={Login} />
+              <Route path="/register" component={Register} />
+            </Switch>
+            <Footer />
+          </div>
+        </Router>
       </ThemeProvider>
     </Context.Provider>
   );

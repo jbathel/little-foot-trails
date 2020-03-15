@@ -5,49 +5,46 @@ import { Link } from "react-router-dom";
 import { Context } from "../Context";
 
 export let Navbar = () => {
-    const {
-        auth: [loggedIn, setLoggedIn]
-    } = useContext(Context);
+  const {
+    auth: [loggedIn, setLoggedIn]
+  } = useContext(Context);
 
-    function clearToken() {
-        localStorage.removeItem("access");
-        setLoggedIn(false);
-    }
+  function clearToken() {
+    localStorage.removeItem("access");
+    setLoggedIn(false);
+  }
 
-    const loginOrGuest = (loggedIn) => {
-
-        return !loggedIn ?
-            <div>
-          <Link
-            className="btn btn-info my-2 m-1 my-sm-0"
-            type="submit"
-            to="/login"
-          >
-            Login
-          </Link>
-          <Link
-            className="btn btn-info my-2 m-1 my-sm-0"
-            type="submit"
-            to="/register"
-          >
-            Sign Up
-          </Link>
-            </div>
-
-            :
-
-            <div>
-          <Link
-            className="btn btn-info my-2 m-1 my-sm-0"
-            type="submit"
-            to="/login"
-            onClick={clearToken}
-          >
-            Log Out
-          </Link>
-            </div>
-    }
-
+  const loginOrGuest = loggedIn => {
+    return !loggedIn ? (
+      <div>
+        <Link
+          className="btn btn-info my-2 m-1 my-sm-0"
+          type="submit"
+          to="/login"
+        >
+          Login
+        </Link>
+        <Link
+          className="btn btn-info my-2 m-1 my-sm-0"
+          type="submit"
+          to="/register"
+        >
+          Sign Up
+        </Link>
+      </div>
+    ) : (
+      <div>
+        <Link
+          className="btn btn-info my-2 m-1 my-sm-0"
+          type="submit"
+          to="/login"
+          onClick={clearToken}
+        >
+          Log Out
+        </Link>
+      </div>
+    );
+  };
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark">

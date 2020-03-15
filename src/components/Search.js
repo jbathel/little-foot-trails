@@ -10,7 +10,7 @@ import FormControl from "@material-ui/core/FormControl";
 import ListItemText from "@material-ui/core/ListItemText";
 import Select from "@material-ui/core/Select";
 import Checkbox from "@material-ui/core/Checkbox";
-import Button from '@material-ui/core/Button';
+import Button from "@material-ui/core/Button";
 
 import { Context } from "../Context";
 
@@ -55,17 +55,17 @@ const tags = [
 
 export const Search = () => {
   const classes = useStyles();
-　const {
-    tags: [trailTags, setTrailTags],
-  } = useContext(Context)
+  const {
+    tags: [trailTags, setTrailTags]
+  } = useContext(Context);
 
   function handleChange(event) {
     setTrailTags(event.target.value);
   }
 
   function clearTrailTags() {
-      setTrailTags([])
-      console.log(trailTags)
+    setTrailTags([]);
+    console.log(trailTags);
   }
 
   return (
@@ -89,15 +89,15 @@ export const Search = () => {
         </Select>
       </FormControl>
       <Button
-            to="/results"
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.submit}
-            onClick={clearTrailTags}
-          >
-            Find Your Trail
+        to="/results"
+        type="submit"
+        fullWidth
+        variant="contained"
+        color="primary"
+        className={classes.submit}
+        onClick={clearTrailTags}
+      >
+        Find Your Trail
       </Button>
     </div>
   );
