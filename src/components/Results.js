@@ -30,7 +30,7 @@ export const Results = () => {
       {trails.length > 0 &&
       <div className="row">
         {trails.map((trail, index) => (
-            <Cards key={index} trail={trail} />
+            <Cards key={index} trailInstance={trail} />
        ))}
       </div>
       }

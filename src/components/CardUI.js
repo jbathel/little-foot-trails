@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 
 import { Context } from "../Context";
 
-export default function Cards({ trail }) {
+export default function Cards({ trailInstance }) {
   const {
-    trail: [setTrail],
+    trail: [trail, setTrail],
   } = useContext(Context)
 
   function setTrailObject() {
-      setTrail(trail)
+      setTrail(trailInstance)
   }
 
   return (
