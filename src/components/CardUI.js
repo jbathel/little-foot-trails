@@ -1,18 +1,25 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 
-export default function Cards({ trail, onCardClick }) {
-  function cardClick(trailObject) {
-    onCardClick(trail);
+import { Context } from "../Context";
+
+export default function Cards({ trailInstance }) {
+  const {
+    trail: [trail, setTrail],
+  } = useContext(Context)
+
+  function setTrailObject() {
+      setTrail(trailInstance)
   }
+
   return (
     <div>
       <div class="card m-3" style={{ width: "20rem" }}>
-        <img className="card-img-top" src={trail.picture} alt="trail" />
+        <img className="card-img-top" src={trailInstance.picture} alt="trail" />
         <div className="card-body">
-          <h4 className="card-title">{trail.name}</h4>
-          <p className="card-text text-muted">{trail.description}</p>
-          <Link to="/detail" className="btn btn-info" onClick={cardClick}>
+          <h4 className="card-title">{trailInstance.name}</h4>
+          <p className="card-text text-muted">{trailInstance.description}</p>
+          <Link to="/detail" className="btn btn-info" onClick={setTrailObject}>
             Explore
           </Link>
         </div>

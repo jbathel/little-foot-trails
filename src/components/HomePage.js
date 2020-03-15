@@ -3,13 +3,7 @@ import logo from "../images/lockup.png";
 import { Featured } from "./Featured";
 import { Search } from "./Search";
 
-import { SearchContext } from "../contexts/SearchContext";
-
-export const HomePage = ({getTrail}) => {
-
-    function getCardTrail(trailObject) {
-        getTrail(trailObject)
-    }
+export const HomePage = () => {
 
   return (
     <div>
@@ -25,16 +19,14 @@ export const HomePage = ({getTrail}) => {
               />
             </div>
             <div className="col-md-10 col-md-10 col-md-10 mx-auto">
-      <SearchContext.Consumer>
-      {searchStore => <Search />}
-      </SearchContext.Consumer>
+              <Search />}
               <h1 className="mt-1">Parenting Is An Adventure</h1>
             </div>
           </div>
         </div>
       </header>
       <div>
-        <Featured onClickFeatured={getCardTrail}/>
+        <Featured />}
       </div>
     </div>
   );

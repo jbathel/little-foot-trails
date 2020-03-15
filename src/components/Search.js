@@ -10,9 +10,9 @@ import FormControl from "@material-ui/core/FormControl";
 import ListItemText from "@material-ui/core/ListItemText";
 import Select from "@material-ui/core/Select";
 import Checkbox from "@material-ui/core/Checkbox";
-import Button from '@material-ui/core/Button';
+import Button from "@material-ui/core/Button";
 
-import { SearchContext } from "../contexts/SearchContext";
+import { Context } from "../Context";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -55,16 +55,20 @@ const tags = [
 
 export const Search = () => {
   const classes = useStyles();
-  const [trailTags, setTrailTags] = useContext(SearchContext);
+  const {
+    tags: [trailTags, setTrailTags]
+  } = useContext(Context);
 
   function handleChange(event) {
     setTrailTags(event.target.value);
   }
 
+  function clearTrailTags() {
+    setTrailTags([]);
+    console.log(trailTags);
+  }
 
   return (
-      <SearchContext.Consumer>
-      {searchStore => (
     <div className={classes.root}>
       <FormControl className={classes.formControl}>
         <InputLabel htmlFor="select-multiple-checkbox">Tag</InputLabel>
@@ -85,16 +89,16 @@ export const Search = () => {
         </Select>
       </FormControl>
       <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.submit}
-          >
-            Find Your Trail
+        to="/results"
+        type="submit"
+        fullWidth
+        variant="contained"
+        color="primary"
+        className={classes.submit}
+        onClick={clearTrailTags}
+      >
+        Find Your Trail
       </Button>
     </div>
-      )}
-      </SearchContext.Consumer>
   );
 };
