@@ -29,10 +29,6 @@ function App() {
     loggedIn: localStorage.getItem('token') ? true : false
   };
 
-  const nav_bar_holder = {
-    nav_bar_component: null
-  };
-
   function usePersistedState(key, defaultValue) {
     const [state, setState] = useState(
       () => JSON.parse(localStorage.getItem(key)) || defaultValue
