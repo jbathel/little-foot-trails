@@ -80,6 +80,7 @@ CORS_ORIGIN_WHITELIST = (
     'http://localhost:8000',
     'http://127.0.0.1:8000',
     'http://127.0.0.1:3000',
+    'https://little-foot-trails.herokuapp.com'
 )
 
 ROOT_URLCONF = 'backend.urls'
@@ -108,8 +109,12 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'pprdlgjo',
+        'USER': 'pprdlgjo',
+        'PASSWORD': '5mEOqMxnm5dnfG2vuZ1KDWqQKBjZQs11',
+        'HOST': 'drona.db.elephantsql.com',
+        'PORT': '5432'
     }
 }
 
