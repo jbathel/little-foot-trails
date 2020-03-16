@@ -1,4 +1,4 @@
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import React, { useContext } from "react";
 import clsx from "clsx";
@@ -65,7 +65,6 @@ export const Search = () => {
 
   function clearTrailTags() {
     setTrailTags([]);
-    console.log(trailTags);
   }
 
   return (
@@ -88,7 +87,7 @@ export const Search = () => {
           ))}
         </Select>
       </FormControl>
-      <Button
+      <Button component={Link}
         to="/results"
         type="submit"
         fullWidth
