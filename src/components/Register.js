@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -11,6 +11,8 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { Redirect } from "react-router";
+
+import { Context } from "../Context";
 
 function Copyright() {
   return (
@@ -45,8 +47,11 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export const Register = (props) => {
+export const Register = () => {
   const classes = useStyles();
+  const {
+    auth: [loggedIn, setLoggedIn]
+  } = useContext(Context);
 
   const registerData = {
     email: '',
@@ -56,11 +61,38 @@ export const Register = (props) => {
     password2: ''
   };
 
+  function handleRegister(e, data) {
+    // preventing the form from sending GET request with email and password in the URL
+    e.preventDefault();
+    fetch('user/create/', {
+			crossDomain : true,
+			withCredentials : true,
+			async : true,
+			method : 'POST',
+			headers : {
+				'Content-Type' : 'application/json',
+			},
+			body : JSON.stringify(data)
+		})
+		.then(response => response.json())
+		.then(json => {
+		    if (json.token) {
+                localStorage.setItem('token', json.access);
+                setLoggedIn(true);
+                window.location.href="/home";
+		    }
+		})
+		.catch(error => {
+			console.log("error during register", error);
+		})
+  }
+
+
   function handleFieldChange(fieldName, e) {
     registerData[fieldName] = e.target.value;
   }
 
-  return props.auth_state.loggedIn ? (
+  return loggedIn ? (
     <Redirect path="/home"/>
   ) : (
     <Container component="main" maxWidth="xs">
@@ -72,7 +104,7 @@ export const Register = (props) => {
         <Typography component="h1" variant="h5">
           Register
         </Typography>
-        <form onSubmit={e => props.handleRegister(e, registerData)} className={classes.form} noValidate>
+        <form onSubmit={e => handleRegister(e, registerData)} className={classes.form} noValidate>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField
