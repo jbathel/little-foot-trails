@@ -76,7 +76,7 @@ export let Navbar = () => {
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/results">
+            <Link className="nav-link" to="/">
               Search
             </Link>
           </li>
