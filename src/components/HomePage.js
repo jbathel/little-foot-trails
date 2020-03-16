@@ -1,6 +1,5 @@
 import React from "react";
 import logo from "../images/lockup.png";
-import { Featured } from "./Featured";
 import { Search } from "./Search";
 
 export const HomePage = () => {
@@ -25,9 +24,6 @@ export const HomePage = () => {
           </div>
         </div>
       </header>
-      <div>
-        <Featured />
-      </div>
     </div>
   );
 };

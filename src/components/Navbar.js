@@ -47,43 +47,44 @@ export let Navbar = () => {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark">
-      <Link className="navbar-brand" to="/">
-        <img src={logo} alt="wordmark" style={{ height: "25px" }} />
-      </Link>
-      <button
-        className="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarToggler"
-        aria-controls="navbarToggler"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span className="navbar-toggler-icon"></span>
-      </button>
-
-      <div className="collapse navbar-collapse" id="navbarToggler">
+    <nav className="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+      <div className="container">
+        <Link className="navbar-brand js-scroll-trigger" to="/">
+          <img src={logo} alt="wordmark" style={{ height: "25px" }} />
+        </Link>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarResponsive"
+          aria-controls="navbarResponsive"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+          </button>
+        <div className="navbar navbar-collapse" id="navbarResponsive">
         <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
-          <li className="nav-item">
-            <Link className="nav-link" to="/">
-              Home
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link" to="/about">
-              About Us
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link" to="/">
-              Search
-            </Link>
-          </li>
-        </ul>
-        <form className="form-inline my-2 my-lg-0">
-          {loginOrGuest(loggedIn)}
-        </form>
+            <li className="nav-item">
+              <Link className="nav-link js-scroll-trigger" to="/">
+                Home
+              </Link>
+            </li>
+            <li className="nav-item js-scroll-trigger">
+              <Link className="nav-link" to="/about">
+                About Us
+              </Link>
+            </li>
+            <li className="nav-item js-scroll-trigger">
+              <Link className="nav-link" to="/">
+                Search
+              </Link>
+            </li>
+          </ul>
+          <form className="form-inline my-2 my-lg-0">
+            {loginOrGuest(loggedIn)}
+          </form>
+        </div>
       </div>
     </nav>
   );

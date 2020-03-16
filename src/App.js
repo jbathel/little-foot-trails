@@ -13,8 +13,9 @@ import { Results } from "./components/Results";
 import { Detail } from "./components/Detail";
 import { Login } from "./components/Login";
 import { Register } from "./components/Register";
-
 import { Context } from "./Context";
+import { FeaturedTrails } from "./components/FeaturedTrails";
+import { Features } from "./components/Features";
 
 function App() {
   const [trail, setTrail] = usePersistedState("trail", {});
@@ -56,9 +57,13 @@ function App() {
         <Router>
           <div>
             <Navbar />
+            <HomePage />
+            <FeaturedTrails />
+            <Features />
+            <AboutUs />
             <Switch>
-              <Route exact path="/" component={HomePage} />
-              <Route path="/about" component={AboutUs} />
+              {/* <Route exact path="/" component={HomePage} /> */}
+              {/* <Route path="/about" component={AboutUs} /> */}
               <Route path="/results" render={props => <Results {...props} />} />
               <Route path="/detail" render={props => <Detail {...props} />} />
               <Route path="/login" component={Login} />
