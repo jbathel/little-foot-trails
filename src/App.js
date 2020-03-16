@@ -5,7 +5,7 @@ import theme from "./theme";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { Navbar } from "./components/Navbar";
+import Navbar from "./components/Navbar";
 import { HomePage } from "./components/HomePage";
 import { Footer } from "./components/Footer";
 import { AboutUs } from "./components/AboutUs";
@@ -19,12 +19,18 @@ import { Context } from "./Context";
 function App() {
   const [trail, setTrail] = usePersistedState("trail", {});
   const [trailTags, setTrailTags] = useState([]);
-  const [loggedIn, setLoggedIn] = useJWTToken();
 
   const store = {
     trail: [trail, setTrail],
-    tags: [trailTags, setTrailTags],
-    auth: [loggedIn, setLoggedIn]
+    tags: [trailTags, setTrailTags]
+  };
+
+  const auth_state = {
+    loggedIn: localStorage.getItem('token') ? true : false
+  };
+
+  const nav_bar_holder = {
+    nav_bar_component: null
   };
 
   function usePersistedState(key, defaultValue) {
@@ -37,17 +43,34 @@ function App() {
     return [state, setState];
   }
 
-  function useJWTToken() {
-    const [state, setState] = useState(false);
-    const token = localStorage.getItem("access");
-    useEffect(() => {
-      if (token === null) {
-        setState(false);
-      } else {
-        setState(true);
-      }
-    }, [state, token]);
-    return [state, setState];
+  function clearToken() {
+    localStorage.removeItem("token");
+    auth_state.loggedIn = false;
+  }
+
+  function handleLogin(e, data) {
+    // preventing the form from sending GET request with email and password in the URL
+    e.preventDefault();
+    fetch('token-auth/', {
+			crossDomain : true,
+			withCredentials : true,
+			async : true,
+			method : 'POST',
+			headers : {
+				'Content-Type' : 'application/json',
+			},
+			body : JSON.stringify(data)
+		})
+		.then(response => response.json())
+		.then(json => {
+		    console.log("FOOO auth-token response:", json);
+			localStorage.setItem('token', json.token);
+			auth_state.loggedIn = true;
+			window.location.href="/home";
+		})
+		.catch(error => {
+			console.log("error during login", error);
+		})
   }
 
   return (
@@ -55,13 +78,13 @@ function App() {
       <ThemeProvider theme={theme}>
         <Router>
           <div>
-            <Navbar />
+            <Navbar auth_state={auth_state} clearToken={clearToken} nav_bar_holder={nav_bar_holder} />
             <Switch>
               <Route exact path="/" component={HomePage} />
               <Route path="/about" component={AboutUs} />
               <Route path="/results" render={props => <Results {...props} />} />
               <Route path="/detail" render={props => <Detail {...props} />} />
-              <Route path="/login" component={Login} />
+              <Route path="/login" render={props => <Login handleLogin={handleLogin} auth_state={auth_state} {...props} />} />
               <Route path="/register" component={Register} />
             </Switch>
             <Footer />

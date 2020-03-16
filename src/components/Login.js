@@ -11,6 +11,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { red } from "@material-ui/core/colors";
+import { Redirect } from "react-router";
 
 function Copyright() {
   return (
@@ -45,10 +46,24 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export const Login = () => {
+export const Login = (props) => {
   const classes = useStyles();
+  const loginData = {
+    email: '',
+    password: ''
+  };
 
-  return (
+  function handleEmailChange(e) {
+    loginData.email = e.target.value;
+  }
+
+  function handlePasswordChange(e) {
+    loginData.password = e.target.value;
+  }
+
+  return props.auth_state.loggedIn ? (
+    <Redirect path="/home"/>
+  ) : (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
@@ -58,7 +73,7 @@ export const Login = () => {
         <Typography component="h1" variant="h4">
           Login
         </Typography>
-        <form className={classes.form} noValidate>
+        <form onSubmit={e => props.handleLogin(e, loginData)} className={classes.form} action="/home" method="GET" noValidate>
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <TextField
@@ -68,6 +83,7 @@ export const Login = () => {
                 id="email"
                 label="Email Address"
                 name="email"
+                onChange={handleEmailChange}
                 autoComplete="email"
               />
             </Grid>
@@ -80,6 +96,7 @@ export const Login = () => {
                 label="Password"
                 type="password"
                 id="password"
+                onChange={handlePasswordChange}
                 autoComplete="current-password"
               />
             </Grid>
