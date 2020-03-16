@@ -61,7 +61,7 @@ export const Login = () => {
   function handleLogin(e, data) {
     // preventing the form from sending GET request with email and password in the URL
     e.preventDefault();
-    fetch('token-auth/', {
+    fetch('api/token/', {
 			crossDomain : true,
 			withCredentials : true,
 			async : true,
@@ -76,7 +76,6 @@ export const Login = () => {
 		    if (json.access) {
                 localStorage.setItem('token', json.access);
                 setLoggedIn(true);
-                window.location.href="/home";
 		    }
 		})
 		.catch(error => {
@@ -93,7 +92,7 @@ export const Login = () => {
   }
 
   return loggedIn ? (
-    <Redirect path="/home"/>
+    <Redirect path="/"/>
   ) : (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -104,7 +103,7 @@ export const Login = () => {
         <Typography component="h1" variant="h4">
           Login
         </Typography>
-        <form onSubmit={e => handleLogin(e, loginData)} className={classes.form} action="/home" noValidate>
+        <form onSubmit={e => handleLogin(e, loginData)} className={classes.form} action="/" noValidate>
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <TextField
