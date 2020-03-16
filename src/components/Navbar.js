@@ -1,4 +1,4 @@
-import React, { useContext, Component } from "react";
+import React, { useContext } from "react";
 import logo from "../images/wordmark.png";
 import { Link } from "react-router-dom";
 

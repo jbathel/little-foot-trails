@@ -14,10 +14,10 @@ class UserSerializerWithToken(serializers.ModelSerializer):
     token = serializers.SerializerMethodField()
     password = serializers.CharField(write_only=True)
 
-    def get_tokens(self, user):
-        tokens = RefreshToken.for_user(user)
-        refresh = str(tokens)
-        access = str(tokens.access_token)
+    def get_token(self, user):
+        token = RefreshToken.for_user(user)
+        refresh = str(token)
+        access = str(token.access_token)
         data = {
             "refresh": refresh,
             "access": access

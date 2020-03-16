@@ -79,7 +79,6 @@ export const Register = () => {
 		    if (json.token) {
                 localStorage.setItem('token', json.access);
                 setLoggedIn(true);
-                window.location.href="/home";
 		    }
 		})
 		.catch(error => {
@@ -93,7 +92,7 @@ export const Register = () => {
   }
 
   return loggedIn ? (
-    <Redirect path="/home"/>
+    <Redirect path="/"/>
   ) : (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -104,7 +103,7 @@ export const Register = () => {
         <Typography component="h1" variant="h5">
           Register
         </Typography>
-        <form onSubmit={e => handleRegister(e, registerData)} className={classes.form} noValidate>
+        <form onSubmit={e => handleRegister(e, registerData)} className={classes.form} action="/" noValidate>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField
