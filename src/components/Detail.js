@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Search } from "./Search";
-import ReviewUI from "./ReviewUI";
+import { ReviewUI } from "./ReviewUI";
+import { ReviewForm } from "./ReviewForm";
 import { Link } from "react-router-dom";
 import "./../marker.css";
 import GoogleMapReact from "google-map-react";
@@ -46,7 +47,7 @@ export const Detail = () => {
 
     const authenticated = loggedIn => {
         return (
-          <Link to="/detail" className="btn btn-info" onClick={createReview}>
+          <Link to="/detail" className="btn btn-info" >
             Add Review
           </Link>
         )
@@ -101,6 +102,7 @@ export const Detail = () => {
           { loggedIn === true &&
           <div>
           {authenticated(loggedIn)}
+          <ReviewForm />
           </div>
           }
           {reviews.map((review, index) => (
