@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Search } from "./Search";
 import ReviewUI from "./ReviewUI";
+import { Link } from "react-router-dom";
 import "./../marker.css";
 import GoogleMapReact from "google-map-react";
 
@@ -9,7 +10,8 @@ import { Context } from "../Context";
 export const Detail = () => {
   const [reviews, setReviews] = useState([]);
     const {
-        trail: [trail]
+        trail: [trail],
+        auth: [loggedIn]
     } = useContext(Context)
 
   useEffect(() => {
@@ -22,6 +24,33 @@ export const Detail = () => {
     }
     fetchReviews();
   }, [trail.id]);
+
+    async function createReview() {
+        let token = localStorage.getItem('access');
+        const settings = {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+                Authorization: 'Bearer ' + token,
+            }
+        };
+        try {
+            const response = await fetch('http://localhost:8000/api/reviews/', settings);
+            const data = await response.json();
+            return data;
+        } catch (error) {
+            return error;
+        }
+    }
+
+    const authenticated = loggedIn => {
+        return (
+          <Link to="/detail" className="btn btn-info" onClick={createReview}>
+            Add Review
+          </Link>
+        )
+    }
 
   const center = {
     lat: parseFloat(trail.latitude),
@@ -69,6 +98,11 @@ export const Detail = () => {
         <div className="container">
           <hr />
           <h2>REVIEWS</h2>
+          { loggedIn === true &&
+          <div>
+          {authenticated(loggedIn)}
+          </div>
+          }
           {reviews.map((review, index) => (
             <ReviewUI key={index} review={review} />
           ))}
