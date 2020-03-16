@@ -4,8 +4,6 @@ import { Link } from "react-router-dom";
 
 class Navbar extends Component {
     render() {
-        this.props.nav_bar_holder.nav_bar_component = this;
-        console.log("FOOO this:", this);
         const logged_in_nav = (
             <div>
             <Link

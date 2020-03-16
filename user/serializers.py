@@ -6,7 +6,7 @@ from .models import User
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('email',)
+        fields = ('email', 'full_name',)
 
 
 class UserSerializerWithToken(serializers.ModelSerializer):
@@ -23,12 +23,15 @@ class UserSerializerWithToken(serializers.ModelSerializer):
 
     def create(self, validated_data):
         password = validated_data.pop('password', None)
-        instance = self.Meta.model(**validated_data)
-        if password is not None:
-            instance.set_password(password)
-        instance.save()
-        return instance
+        user = User.objects.create(
+            email=validated_data['email'],
+            active=True,
+            full_name=validated_data['full_name']
+        )
+        user.set_password(password)
+        user.save()
+        return user
 
     class Meta:
         model = User
-        fields = ('token', 'email', 'password')
+        fields = ('token', 'email', 'password', 'full_name')

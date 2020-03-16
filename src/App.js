@@ -29,10 +29,6 @@ function App() {
     loggedIn: localStorage.getItem('token') ? true : false
   };
 
-  const nav_bar_holder = {
-    nav_bar_component: null
-  };
-
   function usePersistedState(key, defaultValue) {
     const [state, setState] = useState(
       () => JSON.parse(localStorage.getItem(key)) || defaultValue
@@ -63,12 +59,40 @@ function App() {
 		})
 		.then(response => response.json())
 		.then(json => {
-			localStorage.setItem('token', json.token);
-			auth_state.loggedIn = true;
-			window.location.href="/home";
+		    if (json.access) {
+                localStorage.setItem('token', json.access);
+                auth_state.loggedIn = true;
+                window.location.href="/home";
+		    }
 		})
 		.catch(error => {
 			console.log("error during login", error);
+		})
+  }
+
+  function handleRegister(e, data) {
+    // preventing the form from sending GET request with email and password in the URL
+    e.preventDefault();
+    fetch('user/create/', {
+			crossDomain : true,
+			withCredentials : true,
+			async : true,
+			method : 'POST',
+			headers : {
+				'Content-Type' : 'application/json',
+			},
+			body : JSON.stringify(data)
+		})
+		.then(response => response.json())
+		.then(json => {
+		    if (json.token) {
+                localStorage.setItem('token', json.access);
+                auth_state.loggedIn = true;
+                window.location.href="/home";
+		    }
+		})
+		.catch(error => {
+			console.log("error during register", error);
 		})
   }
 
@@ -77,14 +101,14 @@ function App() {
       <ThemeProvider theme={theme}>
         <Router>
           <div>
-            <Navbar auth_state={auth_state} clearToken={clearToken} nav_bar_holder={nav_bar_holder} />
+            <Navbar auth_state={auth_state} clearToken={clearToken} />
             <Switch>
               <Route exact path="/" component={HomePage} />
               <Route path="/about" component={AboutUs} />
               <Route path="/results" render={props => <Results {...props} />} />
               <Route path="/detail" render={props => <Detail {...props} />} />
               <Route path="/login" render={props => <Login handleLogin={handleLogin} auth_state={auth_state} {...props} />} />
-              <Route path="/register" component={Register} />
+              <Route path="/register" render={props => <Register handleRegister={handleRegister} auth_state={auth_state} {...props} />} />
             </Switch>
             <Footer />
           </div>

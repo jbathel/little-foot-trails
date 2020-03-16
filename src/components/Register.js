@@ -10,6 +10,7 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
+import { Redirect } from "react-router";
 
 function Copyright() {
   return (
@@ -44,10 +45,24 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export const Register = () => {
+export const Register = (props) => {
   const classes = useStyles();
 
-  return (
+  const registerData = {
+    email: '',
+    lastName: '',
+    firstName: '',
+    password1: '',
+    password2: ''
+  };
+
+  function handleFieldChange(fieldName, e) {
+    registerData[fieldName] = e.target.value;
+  }
+
+  return props.auth_state.loggedIn ? (
+    <Redirect path="/home"/>
+  ) : (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
@@ -57,7 +72,7 @@ export const Register = () => {
         <Typography component="h1" variant="h5">
           Register
         </Typography>
-        <form className={classes.form} noValidate>
+        <form onSubmit={e => props.handleRegister(e, registerData)} className={classes.form} noValidate>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField
@@ -68,6 +83,9 @@ export const Register = () => {
                 fullWidth
                 id="firstName"
                 label="First Name"
+                onChange={e => {
+                    handleFieldChange('firstName', e);
+                }}
                 autoFocus
               />
             </Grid>
@@ -79,6 +97,9 @@ export const Register = () => {
                 id="lastName"
                 label="Last Name"
                 name="lastName"
+                onChange={e => {
+                    handleFieldChange('lastName', e);
+                }}
                 autoComplete="lname"
               />
             </Grid>
@@ -88,6 +109,9 @@ export const Register = () => {
                 required
                 fullWidth
                 id="email"
+                onChange={e => {
+                    handleFieldChange('email', e);
+                }}
                 label="Email Address"
                 name="email"
                 autoComplete="email"
@@ -103,6 +127,9 @@ export const Register = () => {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                onChange={e => {
+                    handleFieldChange('password1', e);
+                }}
               />
             </Grid>
             <Grid item xs={12}>
@@ -114,6 +141,9 @@ export const Register = () => {
                 label="Confirm Password"
                 type="password"
                 id="password"
+                onChange={e => {
+                    handleFieldChange('password2', e);
+                }}
                 autoComplete="current-password"
               />
             </Grid>

@@ -73,7 +73,7 @@ export const Login = (props) => {
         <Typography component="h1" variant="h4">
           Login
         </Typography>
-        <form onSubmit={e => props.handleLogin(e, loginData)} className={classes.form} action="/home" method="GET" noValidate>
+        <form onSubmit={e => props.handleLogin(e, loginData)} className={classes.form} action="/home" noValidate>
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <TextField

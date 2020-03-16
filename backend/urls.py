@@ -26,7 +26,7 @@ urlpatterns = [
     path('token-auth/', TokenObtainPairView.as_view()),
     path('token-refresh/', TokenRefreshView.as_view()),
     path('current_user/', get_current_user),
-    path('users/create', CreateUserView.as_view()),
+    path('user/create/', CreateUserView.as_view()),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) \
               + [re_path(r'^(?:.*)/?$', index, name='index')]
