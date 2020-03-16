@@ -63,7 +63,6 @@ function App() {
 		})
 		.then(response => response.json())
 		.then(json => {
-		    console.log("FOOO auth-token response:", json);
 			localStorage.setItem('token', json.token);
 			auth_state.loggedIn = true;
 			window.location.href="/home";
