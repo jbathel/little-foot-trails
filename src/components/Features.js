@@ -1,6 +1,8 @@
 import React from "react";
 import map_feature from "../images/map_feature.png";
 import search_feature from "../images/search_feature.png";
+import details_feature from "../images/details_feature.png";
+import featured_feature from "../images/featured_feature.png";
 
 export const Features = () => {
   return (
@@ -24,7 +26,7 @@ export const Features = () => {
                   <div className="timeline-image">
                     <img
                       className="rounded-circle img-fluid"
-                      src="img/about/1.jpg"
+                      src={featured_feature}
                       alt=""
                     />
                   </div>
@@ -64,7 +66,7 @@ export const Features = () => {
                   <div className="timeline-image">
                     <img
                       className="rounded-circle img-fluid"
-                      src="img/about/3.jpg"
+                      src={details_feature}
                       alt=""
                     />
                   </div>
