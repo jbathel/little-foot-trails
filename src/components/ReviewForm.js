@@ -1,9 +1,7 @@
-import React, { useContext }from "react";
-import Avatar from "@material-ui/core/Avatar";
+import React, { useContext } from "react";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
-import Link from "@material-ui/core/Link";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
@@ -13,19 +11,6 @@ import Container from "@material-ui/core/Container";
 import { red } from "@material-ui/core/colors";
 
 import { Context } from "../Context";
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {"Copyright © "}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -47,38 +32,63 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export const Login = () => {
+export const ReviewForm = () => {
   const {
-    auth: [loggedIn, setLoggedIn]
-  } = useContext(Context);
+      trail: [trail],
+  } = useContext(Context)
+
   const classes = useStyles();
 
-  function addToken() {
-    localStorage.setItem("access", "token");
-    setLoggedIn(true);
-  };
+  const reviewData = {
+      name: '',
+      review: '',
+      stars: '',
+      user: 'rmiyazaki11@ucsbalum.com',
+      trail: trail,
+  }
+
+  async function createReview(e, data) {
+      e.preventDefault();
+      let token = localStorage.getItem('access');
+      const settings = {
+          method: 'POST',
+          headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json',
+              Authorization: 'Bearer ' + token,
+          },
+          body : JSON.stringify(data),
+      };
+      try {
+          const response = await fetch('http://localhost:8000/api/reviews/', settings);
+          const data = await response.json();
+          return data;
+      } catch (error) {
+          return error;
+      }
+  }
+
+  function handleFieldChange(fieldName, e) {
+    reviewData[fieldName] = e.target.value;
+  }
 
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
-        <Typography component="h1" variant="h4">
-          Login
-        </Typography>
-        <form className={classes.form} noValidate>
+        <form onSubmit={e => createReview(e, reviewData)} className={classes.form} action="/detail" noValidate>
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <TextField
                 variant="outlined"
                 required
                 fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
+                id ="name"
+                name="name"
+                label="Title"
+                onChange={e => {
+                    handleFieldChange('name', e);
+                }}
               />
             </Grid>
             <Grid item xs={12}>
@@ -86,11 +96,12 @@ export const Login = () => {
                 variant="outlined"
                 required
                 fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="current-password"
+                id="review"
+                name="review"
+                label="Review"
+                onChange={e => {
+                    handleFieldChange('review', e);
+                }}
               />
             </Grid>
           </Grid>
@@ -100,22 +111,19 @@ export const Login = () => {
             variant="contained"
             color="primary"
             className={classes.submit}
-            onClick={addToken}
+            onClick={createReview}
           >
-            Login
+            Submit
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
-              <Link href="#" variant="body2">
-                Forgot Password?
-              </Link>
             </Grid>
           </Grid>
         </form>
       </div>
       <Box mt={5}>
-        <Copyright />
       </Box>
     </Container>
   );
 };
+

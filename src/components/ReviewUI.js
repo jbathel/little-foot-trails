@@ -1,10 +1,10 @@
 import React from "react";
 import profilePic from "../images/default.png";
 
-export default function ReviewUI({review}) {
+export function ReviewUI({review}) {
   let date = review.created_at,
   cdate = (new Date(date)).toLocaleDateString();
-  
+
   return (
     <div>
       <div className="card mb-3">
