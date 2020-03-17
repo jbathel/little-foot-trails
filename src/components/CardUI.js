@@ -14,7 +14,7 @@ export default function Cards({ trailInstance }) {
 
   return (
     <div>
-      <div class="card m-3" style={{ width: "20rem", height: "20rem"}}>
+      <div class="card m-3" style={{ width: "20rem", height: "23rem"}}>
         <img className="card-img-top" src={trailInstance.picture} alt="trail" />
         <div className="card-body">
           <h4 className="card-title">{trailInstance.name}</h4>
