@@ -1,7 +1,7 @@
 import React from "react";
 import ryu from "../images/ryu.png";
-import banu from "../images/default.png";
 import jess from "../images/jess.png";
+import banu from "../images/banu.png";
 
 export const AboutUs = () => {
   return (

@@ -4,13 +4,11 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
-import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-import { red } from "@material-ui/core/colors";
 
 import { Context } from "../Context";
+import theme from "../theme";
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -75,8 +73,8 @@ export const ReviewForm = () => {
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
-      <div className={classes.paper}>
-        <form onSubmit={e => createReview(e, reviewData)} className={classes.form} action="/detail" noValidate>
+      <div className={theme.primary}>
+        <form onSubmit={e => createReview(e, reviewData)} className={theme.form} action="/detail" noValidate>
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <TextField
@@ -96,6 +94,7 @@ export const ReviewForm = () => {
                 variant="outlined"
                 required
                 fullWidth
+                className={theme.primary}
                 id="review"
                 name="review"
                 label="Review"
@@ -105,12 +104,13 @@ export const ReviewForm = () => {
               />
             </Grid>
           </Grid>
+          <br />
           <Button
             type="submit"
             fullWidth
             variant="contained"
             color="primary"
-            className={classes.submit}
+            className={theme.submit}
             onClick={createReview}
           >
             Submit

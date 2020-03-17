@@ -223,9 +223,9 @@ h2, h3 {
   margin-left: 0;
   text-align: center;
   color: #FAFAFA;
-  border: 7px solid #e9ecef;
+  border: 7px solid #F6F6F6;
   border-radius: 100%;
-  background-color: #FDA216;
+  background-color: #F6F6F6;
 }
 
 .timeline > li .timeline-image h4 {
@@ -328,15 +328,15 @@ h2, h3 {
 
 @media (min-width: 1200px) {
   .timeline > li {
-    min-height: 170px;
+    min-height: 250px;
   }
   .timeline > li .timeline-panel {
     padding: 0 20px 20px 100px;
   }
   .timeline > li .timeline-image {
-    width: 170px;
-    height: 170px;
-    margin-left: -85px;
+    width: 250px;
+    height: 250px;
+    margin-left: -125px;
   }
   .timeline > li .timeline-image h4 {
     margin-top: 40px;
@@ -344,4 +344,14 @@ h2, h3 {
   .timeline > li.timeline-inverted > .timeline-panel {
     padding: 0 100px 20px 20px;
   }
+}
+#root > div > div > div:nth-child(3) > div:nth-child(3) > button {
+  color:#FAFAFA;
+  background-color: #02B0B0;
+  border-color: #02B0B0;
+}
+#root > div > div > div:nth-child(3) > div:nth-child(3) > button:hover {
+  color:#FAFAFA;
+  background-color: #F85A5D;
+  border-color: #F85A5D;
 }
