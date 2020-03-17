@@ -1,6 +1,8 @@
 import React from "react";
 import map_feature from "../images/map_feature.png";
 import search_feature from "../images/search_feature.png";
+import details_feature from "../images/details_feature.png";
+import featured_feature from "../images/featured_feature.png";
 
 export const Features = () => {
   return (
@@ -24,16 +26,16 @@ export const Features = () => {
                   <div className="timeline-image">
                     <img
                       className="rounded-circle img-fluid"
-                      src="img/about/1.jpg"
+                      src={featured_feature}
                       alt=""
                     />
                   </div>
                   <div className="timeline-panel">
-                    <div className="timeline-heading">
+                    <div className="timeline-heading mr-5">
                         <br />
                       <h4 className="subheading">Featured Trails</h4>
                     </div>
-                    <div className="timeline-body">
+                    <div className="timeline-body mr-5">
                       <p className="text-muted">
                         Our homepage displays trails that meet certain standards put forth by our founders. These trails offer the best combinations of amenities.
                       </p>
@@ -49,11 +51,11 @@ export const Features = () => {
                     />
                   </div>
                   <div className="timeline-panel">
-                    <div className="timeline-heading">
+                    <div className="timeline-heading ml-5">
                         <br />
                       <h4 className="subheading">Filtered Search Bar</h4>
                     </div>
-                    <div className="timeline-body">
+                    <div className="timeline-body ml-5">
                       <p className="text-muted">
                         Looking for something in particular? Try our easy to use search bar. Click on the items that matter to you the most and then 'Find Your Trail.'
                       </p>
@@ -64,16 +66,16 @@ export const Features = () => {
                   <div className="timeline-image">
                     <img
                       className="rounded-circle img-fluid"
-                      src="img/about/3.jpg"
+                      src={details_feature}
                       alt=""
                     />
                   </div>
                   <div className="timeline-panel">
-                    <div className="timeline-heading">
+                    <div className="timeline-heading mr-5">
                         <br />
                       <h4 className="subheading">Detailed View</h4>
                     </div>
-                    <div className="timeline-body">
+                    <div className="timeline-body mr-5">
                       <p className="text-muted">
                         Once you see a trail that you like, click on 'Exploe' to find out more details about that particular trail.
                       </p>
@@ -89,11 +91,11 @@ export const Features = () => {
                     />
                   </div>
                   <div className="timeline-panel">
-                    <div className="timeline-heading">
+                    <div className="timeline-heading ml-5">
                         <br />
                       <h4 className="subheading">Maps</h4>
                     </div>
-                    <div className="timeline-body">
+                    <div className="timeline-body ml-5">
                       <p className="text-muted">
                         On the detail page we provide an interactive map to the start of the trail.
                       </p>

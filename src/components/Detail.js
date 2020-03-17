@@ -67,7 +67,7 @@ export const Detail = () => {
     lng: parseFloat(trail.longitude)
   };
 
-  const MyMarker = props => {
+  const MyMarker = () => {
     return (
       <>
         <div className="pin"></div>
