@@ -1,4 +1,6 @@
 import React from "react";
+import map_feature from "../images/map_feature.png";
+import search_feature from "../images/search_feature.png";
 
 export const Features = () => {
   return (
@@ -7,12 +9,12 @@ export const Features = () => {
         <div className="container">
           <div className="row">
             <div className="col-lg-12 text-center">
-                {/* <hr /> */}
+                <br />
               <h2 className="section-heading text-uppercase">About</h2>
               <h3 className="section-subheading text-muted">
                 Little Foots Trails is about helping families find more ways to be adventerous and outside. We strive to promote a sense of community, bringing parents and caregivers together with a common goal.
               </h3>
-              {/* <hr /> */}
+              <br />
             </div>
           </div>
           <div className="row">
@@ -42,7 +44,7 @@ export const Features = () => {
                   <div className="timeline-image">
                     <img
                       className="rounded-circle img-fluid"
-                      src="img/about/2.jpg"
+                      src={search_feature}
                       alt=""
                     />
                   </div>
@@ -82,7 +84,7 @@ export const Features = () => {
                   <div className="timeline-image">
                     <img
                       className="rounded-circle img-fluid"
-                      src="img/about/4.jpg"
+                      src={map_feature}
                       alt=""
                     />
                   </div>
@@ -99,6 +101,7 @@ export const Features = () => {
                   </div>
                 </li>
               </ul>
+              <br />
             </div>
           </div>
         </div>

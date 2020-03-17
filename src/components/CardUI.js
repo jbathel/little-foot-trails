@@ -14,11 +14,11 @@ export default function Cards({ trailInstance }) {
 
   return (
     <div>
-      <div class="card m-3" style={{ width: "20rem", height: "30rem"}}>
+      <div class="card m-3" style={{ width: "20rem", height: "20rem"}}>
         <img className="card-img-top" src={trailInstance.picture} alt="trail" />
         <div className="card-body">
           <h4 className="card-title">{trailInstance.name}</h4>
-          <p className="card-text text-muted overflow-hidden">{trailInstance.description}</p>
+          <p className="card-text text-muted text-truncate">{trailInstance.description}</p>
           <Link to="/detail" className="btn btn-info" onClick={setTrailObject}>
             Explore
           </Link>

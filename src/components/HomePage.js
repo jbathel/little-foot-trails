@@ -1,6 +1,9 @@
 import React from "react";
 import logo from "../images/lockup.png";
 import { Search } from "./Search";
+import { FeaturedTrails } from "./FeaturedTrails";
+import { Features } from "./Features";
+import { AboutUs } from "./AboutUs";
 
 export const HomePage = () => {
 
@@ -24,6 +27,13 @@ export const HomePage = () => {
           </div>
         </div>
       </header>
+      <body>
+        <div>
+          <FeaturedTrails/>
+          <Features />
+          <AboutUs />
+        </div>
+      </body>
     </div>
   );
 };

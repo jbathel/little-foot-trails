@@ -57,12 +57,8 @@ function App() {
         <Router>
           <div>
             <Navbar />
-            <HomePage />
-            <FeaturedTrails />
-            <Features />
-            <AboutUs />
             <Switch>
-              {/* <Route exact path="/" component={HomePage} /> */}
+              <Route exact path="/" component={HomePage} />
               {/* <Route path="/about" component={AboutUs} /> */}
               <Route path="/results" render={props => <Results {...props} />} />
               <Route path="/detail" render={props => <Detail {...props} />} />

@@ -42,7 +42,8 @@ export const Detail = () => {
   ));
 
   return (
-    <div>
+    <div className="container">
+      <hr />
       <h2>{trail.name}</h2>
       <div className="row justify-content-center">
         <div className="col-7">{trail.description}</div>
