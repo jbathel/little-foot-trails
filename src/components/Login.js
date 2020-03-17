@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext }from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -11,6 +11,8 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { red } from "@material-ui/core/colors";
+
+import { Context } from "../Context";
 
 function Copyright() {
   return (
@@ -46,7 +48,15 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export const Login = () => {
+  const {
+    auth: [loggedIn, setLoggedIn]
+  } = useContext(Context);
   const classes = useStyles();
+
+  function addToken() {
+    localStorage.setItem("access", "token");
+    setLoggedIn(true);
+  };
 
   return (
     <Container component="main" maxWidth="xs">
@@ -90,6 +100,7 @@ export const Login = () => {
             variant="contained"
             color="primary"
             className={classes.submit}
+            onClick={addToken}
           >
             Login
           </Button>
