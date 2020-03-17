@@ -54,7 +54,7 @@ export const Detail = () => {
 
     const authenticated = addReview => {
         return (
-            <Button className="btn btn-info" onClick={openForm}>
+            <Button className="btn btn-info mb-5" onClick={openForm}>
             Add Revew
             </Button>
 
