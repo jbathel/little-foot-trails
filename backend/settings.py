@@ -193,7 +193,6 @@ STATICFILES_DIRS = []
 
 # If you want to serve user uploaded files add these settings
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(STATIC_ROOT, 'media')
-print('MEDIA_URL:', MEDIA_URL, 'MEDIA_ROOT', MEDIA_ROOT, 'STATIC_ROOT:', STATIC_ROOT)
+MEDIA_ROOT = os.path.join(BASE_DIR, 'src', 'images', 'trail_images')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
