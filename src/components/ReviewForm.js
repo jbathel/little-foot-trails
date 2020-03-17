@@ -42,7 +42,8 @@ export const ReviewForm = () => {
   const reviewData = {
       name: '',
       review: '',
-      // stars: '',
+      stars: '',
+      user: 'rmiyazaki11@ucsbalum.com',
       trail: trail,
   }
 
