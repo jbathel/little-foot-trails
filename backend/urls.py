@@ -23,8 +23,10 @@ urlpatterns = [
     path('', index, name='index'),
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
-    path('token-auth/', TokenObtainPairView.as_view()),
-    path('token-refresh/', TokenRefreshView.as_view()),
+    path('api/token/',
+         TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/refresh/',
+         TokenRefreshView.as_view(), name='token_refresh'),
     path('current_user/', get_current_user),
     path('user/create/', CreateUserView.as_view()),
 

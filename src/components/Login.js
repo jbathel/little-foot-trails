@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -12,6 +12,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { red } from "@material-ui/core/colors";
 import { Redirect } from "react-router";
+
+import { Context } from "../Context";
 
 function Copyright() {
   return (
@@ -46,12 +48,40 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export const Login = (props) => {
+export const Login = () => {
   const classes = useStyles();
+  const {
+    auth: [loggedIn, setLoggedIn]
+  } = useContext(Context);
   const loginData = {
     email: '',
     password: ''
   };
+
+  function handleLogin(e, data) {
+    // preventing the form from sending GET request with email and password in the URL
+    e.preventDefault();
+    fetch('api/token/', {
+			crossDomain : true,
+			withCredentials : true,
+			async : true,
+			method : 'POST',
+			headers : {
+				'Content-Type' : 'application/json',
+			},
+			body : JSON.stringify(data)
+		})
+		.then(response => response.json())
+		.then(json => {
+		    if (json.access) {
+                localStorage.setItem('token', json.access);
+                setLoggedIn(true);
+		    }
+		})
+		.catch(error => {
+			console.log("error during login", error);
+		})
+  }
 
   function handleEmailChange(e) {
     loginData.email = e.target.value;
@@ -61,8 +91,8 @@ export const Login = (props) => {
     loginData.password = e.target.value;
   }
 
-  return props.auth_state.loggedIn ? (
-    <Redirect path="/home"/>
+  return loggedIn ? (
+    <Redirect path="/"/>
   ) : (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -73,7 +103,7 @@ export const Login = (props) => {
         <Typography component="h1" variant="h4">
           Login
         </Typography>
-        <form onSubmit={e => props.handleLogin(e, loginData)} className={classes.form} action="/home" noValidate>
+        <form onSubmit={e => handleLogin(e, loginData)} className={classes.form} action="/" noValidate>
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <TextField
