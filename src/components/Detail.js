@@ -1,16 +1,21 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Search } from "./Search";
-import ReviewUI from "./ReviewUI";
+import { ReviewUI } from "./ReviewUI";
+import { ReviewForm } from "./ReviewForm";
 import "./../marker.css";
+import Button from "@material-ui/core/Button";
 import GoogleMapReact from "google-map-react";
+// import default_trail from "../images/trail_images/default.png";
 
 import { Context } from "../Context";
 
 export const Detail = () => {
   const [reviews, setReviews] = useState([]);
-    const {
-        trail: [trail]
-    } = useContext(Context)
+  const [addReview, setAddReview] = useState(false)
+  const {
+      trail: [trail],
+      auth: [loggedIn]
+  } = useContext(Context)
 
   useEffect(() => {
     async function fetchReviews() {
@@ -22,6 +27,40 @@ export const Detail = () => {
     }
     fetchReviews();
   }, [trail.id]);
+
+    async function createReview() {
+        let token = localStorage.getItem('access');
+        const settings = {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+                Authorization: 'Bearer ' + token,
+            }
+        };
+        try {
+            const response = await fetch('http://localhost:8000/api/reviews/', settings);
+            const data = await response.json();
+            return data;
+        } catch (error) {
+            return error;
+        }
+    }
+
+    function openForm() {
+        let bool = addReview
+        bool = !bool
+        setAddReview(bool)
+    }
+
+    const authenticated = addReview => {
+        return (
+            <Button className="btn btn-info mb-5" onClick={openForm}>
+            Add Revew
+            </Button>
+
+        )
+    }
 
   const center = {
     lat: parseFloat(trail.latitude),
@@ -38,22 +77,23 @@ export const Detail = () => {
   };
 
   const myArrCreatedFromMap = trail.tags.map((item, i) => (
-    <li key={item + i}>{item}</li>
+    <li className="list-group-item" key={item + i}>{item}</li>
   ));
 
   return (
-    <div>
-      <h2>{trail.name}</h2>
+    <div className="container">
+      <h2 className="section-heading text-uppercase mt-5">{trail.name}</h2>
       <div className="row justify-content-center">
-        <div className="col-7">{trail.description}</div>
-        <div className="col-auto">
-          <img src={trail.picture} alt="trail" />
+        <div className="col-6">{trail.description}</div>
+        <div className="col-6">
+          <img className="img-fluid rounded float-right" src={trail.picture} alt="trail" />
         </div>
         <div className="w-100"></div>
-        <div className="col-7">
+        <div className="col-6 list-group list-group-flush">
+          <h3 className="section-heading ml-4">Amenities</h3>
         <ul>{myArrCreatedFromMap}</ul>
         </div>
-        <div style={{ height: "50vh", width: "50%" }}>
+        <div className="col-6 mt-5" style={{ height: "50vh", width: "50%" }}>
           <GoogleMapReact
             bootstrapURLKeys={{
               key: "AIzaSyA8es01yV0Zj8KiWKqnUeTljFGlrkT71Gs"
@@ -68,7 +108,16 @@ export const Detail = () => {
       {reviews.length > 0 && (
         <div className="container">
           <hr />
-          <h2>REVIEWS</h2>
+          <h3 className="section-heading text-uppercase">Reviews</h3>
+          
+          { loggedIn === true &&
+          <div>
+          {authenticated(addReview)}
+          { addReview === true &&
+          <ReviewForm />
+          }
+          </div>
+          }
           {reviews.map((review, index) => (
             <ReviewUI key={index} review={review} />
           ))}

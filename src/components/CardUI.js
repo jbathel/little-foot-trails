@@ -13,12 +13,12 @@ export default function Cards({ trailInstance }) {
   }
 
   return (
-    <div>
-      <div class="card m-3" style={{ width: "20rem" }}>
+    <div className="ml-4">
+      <div class="card m-3" style={{ width: "20rem", height: "23rem"}}>
         <img className="card-img-top" src={trailInstance.picture} alt="trail" />
         <div className="card-body">
           <h4 className="card-title">{trailInstance.name}</h4>
-          <p className="card-text text-muted">{trailInstance.description}</p>
+          <p className="card-text text-muted text-truncate">{trailInstance.description}</p>
           <Link to="/detail" className="btn btn-info" onClick={setTrailObject}>
             Explore
           </Link>

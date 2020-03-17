@@ -28,7 +28,8 @@ export const Results = () => {
   }, [trailTags]);
 
   return (
-    <div className="container">
+    <div className="container mb-5">
+            <h2 className="section-heading text-uppercase mt-5">Results</h2>
       {trails.length > 0 && (
         <div className="row">
           {trails.map((trail, index) => (

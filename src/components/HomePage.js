@@ -1,7 +1,9 @@
 import React from "react";
 import logo from "../images/lockup.png";
-import { Featured } from "./Featured";
 import { Search } from "./Search";
+import { FeaturedTrails } from "./FeaturedTrails";
+import { Features } from "./Features";
+import { AboutUs } from "./AboutUs";
 
 export const HomePage = () => {
 
@@ -19,15 +21,19 @@ export const HomePage = () => {
               />
             </div>
             <div className="col-md-10 col-md-10 col-md-10 mx-auto">
+            <h1 className="mt-1">Parenting Is An Adventure</h1>
               <Search />
-              <h1 className="mt-1">Parenting Is An Adventure</h1>
             </div>
           </div>
         </div>
       </header>
-      <div>
-        <Featured />
-      </div>
+      <body>
+        <div>
+          <FeaturedTrails/>
+          <Features />
+          <AboutUs />
+        </div>
+      </body>
     </div>
   );
 };

@@ -15,6 +15,8 @@ import { Redirect } from "react-router";
 
 import { Context } from "../Context";
 
+import { Context } from "../Context";
+
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -49,6 +51,9 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export const Login = () => {
+  const {
+    auth: [loggedIn, setLoggedIn]
+  } = useContext(Context);
   const classes = useStyles();
   const {
     auth: [loggedIn, setLoggedIn]
@@ -137,6 +142,7 @@ export const Login = () => {
             variant="contained"
             color="primary"
             className={classes.submit}
+            onClick={addToken}
           >
             Login
           </Button>

@@ -14,7 +14,7 @@ export let Navbar = () => {
     setLoggedIn(false);
   }
 
-  const loginOrGuest = loggedIn => {
+  const authenticated = loggedIn => {
     return !loggedIn ? (
       <div>
         <Link
@@ -75,13 +75,13 @@ export let Navbar = () => {
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/results">
+            <Link className="nav-link" to="/">
               Search
             </Link>
           </li>
         </ul>
         <form className="form-inline my-2 my-lg-0">
-          {loginOrGuest(loggedIn)}
+          {authenticated(loggedIn)}
         </form>
       </div>
     </nav>
