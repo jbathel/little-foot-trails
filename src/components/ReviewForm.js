@@ -65,11 +65,10 @@ export const ReviewForm = () => {
       } catch (error) {
           return error;
       }
+  }
 
   function handleFieldChange(fieldName, e) {
     reviewData[fieldName] = e.target.value;
-  }
-
   }
 
   return (

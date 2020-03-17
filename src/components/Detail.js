@@ -2,18 +2,19 @@ import React, { useState, useEffect, useContext } from "react";
 import { Search } from "./Search";
 import { ReviewUI } from "./ReviewUI";
 import { ReviewForm } from "./ReviewForm";
-import { Link } from "react-router-dom";
 import "./../marker.css";
+import Button from "@material-ui/core/Button";
 import GoogleMapReact from "google-map-react";
 
 import { Context } from "../Context";
 
 export const Detail = () => {
   const [reviews, setReviews] = useState([]);
-    const {
-        trail: [trail],
-        auth: [loggedIn]
-    } = useContext(Context)
+  const [addReview, setAddReview] = useState(false)
+  const {
+      trail: [trail],
+      auth: [loggedIn]
+  } = useContext(Context)
 
   useEffect(() => {
     async function fetchReviews() {
@@ -45,11 +46,18 @@ export const Detail = () => {
         }
     }
 
-    const authenticated = loggedIn => {
+    function openForm() {
+        let bool = addReview
+        bool = !bool
+        setAddReview(bool)
+    }
+
+    const authenticated = addReview => {
         return (
-          <Link to="/detail" className="btn btn-info" >
-            Add Review
-          </Link>
+            <Button className="btn btn-info" onClick={openForm}>
+            Add Revew
+            </Button>
+
         )
     }
 
@@ -101,8 +109,10 @@ export const Detail = () => {
           <h2>REVIEWS</h2>
           { loggedIn === true &&
           <div>
-          {authenticated(loggedIn)}
+          {authenticated(addReview)}
+          { addReview === true &&
           <ReviewForm />
+          }
           </div>
           }
           {reviews.map((review, index) => (
