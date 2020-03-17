@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -10,6 +10,9 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
+import { Redirect } from "react-router";
+
+import { Context } from "../Context";
 
 function Copyright() {
   return (
@@ -46,8 +49,51 @@ const useStyles = makeStyles(theme => ({
 
 export const Register = () => {
   const classes = useStyles();
+  const {
+    auth: [loggedIn, setLoggedIn]
+  } = useContext(Context);
 
-  return (
+  const registerData = {
+    email: '',
+    lastName: '',
+    firstName: '',
+    password1: '',
+    password2: ''
+  };
+
+  function handleRegister(e, data) {
+    // preventing the form from sending GET request with email and password in the URL
+    e.preventDefault();
+    fetch('user/create/', {
+			crossDomain : true,
+			withCredentials : true,
+			async : true,
+			method : 'POST',
+			headers : {
+				'Content-Type' : 'application/json',
+			},
+			body : JSON.stringify(data)
+		})
+		.then(response => response.json())
+		.then(json => {
+		    if (json.token) {
+                localStorage.setItem('token', json.access);
+                setLoggedIn(true);
+		    }
+		})
+		.catch(error => {
+			console.log("error during register", error);
+		})
+  }
+
+
+  function handleFieldChange(fieldName, e) {
+    registerData[fieldName] = e.target.value;
+  }
+
+  return loggedIn ? (
+    <Redirect path="/"/>
+  ) : (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
@@ -57,7 +103,7 @@ export const Register = () => {
         <Typography component="h1" variant="h5">
           Register
         </Typography>
-        <form className={classes.form} noValidate>
+        <form onSubmit={e => handleRegister(e, registerData)} className={classes.form} action="/" noValidate>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField
@@ -68,6 +114,9 @@ export const Register = () => {
                 fullWidth
                 id="firstName"
                 label="First Name"
+                onChange={e => {
+                    handleFieldChange('firstName', e);
+                }}
                 autoFocus
               />
             </Grid>
@@ -79,6 +128,9 @@ export const Register = () => {
                 id="lastName"
                 label="Last Name"
                 name="lastName"
+                onChange={e => {
+                    handleFieldChange('lastName', e);
+                }}
                 autoComplete="lname"
               />
             </Grid>
@@ -88,6 +140,9 @@ export const Register = () => {
                 required
                 fullWidth
                 id="email"
+                onChange={e => {
+                    handleFieldChange('email', e);
+                }}
                 label="Email Address"
                 name="email"
                 autoComplete="email"
@@ -103,6 +158,9 @@ export const Register = () => {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                onChange={e => {
+                    handleFieldChange('password1', e);
+                }}
               />
             </Grid>
             <Grid item xs={12}>
@@ -114,6 +172,9 @@ export const Register = () => {
                 label="Confirm Password"
                 type="password"
                 id="password"
+                onChange={e => {
+                    handleFieldChange('password2', e);
+                }}
                 autoComplete="current-password"
               />
             </Grid>

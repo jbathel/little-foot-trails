@@ -6,6 +6,7 @@ from rest_framework_simplejwt.views import (
     TokenRefreshView,
 )
 
+from user.views import get_current_user, CreateUserView
 from .views import index
 from trail.views import TrailViewSet
 from review.views import ReviewViewSet
@@ -26,5 +27,8 @@ urlpatterns = [
          TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/',
          TokenRefreshView.as_view(), name='token_refresh'),
+    path('current_user/', get_current_user),
+    path('user/create/', CreateUserView.as_view()),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) \
               + [re_path(r'^(?:.*)/?$', index, name='index')]

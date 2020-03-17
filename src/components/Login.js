@@ -1,4 +1,4 @@
-import React, { useContext }from "react";
+import React, { useContext } from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -47,17 +47,56 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export const Login = () => {
+  const classes = useStyles();
   const {
     auth: [loggedIn, setLoggedIn]
   } = useContext(Context);
-  const classes = useStyles();
+  const loginData = {
+    email: '',
+    password: ''
+  };
 
   function addToken() {
     localStorage.setItem("access", "token");
     setLoggedIn(true);
-  };
+  }
 
-  return (
+  function handleLogin(e, data) {
+    // preventing the form from sending GET request with email and password in the URL
+    e.preventDefault();
+    fetch('api/token/', {
+			crossDomain : true,
+			withCredentials : true,
+			async : true,
+			method : 'POST',
+			headers : {
+				'Content-Type' : 'application/json',
+			},
+			body : JSON.stringify(data)
+		})
+		.then(response => response.json())
+		.then(json => {
+		    if (json.access) {
+                localStorage.setItem('token', json.access);
+                setLoggedIn(true);
+		    }
+		})
+		.catch(error => {
+			console.log("error during login", error);
+		})
+  }
+
+  function handleEmailChange(e) {
+    loginData.email = e.target.value;
+  }
+
+  function handlePasswordChange(e) {
+    loginData.password = e.target.value;
+  }
+
+  return loggedIn ? (
+    <Redirect path="/"/>
+  ) : (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
@@ -67,7 +106,7 @@ export const Login = () => {
         <Typography component="h1" variant="h4">
           Login
         </Typography>
-        <form className={classes.form} noValidate>
+        <form onSubmit={e => handleLogin(e, loginData)} className={classes.form} action="/" noValidate>
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <TextField
@@ -77,6 +116,7 @@ export const Login = () => {
                 id="email"
                 label="Email Address"
                 name="email"
+                onChange={handleEmailChange}
                 autoComplete="email"
               />
             </Grid>
@@ -89,6 +129,7 @@ export const Login = () => {
                 label="Password"
                 type="password"
                 id="password"
+                onChange={handlePasswordChange}
                 autoComplete="current-password"
               />
             </Grid>
