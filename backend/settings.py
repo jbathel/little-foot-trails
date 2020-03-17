@@ -79,6 +79,7 @@ CORS_ORIGIN_WHITELIST = (
     'http://localhost:5000',
     'http://localhost:8000',
     'http://127.0.0.1:8000',
+    'http://127.0.0.1:3000',
     'https://little-foot-trails.herokuapp.com'
 )
 
@@ -196,3 +197,6 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'src', 'images', 'trail_images')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'index'

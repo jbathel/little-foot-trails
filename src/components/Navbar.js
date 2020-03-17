@@ -10,7 +10,7 @@ export let Navbar = () => {
   } = useContext(Context);
 
   function clearToken() {
-    localStorage.removeItem("access");
+    localStorage.removeItem("token");
     setLoggedIn(false);
   }
 
@@ -62,7 +62,6 @@ export let Navbar = () => {
       >
         <span className="navbar-toggler-icon"></span>
       </button>
-
       <div className="collapse navbar-collapse" id="navbarToggler">
         <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
           <li className="nav-item">
