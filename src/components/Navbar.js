@@ -10,7 +10,6 @@ export let Navbar = () => {
     aboutRef: aboutRef,
     featuresRef: featuresRef,
     scroll: handleScroll,
-    focus: onButtonClick
   } = useContext(Context);
 
   function clearToken() {
@@ -37,8 +36,6 @@ export let Navbar = () => {
       behavior: "instant"
     });
   };
-
-
 
   const authenticated = loggedIn => {
     return !loggedIn ? (
