@@ -21,10 +21,9 @@ body {
   margin: 0;
 }
 
-h2 {
+h2, h3 {
   color: #FDA216;
   font-weight: 600;
-  padding: 1rem;
 }
 
 .btn-info {

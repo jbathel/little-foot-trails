@@ -18,9 +18,8 @@ export const FeaturedTrails = () => {
 
   return (
     <div id="cards">
-      <h2>Featured Trails</h2>
-      <hr />
-      <div className="container">
+      <h2 className="section-heading text-uppercase text-center pt-4">Featured Trails</h2>
+      <div className="container pb-4">
         {trails.length > 0 && (
           <div className="row">
             {trails.map((trail, index) => (
