@@ -6,13 +6,39 @@ import { Context } from "../Context";
 
 export let Navbar = () => {
   const {
-    auth: [loggedIn, setLoggedIn]
+    auth: [loggedIn, setLoggedIn],
+    aboutRef: aboutRef,
+    featuresRef: featuresRef,
+    scroll: handleScroll,
+    focus: onButtonClick
   } = useContext(Context);
 
   function clearToken() {
     localStorage.removeItem("access");
     setLoggedIn(false);
   }
+
+  function aboutScroll(e) {
+    e.preventDefault();
+    const main = aboutRef.current;
+    window.scrollTo({
+      top: main.offsetTop,
+      left: 0,
+      behavior: "instant"
+    });
+  };
+
+  function featuresScroll(e) {
+    e.preventDefault();
+    const main = featuresRef.current;
+    window.scrollTo({
+      top: main.offsetTop,
+      left: 0,
+      behavior: "instant"
+    });
+  };
+
+
 
   const authenticated = loggedIn => {
     return !loggedIn ? (
@@ -71,8 +97,13 @@ export let Navbar = () => {
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/about">
+            <Link className="nav-link" onClick={aboutScroll} to="/about">
               About Us
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" onClick={featuresScroll} to="/features">
+              Features
             </Link>
           </li>
           <li className="nav-item">
