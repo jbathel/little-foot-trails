@@ -8,14 +8,14 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Navbar } from "./components/Navbar";
 import { HomePage } from "./components/HomePage";
 import { Footer } from "./components/Footer";
-import { AboutUs } from "./components/AboutUs";
+// import { AboutUs } from "./components/AboutUs";
 import { Results } from "./components/Results";
 import { Detail } from "./components/Detail";
 import { Login } from "./components/Login";
 import { Register } from "./components/Register";
 import { Context } from "./Context";
-import { FeaturedTrails } from "./components/FeaturedTrails";
-import { Features } from "./components/Features";
+// import { FeaturedTrails } from "./components/FeaturedTrails";
+// import { Features } from "./components/Features";
 
 function App() {
   const [trail, setTrail] = usePersistedState("trail", {});
