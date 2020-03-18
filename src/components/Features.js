@@ -83,7 +83,7 @@ export const Features = () => {
                     </div>
                     <div className="timeline-body mr-5">
                       <p className="text-muted">
-                        Once you see a trail that you like, click on 'Exploe' to find out more details about that particular trail.
+                        Once you see a trail that you like, click on 'Explore' to find out more details about that particular trail.
                       </p>
                     </div>
                   </div>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, createRef, useRef } from "react";
+import React, { useState, useEffect, createRef } from "react";
 import "./App.css";
 import { ThemeProvider } from "@material-ui/core/styles";
 import theme from "./theme";
@@ -19,9 +19,8 @@ function App() {
   const [trailTags, setTrailTags] = useState([]);
   const [checkReviews, setCheckReviews] = useState(false);
   const [loggedIn, setLoggedIn] = useJWTToken();
-  const ref = createRef();
-  const aboutRef = useRef(ref);
-  const featuresRef = useRef(ref);
+  const aboutRef = createRef();
+  const featuresRef = createRef();
 
   const store = {
     trail: [trail, setTrail],
