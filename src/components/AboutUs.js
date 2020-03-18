@@ -7,7 +7,7 @@ import { Context } from "../Context";
 
 export const AboutUs = () => {
   const {
-    aboutRef: aboutRef,
+    about: aboutRef,
   } = useContext(Context);
 
   return (

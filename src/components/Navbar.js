@@ -7,8 +7,8 @@ import { Context } from "../Context";
 export let Navbar = () => {
   const {
     auth: [loggedIn, setLoggedIn],
-    aboutRef: aboutRef,
-    featuresRef: featuresRef,
+    about: aboutRef,
+    features: featuresRef,
   } = useContext(Context);
 
   function clearToken() {

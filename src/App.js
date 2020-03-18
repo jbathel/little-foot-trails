@@ -27,8 +27,8 @@ function App() {
     reviews:[checkReviews, setCheckReviews],
     tags: [trailTags, setTrailTags],
     auth: [loggedIn, setLoggedIn],
-    aboutRef: aboutRef,
-    featuresRef: featuresRef,
+    about: aboutRef,
+    features: featuresRef,
   };
 
   function usePersistedState(key, defaultValue) {

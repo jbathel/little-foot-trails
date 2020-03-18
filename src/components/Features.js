@@ -8,7 +8,7 @@ import { Context } from "../Context";
 
 export const Features = () => {
   const {
-    featuresRef: featuresRef,
+    features: featuresRef,
   } = useContext(Context);
 
   return (
