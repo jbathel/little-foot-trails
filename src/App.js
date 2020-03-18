@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, createRef, useRef } from "react";
 import "./App.css";
 import { ThemeProvider } from "@material-ui/core/styles";
 import theme from "./theme";
@@ -8,26 +8,28 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Navbar } from "./components/Navbar";
 import { HomePage } from "./components/HomePage";
 import { Footer } from "./components/Footer";
-// import { AboutUs } from "./components/AboutUs";
 import { Results } from "./components/Results";
 import { Detail } from "./components/Detail";
 import { Login } from "./components/Login";
 import { Register } from "./components/Register";
 import { Context } from "./Context";
-// import { FeaturedTrails } from "./components/FeaturedTrails";
-// import { Features } from "./components/Features";
 
 function App() {
   const [trail, setTrail] = usePersistedState("trail", {});
   const [trailTags, setTrailTags] = useState([]);
   const [checkReviews, setCheckReviews] = useState(false);
   const [loggedIn, setLoggedIn] = useJWTToken();
+  const ref = createRef();
+  const aboutRef = useRef(ref);
+  const featuresRef = useRef(ref);
 
   const store = {
     trail: [trail, setTrail],
     reviews:[checkReviews, setCheckReviews],
     tags: [trailTags, setTrailTags],
-    auth: [loggedIn, setLoggedIn]
+    auth: [loggedIn, setLoggedIn],
+    aboutRef: aboutRef,
+    featuresRef: featuresRef,
   };
 
   function usePersistedState(key, defaultValue) {
@@ -61,7 +63,6 @@ function App() {
             <Navbar />
             <Switch>
               <Route exact path="/" component={HomePage} />
-              {/* <Route path="/about" component={AboutUs} /> */}
               <Route path="/results" render={props => <Results {...props} />} />
               <Route path="/detail" render={props => <Detail {...props} />} />
               <Route path="/login" component={Login} />
