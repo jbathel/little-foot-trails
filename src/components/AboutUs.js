@@ -46,10 +46,7 @@ export const AboutUs = () => {
               GitHub
             </a>
             <p className="text-justify m-3">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos
-              dicta est, ducimus ratione corporis, veritatis quasi commodi
-              quaerat natus magni minima unde vero voluptas expedita tenetur.
-              Sapiente amet aperiam eligendi.
+            Before moving to the US five years ago Banu was a technical translator/interpreter in Oil and Gas Sphere. Doing the Software Engineering program at Holberton School is helping Banu to pursue a long time dream of becoming an engineer. As of now Banu enjoys building backend systems and is passionate about solving challenging problems in the future.
             </p>
           </div>
           <div className="col-sm-4 text-center">
