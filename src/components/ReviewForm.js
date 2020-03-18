@@ -4,66 +4,43 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
-import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 
 import { Context } from "../Context";
 import theme from "../theme";
 
-const useStyles = makeStyles(theme => ({
-  paper: {
-    marginTop: theme.spacing(8),
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center"
-  },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main
-  },
-  form: {
-    width: "100%", // Fix IE 11 issue.
-    marginTop: theme.spacing(3)
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2)
-  }
-}));
-
 export const ReviewForm = () => {
   const {
       trail: [trail],
+      reviews:[checkReviews, setCheckReviews],
   } = useContext(Context)
-
-  const classes = useStyles();
 
   const reviewData = {
       name: '',
       review: '',
-      stars: '',
-      user: 'rmiyazaki11@ucsbalum.com',
-      trail: trail,
+      stars: 4,
+      user: 1,
+      trail: trail.id,
   }
 
-  async function createReview(e, data) {
+   async function createReview(e, data) {
       e.preventDefault();
-      let token = localStorage.getItem('access');
-      const settings = {
+      const token = localStorage.getItem('token');
+      await fetch('http://localhost:8000/api/reviews/', {
           method: 'POST',
+          cache: 'default',
           headers: {
-              Accept: 'application/json',
-              'Content-Type': 'application/json',
-              Authorization: 'Bearer ' + token,
+              'Content-Type': 'application/json;charset=utf-8',
+              'Authorization': 'Bearer ' + token,
           },
-          body : JSON.stringify(data),
-      };
-      try {
-          const response = await fetch('http://localhost:8000/api/reviews/', settings);
-          const data = await response.json();
-          return data;
-      } catch (error) {
-          return error;
-      }
+          body: JSON.stringify(data),
+      })
+		.catch(error => {
+			console.log("error during login", error);
+		});
+        let bool = checkReviews;
+        bool = !bool;
+        setCheckReviews(bool)
   }
 
   function handleFieldChange(fieldName, e) {
@@ -111,7 +88,6 @@ export const ReviewForm = () => {
             variant="contained"
             color="primary"
             className={theme.submit}
-            onClick={createReview}
           >
             Submit
           </Button>

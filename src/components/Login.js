@@ -57,23 +57,17 @@ export const Login = () => {
     password: ''
   };
 
-  function addToken() {
-    localStorage.setItem("access", "token");
-    setLoggedIn(true);
-  }
-
   function handleLogin(e, data) {
-    // preventing the form from sending GET request with email and password in the URL
     e.preventDefault();
     fetch('api/token/', {
-			crossDomain : true,
-			withCredentials : true,
-			async : true,
-			method : 'POST',
-			headers : {
+			crossDomain: true,
+			withCredentials: true,
+			async: true,
+			method: 'POST',
+			headers: {
 				'Content-Type' : 'application/json',
 			},
-			body : JSON.stringify(data)
+			body: JSON.stringify(data)
 		})
 		.then(response => response.json())
 		.then(json => {
@@ -141,7 +135,6 @@ export const Login = () => {
             variant="contained"
             color="primary"
             className={classes.submit}
-            onClick={addToken}
           >
             Login
           </Button>

@@ -14,6 +14,7 @@ export const Detail = () => {
   const [addReview, setAddReview] = useState(false)
   const {
       trail: [trail],
+      reviews:[checkReviews],
       auth: [loggedIn]
   } = useContext(Context)
 
@@ -26,26 +27,7 @@ export const Detail = () => {
       setReviews(reviews);
     }
     fetchReviews();
-  }, [trail.id]);
-
-    async function createReview() {
-        let token = localStorage.getItem('access');
-        const settings = {
-            method: 'POST',
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
-                Authorization: 'Bearer ' + token,
-            }
-        };
-        try {
-            const response = await fetch('http://localhost:8000/api/reviews/', settings);
-            const data = await response.json();
-            return data;
-        } catch (error) {
-            return error;
-        }
-    }
+  }, [trail.id, checkReviews]);
 
     function openForm() {
         let bool = addReview
@@ -105,11 +87,9 @@ export const Detail = () => {
           </GoogleMapReact>
         </div>
       </div>
-      {reviews.length > 0 && (
         <div className="container">
           <hr />
           <h3 className="section-heading text-uppercase">Reviews</h3>
-          
           { loggedIn === true &&
           <div>
           {authenticated(addReview)}
@@ -118,12 +98,15 @@ export const Detail = () => {
           }
           </div>
           }
+        {reviews.length > 0 && (
+         <div>
           {reviews.map((review, index) => (
             <ReviewUI key={index} review={review} />
           ))}
           <hr />
+          </div>
+        )}
         </div>
-      )}
       <div className="container mb-5">
         <Search />
       </div>

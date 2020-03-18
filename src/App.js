@@ -20,10 +20,12 @@ import { Context } from "./Context";
 function App() {
   const [trail, setTrail] = usePersistedState("trail", {});
   const [trailTags, setTrailTags] = useState([]);
+  const [checkReviews, setCheckReviews] = useState(false);
   const [loggedIn, setLoggedIn] = useJWTToken();
 
   const store = {
     trail: [trail, setTrail],
+    reviews:[checkReviews, setCheckReviews],
     tags: [trailTags, setTrailTags],
     auth: [loggedIn, setLoggedIn]
   };

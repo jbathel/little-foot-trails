@@ -62,10 +62,6 @@ export const Search = () => {
     setTrailTags(event.target.value);
   }
 
-  // function clearTrailTags() {
-  //   setTrailTags([]);
-  // }
-
   return (
     <div className={classes.root}>
       <FormControl className={classes.formControl}>
@@ -93,7 +89,6 @@ export const Search = () => {
         variant="contained"
         color="primary"
         className={classes.submit}
-        // onClick={clearTrailTags}
       >
         Find Your Trail
       </Button>
