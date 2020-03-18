@@ -1,15 +1,8 @@
-import React, { useContext }from "react";
+import React from "react";
 import logoComp from "../images/LogoComp.png";
-import { Link } from "react-router-dom";
-
-import { Context } from "../Context";
+import { HashLink as Link } from 'react-router-hash-link';
 
 export const Footer = () => {
-  const {
-    aboutScroll: goAbout,
-    featuresScroll: goFeatures,
-  } = useContext(Context);
-
 
   return (
     <footer className="footer" style={{ height: "auto" }}>
@@ -31,16 +24,16 @@ export const Footer = () => {
                 Sitemap
               </h6>
               <hr className="hr-primary" />
-              <Link to="/">
+              <Link to="/#navbar">
                 <li className="list-group-item">Home</li>
               </Link>
               <Link to="/login">
                 <li className="list-group-item">Login</li>
               </Link>
-              <Link onClick={goAbout} to="/about">
+              <Link to="/#aboutus">
                 <li className="list-group-item">About Us</li>
               </Link>
-              <Link onClick={goFeatures} to="/features">
+              <Link to="/#features">
                 <li className="list-group-item">Features</li>
               </Link>
             </ul>

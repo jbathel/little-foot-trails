@@ -1,4 +1,4 @@
-import React, { useState, useEffect, createRef } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import { ThemeProvider } from "@material-ui/core/styles";
 import theme from "./theme";
@@ -19,18 +19,12 @@ function App() {
   const [trailTags, setTrailTags] = useState([]);
   const [checkReviews, setCheckReviews] = useState(false);
   const [loggedIn, setLoggedIn] = useJWTToken();
-  const aboutRef = createRef();
-  const featuresRef = createRef();
 
   const store = {
     trail: [trail, setTrail],
     reviews:[checkReviews, setCheckReviews],
     tags: [trailTags, setTrailTags],
     auth: [loggedIn, setLoggedIn],
-    about: aboutRef,
-    features: featuresRef,
-    aboutScroll: goAbout,
-    featuresScroll: goFeatures,
   };
 
   function usePersistedState(key, defaultValue) {
@@ -55,26 +49,6 @@ function App() {
     }, [state, token]);
     return [state, setState];
   }
-
-  function goAbout(e) {
-    e.preventDefault();
-    const main = aboutRef.current;
-    window.scrollTo({
-      top: main.offsetTop,
-      left: 0,
-      behavior: "instant"
-    });
-  };
-
-  function goFeatures(e) {
-    e.preventDefault();
-    const main = featuresRef.current;
-    window.scrollTo({
-      top: main.offsetTop,
-      left: 0,
-      behavior: "instant"
-    });
-  };
 
   return (
     <Context.Provider value={store}>

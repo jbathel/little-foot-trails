@@ -1,14 +1,12 @@
 import React, { useContext } from "react";
 import logo from "../images/wordmark.png";
-import { Link } from "react-router-dom";
+import { HashLink as Link } from 'react-router-hash-link';
 
 import { Context } from "../Context";
 
 export let Navbar = () => {
   const {
     auth: [loggedIn, setLoggedIn],
-    aboutScroll: goAbout,
-    featuresScroll: goFeatures,
   } = useContext(Context);
 
   function clearToken() {
@@ -49,7 +47,7 @@ export let Navbar = () => {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark">
+    <nav className="navbar navbar-expand-lg navbar-dark" id="navbar">
       <Link className="navbar-brand" to="/">
         <img src={logo} alt="wordmark" style={{ height: "25px" }} />
       </Link>
@@ -72,12 +70,12 @@ export let Navbar = () => {
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" onClick={goAbout} to="/about">
+            <Link className="nav-link" to="/#aboutus">
               About Us
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" onClick={goFeatures} to="/features">
+            <Link className="nav-link" to="/#features">
               Features
             </Link>
           </li>
