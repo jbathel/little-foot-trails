@@ -93,7 +93,7 @@ export const Search = () => {
         variant="contained"
         color="primary"
         className={classes.submit}
-        onClick={clearTrailTags}
+        // onClick={clearTrailTags}
       >
         Find Your Trail
       </Button>
