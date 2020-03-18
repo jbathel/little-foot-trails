@@ -60,14 +60,14 @@ export const Login = () => {
   function handleLogin(e, data) {
     e.preventDefault();
     fetch('api/token/', {
-			crossDomain : true,
-			withCredentials : true,
-			async : true,
-			method : 'POST',
-			headers : {
+			crossDomain: true,
+			withCredentials: true,
+			async: true,
+			method: 'POST',
+			headers: {
 				'Content-Type' : 'application/json',
 			},
-			body : JSON.stringify(data)
+			body: JSON.stringify(data)
 		})
 		.then(response => response.json())
 		.then(json => {

@@ -9,7 +9,6 @@ import Container from "@material-ui/core/Container";
 import { Context } from "../Context";
 import theme from "../theme";
 
-
 export const ReviewForm = () => {
   const {
       trail: [trail],
@@ -28,14 +27,13 @@ export const ReviewForm = () => {
       const token = localStorage.getItem('token');
       console.log(reviewData)
       const response = await fetch('http://localhost:8000/api/reviews/', {
-		  crossDomain : true,
-		  withCredentials : true,
           method: 'POST',
+          cache: 'default',
           headers: {
               'Content-Type': 'application/json',
               'Authorization': 'Bearer ' + token,
           },
-          body : JSON.stringify(data),
+          body: JSON.stringify(data),
       })
 		.then(response => response.json())
 		.catch(error => {
