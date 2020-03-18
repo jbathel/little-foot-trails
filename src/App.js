@@ -63,8 +63,8 @@ function App() {
             <Navbar />
             <Switch>
               <Route exact path="/" component={HomePage} />
-              <Route path="/results" render={props => <Results {...props} />} />
-              <Route path="/detail" render={props => <Detail {...props} />} />
+              <Route path="/results" component={Results}  />
+              <Route path="/detail" component={Detail} />
               <Route path="/login" component={Login} />
               <Route path="/register" component={Register} />
             </Switch>
