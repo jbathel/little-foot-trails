@@ -1,8 +1,9 @@
 import React from "react";
 import logoComp from "../images/LogoComp.png";
-import { Link } from "react-router-dom";
+import { HashLink as Link } from 'react-router-hash-link';
 
 export const Footer = () => {
+
   return (
     <footer className="footer" style={{ height: "auto" }}>
       <div className="container">
@@ -23,14 +24,17 @@ export const Footer = () => {
                 Sitemap
               </h6>
               <hr className="hr-primary" />
-              <Link to="/">
+              <Link to="/#navbar">
                 <li className="list-group-item">Home</li>
               </Link>
               <Link to="/login">
                 <li className="list-group-item">Login</li>
               </Link>
-              <Link to="/about">
+              <Link to="/#aboutus">
                 <li className="list-group-item">About Us</li>
+              </Link>
+              <Link to="/#features">
+                <li className="list-group-item">Features</li>
               </Link>
             </ul>
           </div>

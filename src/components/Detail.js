@@ -58,7 +58,7 @@ export const Detail = () => {
     );
   };
 
-  const myArrCreatedFromMap = trail.tags.map((item, i) => (
+  const amenities = trail.tags.map((item, i) => (
     <li className="list-group-item" key={item + i}>{item}</li>
   ));
 
@@ -73,7 +73,7 @@ export const Detail = () => {
         <div className="w-100"></div>
         <div className="col-6 list-group list-group-flush">
           <h3 className="section-heading ml-4">Amenities</h3>
-        <ul>{myArrCreatedFromMap}</ul>
+        <ul>{amenities}</ul>
         </div>
         <div className="col-6 mt-5" style={{ height: "50vh", width: "50%" }}>
           <GoogleMapReact
@@ -100,7 +100,7 @@ export const Detail = () => {
           }
         {reviews.length > 0 && (
          <div>
-          {reviews.map((review, index) => (
+          {reviews.slice(0).reverse().map((review, index) => (
             <ReviewUI key={index} review={review} />
           ))}
           <hr />

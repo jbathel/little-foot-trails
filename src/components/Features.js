@@ -8,7 +8,7 @@ import { Context } from "../Context";
 
 export const Features = () => {
   const {
-    featuresRef: featuresRef,
+    features: featuresRef,
   } = useContext(Context);
 
   return (
@@ -18,7 +18,7 @@ export const Features = () => {
           <div className="row">
             <div className="col-lg-12 text-center">
                 <br />
-              <h2 className="section-heading text-uppercase">About</h2>
+              <h2 className="section-heading text-uppercase" id="features">Features</h2>
               <h3 className="section-subheading text-muted">
                 Little Foots Trails is about helping families find more ways to be adventerous and outside. We strive to promote a sense of community, bringing parents and caregivers together with a common goal.
               </h3>

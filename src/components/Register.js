@@ -196,7 +196,7 @@ export const Register = () => {
           <Grid container justify="flex-end">
             <Grid item>
               <Link href="/login" variant="body2">
-                Alread have an account? Login
+                Already have an account? Login
               </Link>
             </Grid>
           </Grid>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, createRef } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import { ThemeProvider } from "@material-ui/core/styles";
 import theme from "./theme";
@@ -19,16 +19,12 @@ function App() {
   const [trailTags, setTrailTags] = useState([]);
   const [checkReviews, setCheckReviews] = useState(false);
   const [loggedIn, setLoggedIn] = useJWTToken();
-  const aboutRef = createRef();
-  const featuresRef = createRef();
 
   const store = {
     trail: [trail, setTrail],
     reviews:[checkReviews, setCheckReviews],
     tags: [trailTags, setTrailTags],
     auth: [loggedIn, setLoggedIn],
-    aboutRef: aboutRef,
-    featuresRef: featuresRef,
   };
 
   function usePersistedState(key, defaultValue) {

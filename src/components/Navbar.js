@@ -1,40 +1,18 @@
 import React, { useContext } from "react";
 import logo from "../images/wordmark.png";
-import { Link } from "react-router-dom";
+import { HashLink as Link } from 'react-router-hash-link';
 
 import { Context } from "../Context";
 
 export let Navbar = () => {
   const {
     auth: [loggedIn, setLoggedIn],
-    aboutRef: aboutRef,
-    featuresRef: featuresRef,
   } = useContext(Context);
 
   function clearToken() {
     localStorage.removeItem("token");
     setLoggedIn(false);
   }
-
-  function aboutScroll(e) {
-    e.preventDefault();
-    const main = aboutRef.current;
-    window.scrollTo({
-      top: main.offsetTop,
-      left: 0,
-      behavior: "instant"
-    });
-  };
-
-  function featuresScroll(e) {
-    e.preventDefault();
-    const main = featuresRef.current;
-    window.scrollTo({
-      top: main.offsetTop,
-      left: 0,
-      behavior: "instant"
-    });
-  };
 
   const authenticated = loggedIn => {
     return !loggedIn ? (
@@ -69,7 +47,7 @@ export let Navbar = () => {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark">
+    <nav className="navbar navbar-expand-lg navbar-dark" id="navbar">
       <Link className="navbar-brand" to="/">
         <img src={logo} alt="wordmark" style={{ height: "25px" }} />
       </Link>
@@ -92,12 +70,12 @@ export let Navbar = () => {
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" onClick={aboutScroll} to="/about">
+            <Link className="nav-link" to="/#aboutus">
               About Us
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" onClick={featuresScroll} to="/features">
+            <Link className="nav-link" to="/#features">
               Features
             </Link>
           </li>
