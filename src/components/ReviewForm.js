@@ -12,6 +12,7 @@ import theme from "../theme";
 export const ReviewForm = () => {
   const {
       trail: [trail],
+      reviews:[checkReviews, setCheckReviews],
   } = useContext(Context)
 
   const reviewData = {
@@ -25,7 +26,7 @@ export const ReviewForm = () => {
    async function createReview(e, data) {
       e.preventDefault();
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:8000/api/reviews/', {
+      await fetch('http://localhost:8000/api/reviews/', {
           method: 'POST',
           cache: 'default',
           headers: {
@@ -34,10 +35,12 @@ export const ReviewForm = () => {
           },
           body: JSON.stringify(data),
       })
-		.then(response => response.json())
 		.catch(error => {
 			console.log("error during login", error);
-		})
+		});
+        let bool = checkReviews;
+        bool = !bool;
+        setCheckReviews(bool)
   }
 
   function handleFieldChange(fieldName, e) {

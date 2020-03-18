@@ -14,6 +14,7 @@ export const Detail = () => {
   const [addReview, setAddReview] = useState(false)
   const {
       trail: [trail],
+      reviews:[checkReviews],
       auth: [loggedIn]
   } = useContext(Context)
 
@@ -26,7 +27,7 @@ export const Detail = () => {
       setReviews(reviews);
     }
     fetchReviews();
-  }, [trail.id]);
+  }, [trail.id, checkReviews]);
 
     function openForm() {
         let bool = addReview
