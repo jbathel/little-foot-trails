@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useContext }from "react";
 import logoComp from "../images/LogoComp.png";
 import { Link } from "react-router-dom";
 
+import { Context } from "../Context";
+
 export const Footer = () => {
+  const {
+    aboutScroll: goAbout,
+    featuresScroll: goFeatures,
+  } = useContext(Context);
+
+
   return (
     <footer className="footer" style={{ height: "auto" }}>
       <div className="container">
@@ -29,8 +37,11 @@ export const Footer = () => {
               <Link to="/login">
                 <li className="list-group-item">Login</li>
               </Link>
-              <Link to="/about">
+              <Link onClick={goAbout} to="/about">
                 <li className="list-group-item">About Us</li>
+              </Link>
+              <Link onClick={goFeatures} to="/features">
+                <li className="list-group-item">Features</li>
               </Link>
             </ul>
           </div>

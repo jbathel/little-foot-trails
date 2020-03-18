@@ -29,6 +29,8 @@ function App() {
     auth: [loggedIn, setLoggedIn],
     about: aboutRef,
     features: featuresRef,
+    aboutScroll: goAbout,
+    featuresScroll: goFeatures,
   };
 
   function usePersistedState(key, defaultValue) {
@@ -53,6 +55,26 @@ function App() {
     }, [state, token]);
     return [state, setState];
   }
+
+  function goAbout(e) {
+    e.preventDefault();
+    const main = aboutRef.current;
+    window.scrollTo({
+      top: main.offsetTop,
+      left: 0,
+      behavior: "instant"
+    });
+  };
+
+  function goFeatures(e) {
+    e.preventDefault();
+    const main = featuresRef.current;
+    window.scrollTo({
+      top: main.offsetTop,
+      left: 0,
+      behavior: "instant"
+    });
+  };
 
   return (
     <Context.Provider value={store}>
