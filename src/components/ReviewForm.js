@@ -25,12 +25,11 @@ export const ReviewForm = () => {
    async function createReview(e, data) {
       e.preventDefault();
       const token = localStorage.getItem('token');
-      console.log(reviewData)
       const response = await fetch('http://localhost:8000/api/reviews/', {
           method: 'POST',
           cache: 'default',
           headers: {
-              'Content-Type': 'application/json',
+              'Content-Type': 'application/json;charset=utf-8',
               'Authorization': 'Bearer ' + token,
           },
           body: JSON.stringify(data),
@@ -86,7 +85,6 @@ export const ReviewForm = () => {
             variant="contained"
             color="primary"
             className={theme.submit}
-            onClick={createReview}
           >
             Submit
           </Button>
