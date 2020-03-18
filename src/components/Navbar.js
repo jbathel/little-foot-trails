@@ -9,7 +9,6 @@ export let Navbar = () => {
     auth: [loggedIn, setLoggedIn],
     aboutRef: aboutRef,
     featuresRef: featuresRef,
-    scroll: handleScroll,
   } = useContext(Context);
 
   function clearToken() {

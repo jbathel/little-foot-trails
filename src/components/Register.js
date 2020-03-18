@@ -39,7 +39,7 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.secondary.main
   },
   form: {
-    width: "100%", // Fix IE 11 issue.
+    width: "100%",
     marginTop: theme.spacing(3)
   },
   submit: {
@@ -62,7 +62,6 @@ export const Register = () => {
   };
 
   function handleRegister(e, data) {
-    // preventing the form from sending GET request with email and password in the URL
     e.preventDefault();
     fetch('user/create/', {
 			crossDomain : true,
