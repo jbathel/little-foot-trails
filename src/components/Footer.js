@@ -1,6 +1,7 @@
 import React from "react";
 import logoComp from "../images/LogoComp.png";
-import { HashLink as Link } from 'react-router-hash-link';
+import { Link } from "react-router-dom";
+import { HashLink } from 'react-router-hash-link';
 
 export const Footer = () => {
 
@@ -30,12 +31,12 @@ export const Footer = () => {
               <Link to="/login">
                 <li className="list-group-item">Login</li>
               </Link>
-              <Link to="/#aboutus">
+              <HashLink to="/#aboutus">
                 <li className="list-group-item">About Us</li>
-              </Link>
-              <Link to="/#features">
+              </HashLink>
+              <HashLink to="/#features">
                 <li className="list-group-item">Features</li>
-              </Link>
+              </HashLink>
             </ul>
           </div>
           <div className="col-2 mt-1">

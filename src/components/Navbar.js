@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import logo from "../images/wordmark.png";
-import { HashLink as Link } from 'react-router-hash-link';
+import { Link } from "react-router-dom";
+import { HashLink } from 'react-router-hash-link';
 
 import { Context } from "../Context";
 
@@ -70,14 +71,14 @@ export let Navbar = () => {
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/#aboutus">
+            <HashLink className="nav-link" to="/#aboutus">
               About Us
-            </Link>
+            </HashLink>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/#features">
+            <HashLink className="nav-link" to="/#features">
               Features
-            </Link>
+            </HashLink>
           </li>
           <li className="nav-item">
             <Link className="nav-link" to="/">
