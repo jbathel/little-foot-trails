@@ -26,7 +26,7 @@ export const ReviewForm = () => {
    async function createReview(e, data) {
       e.preventDefault();
       const token = localStorage.getItem('token');
-      await fetch('http://localhost:8000/api/reviews/', {
+      await fetch('https://little-foot-trails.herokuapp.com/api/reviews/', {
           method: 'POST',
           cache: 'default',
           headers: {
