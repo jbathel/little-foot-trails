@@ -20,7 +20,7 @@ export const Results = () => {
   useEffect(() => {
     async function fetchTrails() {
       let query = makeQuery(trailTags, "tags");
-      const results = await fetch("http://localhost:8000/api/trails/?" + query);
+      const results = await fetch("https://little-foot-trails.herokuapp.com/api/trails/?" + query);
       const trails = await results.json();
       setTrails(trails);
     }
