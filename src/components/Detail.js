@@ -21,7 +21,7 @@ export const Detail = () => {
   useEffect(() => {
     async function fetchReviews() {
       const results = await fetch(
-        "http://localhost:8000/api/reviews/?trail=" + trail.id
+        "https://little-foot-trails.herokuapp.com/api/reviews/?trail=" + trail.id
       );
       const reviews = await results.json();
       setReviews(reviews);
