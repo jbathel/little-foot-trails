@@ -30,7 +30,7 @@ export const AboutUs = () => {
             <img className="img-thumbnail" src={ryu} alt="Ryuichi's headshot" />
             <h4>Ryuichi Miyazaki</h4>
             <a
-              href="https://github.com/banuaksom"
+              href="https://github.com/rmiyazaki6499"
               target="blank"
               className="btn btn-lg btn-info"
             >
