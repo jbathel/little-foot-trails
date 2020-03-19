@@ -18,14 +18,16 @@ export const Detail = () => {
         setAddReview] = useState(false)
     const {trail: [trail], reviews: [checkReviews], auth: [loggedIn]} = useContext(Context)
 
-    useEffect(() => {
-        async function fetchReviews() {
-            const results = await fetch("http://localhost:8000/api/reviews/?trail=" + trail.id);
-            const reviews = await results.json();
-            setReviews(reviews);
-        }
-        fetchReviews();
-    }, [trail.id, checkReviews]);
+  useEffect(() => {
+    async function fetchReviews() {
+      const results = await fetch(
+        "https://little-foot-trails.herokuapp.com/api/reviews/?trail=" + trail.id
+      );
+      const reviews = await results.json();
+      setReviews(reviews);
+    }
+    fetchReviews();
+  }, [trail.id, checkReviews]);
 
     /**
      * flips the value of addReview
