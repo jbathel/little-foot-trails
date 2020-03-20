@@ -65,7 +65,7 @@ export const Search = () => {
   return (
     <div className={classes.root}>
       <FormControl className={classes.formControl}>
-        <InputLabel htmlFor="select-multiple-checkbox">Tag</InputLabel>
+        <InputLabel htmlFor="select-multiple-checkbox">Amenities</InputLabel>
         <Select
           multiple
           value={trailTags}
