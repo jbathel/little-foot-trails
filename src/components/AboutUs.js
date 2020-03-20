@@ -16,12 +16,6 @@ export const AboutUs = () => {
         <div className="row justify-content-center">
           <div className="col-lg-12 text-center">
             <h2 className="section-heading text-uppercase text-center pt-4">Our Adventurous Team</h2>
-            <h6 className="section-subheading text-muted mb-4 ml-5 mr-5">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo
-              provident ipsam nisi odio autem nihil pariatur hic aperiam
-              voluptates voluptas modi exercitationem magni culpa, natus quis
-              fugit laboriosam! Velit, expedita!
-            </h6>
           </div>
         </div>
         <div className="row pb-4">
