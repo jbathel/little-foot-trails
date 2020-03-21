@@ -8,7 +8,6 @@
 - [Technologies](#technologies)
 - [Setup](#setup)
 - [Features](#features)
-- [Inspiration](#inspiration)
 - [Contact](#contact)
 
 ## Motivations
@@ -27,7 +26,7 @@ As a group with two mothers who enjoy being active with their families we wanted
 
 <p align="center">Home Page</p>
 
-![Home Page](https://github.com/jbathel/little-foot-trails/blob/readme/src/images/HomePage.png "Home Page")
+![Home Page](https://github.com/jbathel/little-foot-trails/blob/readme/src/images/homepage.png "Home Page")
 
 <p align="center">Results Page</p>
 
@@ -51,16 +50,18 @@ As a group with two mothers who enjoy being active with their families we wanted
 ![Tech Stack](https://github.com/jbathel/little-foot-trails/blob/readme/src/images/tech_stack.png "Tech Stack")
 
 
-## Local Setup
+## Setup
 
-```
 Running the Django Server
+```
 python3 -m venv env
 source env/bin/activate
 pip install -r requirements.txt
 python3 manage.py runserver
+```
 
 Running the React Server
+```
 npm install
 npm start
 ```
@@ -107,16 +108,17 @@ export const Results = () => {
 
 ## Features
 
-- Users can be authenticated using Google Sign-In or by creating a new account
-- Cart data persists throughout browser sessions using localStorage
-- Payments are handled via external Stripe API
-- Clothing/accessory models are stored in Mongo and retrieved dynamically
+- Our Search bar allows you to filter Trails by Family friendly Amenities 
+- Users are authenticated using JWT Tokens 
+- Authenticated users are able to leave a Review on a Trail 
+- Detailed Trail data persists throughout browser sessions using localStorage
+- Each Trail has a interactive Map provided by Google Maps API 
 
 Considerations for improvement: 
 
-- Expand inventory models with options for stock quantity, size, alt angles
-- Save cart persistence on database for logged in users
-- Better pop-up messages for error handling
+- Have authenticated users be able to edit and delete their own Reviews 
+- Update styling for the Search bar 
+- Creating a User profile 
 
 ## Landing Page and Deployment
 
@@ -125,9 +127,6 @@ Landing page: [here](https://little-foot-trails.herokuapp.com/#features)
 Project is deployed on Heroku!
 
 [Little Foot Trails](https://little-foot-trails.herokuapp.com)
-
-## Inspiration
-
 
 
 ## Contact
