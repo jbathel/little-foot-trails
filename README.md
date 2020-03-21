@@ -1,5 +1,6 @@
 # ![Logo](https://github.com/jbathel/little-foot-trails/blob/readme/src/images/LogoComp.png "Little Foot Trails") 
 
+Welcome to Little Foot Trails an app to help parents and caregivers get outside more with their kids. Because parenting is an adventure.
 
 ## Table of Contents
 
