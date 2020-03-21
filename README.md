@@ -1,14 +1,13 @@
-# ![Logo]() 
+# ![Logo](https://github.com/jbathel/little-foot-trails/blob/readme/src/images/LogoComp.png "Little Foot Trails") 
 
 
-## Table of contents
+## Table of Contents
 
 - [Motivations](#motivations)
 - [Screenshots](#screenshots)
 - [Technologies](#technologies)
 - [Setup](#setup)
 - [Features](#features)
-- [Status](#status)
 - [Inspiration](#inspiration)
 - [Contact](#contact)
 
@@ -28,44 +27,40 @@ As a group with two mothers who enjoy being active with their families we wanted
 
 <p align="center">Home Page</p>
 
-![Home Page]()
+![Home Page](https://github.com/jbathel/little-foot-trails/blob/readme/src/images/HomePage.png "Home Page")
 
 <p align="center">Results Page</p>
 
-![Results Page]()
+![Results Page](https://github.com/jbathel/little-foot-trails/blob/readme/src/images/results.png "results")
 
 <p align="center">Detail Page</p>
 
-![Detail Page]()
+![Detail Page](https://github.com/jbathel/little-foot-trails/blob/readme/src/images/details_feature.png "Details Feature")
+
+<p align="center">Map</p>
+
+![Detail Page](https://github.com/jbathel/little-foot-trails/blob/readme/src/images/map_feature.png "Map")
 
 ## Technologies
 
 ### Architecture
 
-![Tech Stack]()
+![Architecture]()
 
-### Libraries and tools
+### Tech Stack
+![Tech Stack](https://github.com/jbathel/little-foot-trails/blob/readme/src/images/tech_stack.png "Tech Stack")
 
-![Libraries and tools]()
-
-### GraphQL
-
-GraphQL is a query language for APIs and a runtime for fulfilling queries with existing data. In our application, we used it as an API to fetch data from our MongoDB database.
-
-You can play with GraphQL on the playground [here](https://banksyco.tk/).
-
-Here is how playground looks like with `query` example:
-
-![GQL Playground Example](https://i.imgur.com/zCnBdQ8.png)
 
 ## Local Setup
 
 ```
+Running the Django Server
 python3 -m venv env
 source env/bin/activate
 pip install -r requirements.txt
 python3 manage.py runserver
 
+Running the React Server
 npm install
 npm start
 ```
