@@ -1,68 +1,144 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# ![Logo]() 
 
-## Available Scripts
 
-In the project directory, you can run:
+## Table of contents
 
-### `npm start`
+- [Motivations](#motivations)
+- [Screenshots](#screenshots)
+- [Technologies](#technologies)
+- [Setup](#setup)
+- [Features](#features)
+- [Status](#status)
+- [Inspiration](#inspiration)
+- [Contact](#contact)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Motivations
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+As a group with two mothers who enjoy being active with their families we wanted to create something that would help kids and families be more active.
 
-### `npm test`
+- Each member learning learning an Framework of interest
+  - React
+    - Functional Components
+    - Hooks
+    - Context API
+  - Django
+    - Django Rest Framework
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Screenshots
 
-### `npm run build`
+<p align="center">Home Page</p>
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![Home Page]()
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+<p align="center">Results Page</p>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![Results Page]()
 
-### `npm run eject`
+<p align="center">Detail Page</p>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+![Detail Page]()
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Technologies
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Architecture
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+![Tech Stack]()
 
-## Learn More
+### Libraries and tools
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![Libraries and tools]()
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### GraphQL
 
-### Code Splitting
+GraphQL is a query language for APIs and a runtime for fulfilling queries with existing data. In our application, we used it as an API to fetch data from our MongoDB database.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+You can play with GraphQL on the playground [here](https://banksyco.tk/).
 
-### Analyzing the Bundle Size
+Here is how playground looks like with `query` example:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+![GQL Playground Example](https://i.imgur.com/zCnBdQ8.png)
 
-### Making a Progressive Web App
+## Local Setup
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+```
+python3 -m venv env
+source env/bin/activate
+pip install -r requirements.txt
+python3 manage.py runserver
 
-### Advanced Configuration
+npm install
+npm start
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+### Building
 
-### Deployment
+Build script will create a `build` directory with a compiled JavaScript code which will be compatible with most modern browsers. We are using `create-react-app` as a starting point in our app.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+```
+npm run build
+```
 
-### `npm run build` fails to minify
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Code Examples
+
+All components are functional and written in Javascript:
+We used Context API to 'fetch' global variables 
+
+```javascript
+export const Results = () => {
+  const [trails, setTrails] = useState([]);
+  const {
+    tags: [trailTags]
+  } = useContext(Context);
+
+  function makeQuery(array, param) {
+    let jsonObject = Object.assign({}, array);
+    var queryString = Object.keys(jsonObject)
+      .map(key => param + "=" + jsonObject[key])
+      .join("&");
+    return queryString;
+  }
+
+  useEffect(() => {
+    async function fetchTrails() {
+      let query = makeQuery(trailTags, "tags");
+      const results = await fetch("http://localhost:8000/api/trails/?" + query);
+      const trails = await results.json();
+      setTrails(trails);
+    }
+    fetchTrails();
+  }, [trailTags]);
+```
+
+## Features
+
+- Users can be authenticated using Google Sign-In or by creating a new account
+- Cart data persists throughout browser sessions using localStorage
+- Payments are handled via external Stripe API
+- Clothing/accessory models are stored in Mongo and retrieved dynamically
+
+Considerations for improvement: 
+
+- Expand inventory models with options for stock quantity, size, alt angles
+- Save cart persistence on database for logged in users
+- Better pop-up messages for error handling
+
+## Landing Page and Deployment
+
+Landing page: [here](https://little-foot-trails.herokuapp.com/#features)
+
+Project is deployed on Heroku!
+
+[Little Foot Trails](https://little-foot-trails.herokuapp.com)
+
+## Inspiration
+
+
+
+## Contact
+
+Created by:
+
+- [Banu Sapakova](https://github.com/banuaksom)
+- [Jessica Bathel](https://github.com/jbathel)
+- [Ryuichi Miyazaki](https://github.com/rmiyazaki6499)
