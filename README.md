@@ -50,6 +50,9 @@ As a group with two mothers who enjoy being active with their families we wanted
 ### Tech Stack
 ![Tech Stack](https://github.com/jbathel/little-foot-trails/blob/readme/src/images/tech_stack.png "Tech Stack")
 
+### Models 
+![Models](https://github.com/jbathel/little-foot-trails/blob/readme/src/images/models.png "Models")
+
 
 ## Setup
 
