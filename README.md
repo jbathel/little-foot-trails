@@ -45,7 +45,7 @@ As a group with two mothers who enjoy being active with their families we wanted
 
 ### Architecture
 
-![Architecture]()
+![Architecture](https://github.com/jbathel/little-foot-trails/blob/readme/src/images/architecture.png "Architecture")
 
 ### Tech Stack
 ![Tech Stack](https://github.com/jbathel/little-foot-trails/blob/readme/src/images/tech_stack.png "Tech Stack")
