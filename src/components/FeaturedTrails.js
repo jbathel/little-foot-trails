@@ -1,10 +1,16 @@
 import React, {useState, useEffect} from "react";
 import Cards from "./CardUI";
 
+/**
+ * Component which displays a list of Featured Trails
+ */
 export const FeaturedTrails = () => {
     const [trails,
         setTrails] = useState([]);
 
+    /**
+     * fetches Featured Trails and sets the trails array
+     */
     async function fetchTrails() {
         const results = await fetch("http://localhost:8000/api/trails/?featured=true");
         const trails = await results.json();

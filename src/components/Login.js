@@ -14,6 +14,9 @@ import {Redirect} from "react-router";
 
 import {Context} from "../Context";
 
+/**
+ * Shows Copyright information
+ */
 function Copyright() {
     return (
         <Typography variant="body2" color="textSecondary" align="center">
@@ -46,6 +49,9 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
+/**
+ * Component for the Login Form
+ */
 export const Login = () => {
     const classes = useStyles();
     const {
@@ -56,6 +62,11 @@ export const Login = () => {
         password: ''
     };
 
+    /**
+     * logs in the current User
+     * @param  {event} e Event of the Login form
+     * @param  {data} data data necessary to log in the current User
+     */
     function handleLogin(e, data) {
         e.preventDefault();
         fetch('api/token/', {

@@ -14,6 +14,9 @@ import {Redirect} from "react-router";
 
 import {Context} from "../Context";
 
+/**
+ * Shows Copyright information
+ */
 function Copyright() {
     return (
         <Typography variant="body2" color="textSecondary" align="center">
@@ -46,6 +49,9 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
+/**
+ * Component which houses the Register Form
+ */
 export const Register = () => {
     const classes = useStyles();
     const {
@@ -60,6 +66,11 @@ export const Register = () => {
         password2: ''
     };
 
+    /**
+     * creates a new User
+     * @param  {event} e Event of the Register form
+     * @param  {data} data data necessary to create a new User
+     */
     function handleRegister(e, data) {
         e.preventDefault();
         fetch('user/create/', {
@@ -84,6 +95,11 @@ export const Register = () => {
             })
     }
 
+    /**
+     * Sets the review form details
+     * @param  {string} fieldName Name of the field to be set
+     * @param  {event} e Event of the form
+     */
     function handleFieldChange(fieldName, e) {
         registerData[fieldName] = e.target.value;
     }

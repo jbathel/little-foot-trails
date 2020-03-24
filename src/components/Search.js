@@ -51,12 +51,19 @@ const tags = [
     "Emergency Services Close"
 ];
 
+/**
+ * Component for receiving the Amenities list for filtering Trail Objects
+ */
 export const Search = () => {
     const classes = useStyles();
     const {
         tags: [trailTags, setTrailTags]
     } = useContext(Context);
 
+    /**
+     * sets values of the form
+     * @param  {event} event action on the form
+     */
     function handleChange(event) {
         setTrailTags(event.target.value);
     }

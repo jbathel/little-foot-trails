@@ -3,11 +3,19 @@ import Cards from "./CardUI";
 
 import {Context} from "../Context";
 
+/**
+ * Componet which shows the array of filtered Trail Objects
+ */
 export const Results = () => {
     const [trails,
         setTrails] = useState([]);
     const {tags: [trailTags]} = useContext(Context);
 
+    /**
+     * returns a string from an array of tag objects
+     * @param  {array} array Array of object ids to be passed as a parameter
+     * @param  {string} param Name of the parameter to pass
+     */
     function makeQuery(array, param) {
         let jsonObject = Object.assign({}, array);
         var queryString = Object

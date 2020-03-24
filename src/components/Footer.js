@@ -3,6 +3,9 @@ import logoComp from "../images/LogoComp.png";
 import {Link} from "react-router-dom";
 import {HashLink} from 'react-router-hash-link';
 
+/**
+ * Component for displaying the Footer of the App
+ */
 export const Footer = () => {
     return (
         <footer className="footer" style={{

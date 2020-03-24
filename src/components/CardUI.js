@@ -3,11 +3,18 @@ import {Link} from "react-router-dom";
 
 import {Context} from "../Context";
 
+/**
+ * returns card component with details of a Trail
+ * @param  {Trail} {trailInstance} Instance of a Trail to display on the Card Component
+ */
 export default function Cards({trailInstance}) {
     const {
         trail: [trail, setTrail]
     } = useContext(Context)
 
+    /**
+     * sets the persistent Trail detail to the current trail instance
+     */
     function setTrailObject() {
         setTrail(trailInstance)
     }

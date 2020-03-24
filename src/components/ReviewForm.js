@@ -9,6 +9,9 @@ import Container from "@material-ui/core/Container";
 import {Context} from "../Context";
 import theme from "../theme";
 
+/**
+ * Component for the Review Form
+ */
 export const ReviewForm = () => {
     const {
         trail: [trail],
@@ -22,7 +25,11 @@ export const ReviewForm = () => {
         user: 1,
         trail: trail.id
     }
-
+    /**
+     * Creates a Review Instance
+     * @param  {event} e Event of the form
+     * @param  {data} data Review parameters to create a new Review instance
+     */
     async function createReview(e, data) {
         e.preventDefault();
         const token = localStorage.getItem('token');
@@ -42,6 +49,11 @@ export const ReviewForm = () => {
         setCheckReviews(bool)
     }
 
+    /**
+     * Sets the review form details
+     * @param  {string} fieldName Name of the field to be set
+     * @param  {event} e Event of the form
+     */
     function handleFieldChange(fieldName, e) {
         reviewData[fieldName] = e.target.value;
     }

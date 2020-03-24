@@ -5,17 +5,27 @@ import {HashLink} from 'react-router-hash-link';
 
 import {Context} from "../Context";
 
+/**
+ * Component for the Navigation Bar for the App
+ */
 export let Navbar = () => {
     const {
         auth: [loggedIn, setLoggedIn]
     } = useContext(Context);
 
+    /**
+     * clears the Token from storage
+     */
     function clearToken() {
         localStorage.removeItem("token");
         setLoggedIn(false);
     }
 
-    const authenticated = loggedIn => {
+    /**
+     * Shows different buttons based on if the user is authenticated
+     * @param  {bool} loggedIn Whether the user is authenticated or not
+     */
+    const authenticated = (loggedIn) => {
         return !loggedIn
             ? (
                 <div>

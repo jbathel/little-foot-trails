@@ -4,6 +4,9 @@ import search_feature from "../images/search_feature.png";
 import details_feature from "../images/details_feature.png";
 import featured_feature from "../images/featured_feature.png";
 
+/**
+ * Component for displaying Features of the App
+ */
 export const Features = () => {
     return (
         <div>

@@ -3,6 +3,9 @@ import ryu from "../images/ryu.png";
 import jess from "../images/jess.png";
 import banu from "../images/banu.png";
 
+/**
+ * Component for showing details of the About Us
+ */
 export const AboutUs = () => {
     return (
         <div id="aboutus">

@@ -14,6 +14,9 @@ import {Login} from "./components/Login";
 import {Register} from "./components/Register";
 import {Context} from "./Context";
 
+/**
+ * Main App Component for showing the full App
+ */
 function App() {
     const [trail,
         setTrail] = usePersistedState("trail", {});
@@ -36,7 +39,11 @@ function App() {
         ],
         auth: [loggedIn, setLoggedIn]
     };
-
+    /**
+     * return the state of the key, value pair in storage
+     * @param  {string} key key of the state to store in storage
+     * @param  {string} defaultValue default value of state in storage
+     */
     function usePersistedState(key, defaultValue) {
         const [state,
             setState] = useState(() => JSON.parse(localStorage.getItem(key)) || defaultValue);
@@ -45,7 +52,9 @@ function App() {
         }, [key, state]);
         return [state, setState];
     }
-
+    /**
+     * returns state based on JWT Token in storage
+     */
     function useJWTToken() {
         const [state,
             setState] = useState(false);

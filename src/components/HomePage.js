@@ -5,6 +5,9 @@ import {FeaturedTrails} from "./FeaturedTrails";
 import {Features} from "./Features";
 import {AboutUs} from "./AboutUs";
 
+/**
+ * Component for displaying the Home Page of the App as well as the Search Component
+ */
 export const HomePage = () => {
     return (
         <div>

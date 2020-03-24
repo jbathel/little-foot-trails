@@ -1,6 +1,10 @@
 import React from "react";
 import profilePic from "../images/default.png";
 
+/**
+ * Component for displaying details of a user Review
+ * @param  {Review} {review} Review object
+ */
 export function ReviewUI({review}) {
     let date = review.created_at,
         cdate = (new Date(date)).toLocaleDateString();

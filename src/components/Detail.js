@@ -8,6 +8,9 @@ import GoogleMapReact from "google-map-react";
 
 import {Context} from "../Context";
 
+/**
+ * Component for showing details of a Trail
+ */
 export const Detail = () => {
     const [reviews,
         setReviews] = useState([]);
@@ -24,12 +27,19 @@ export const Detail = () => {
         fetchReviews();
     }, [trail.id, checkReviews]);
 
+    /**
+     * flips the value of addReview
+     * util function to switch Review button
+     */
     function openForm() {
         let bool = addReview
         bool = !bool
         setAddReview(bool)
     }
-
+    /**
+     * Shows the Add Review button if the user is authenticated
+     * @param  {bool} addReview Boolean check if user is authenticated
+     */
     const authenticated = (addReview) => {
         return (
             <Button className="btn btn-info mb-5" onClick={openForm}>
@@ -44,12 +54,14 @@ export const Detail = () => {
         lng: parseFloat(trail.longitude)
     };
 
+    /**
+     * returns Marker for Google Maps API
+     */
     const MyMarker = () => {
         return (
       <>
         <div className="pin"></div>
-        < div className = "pulse" >
-          </div>
+        <div className = "pulse"></div>
       </>
     );
   };
