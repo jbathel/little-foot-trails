@@ -9,11 +9,24 @@ from .models import Trail
 
 
 class TrailViewSet(viewsets.ModelViewSet):
+    """Trail View Set - also RESTful API Endpoint
+
+    Arguments:
+        viewsets {ModelViewSet} -- Django builtin ViewSet
+    """
     queryset = Trail.objects.all()
     serializer_class = TrailSerializer
     permission_classes = (IsAuthenticatedOrReadOnly,)
 
     def list(self, request, *args, **kwargs):
+        """A list function for Trail Instances
+
+        Arguments:
+            request {tags} -- A list of tag ids
+
+        Returns:
+            Reviews -- Returns an array of Trail Objects
+        """
         filters = {}
         tags = request.query_params.getlist('tags', [])
         featured = request.query_params.get('featured', None)
@@ -33,5 +46,13 @@ class TrailViewSet(viewsets.ModelViewSet):
         return Response(serializer.data)
 
     def get(self, request, format=None):
+        """Function to get a specific Trail
+
+        Arguments:
+            request {trail.id} -- Review id of the Trail Object
+
+        Returns:
+            Review -- Returns a Trail Object
+        """
         content = {'status': 'OK'}
         return Response(content)
