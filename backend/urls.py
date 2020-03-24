@@ -21,6 +21,7 @@ router.register(r'reviews', ReviewViewSet)
 
 urlpatterns = [
     path('', index, name='index'),
+    path('admin/doc/',include('django.contrib.admindocs.urls')),
     path('admin/', admin.site.urls),
     path('docs/', include('docs.urls')),
     path('api/', include(router.urls)),
