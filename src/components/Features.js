@@ -1,16 +1,12 @@
-import React, {useContext} from "react";
+import React from "react";
 import map_feature from "../images/map_feature.png";
 import search_feature from "../images/search_feature.png";
 import details_feature from "../images/details_feature.png";
 import featured_feature from "../images/featured_feature.png";
 
-import {Context} from "../Context";
-
 export const Features = () => {
-    const {features: featuresRef} = useContext(Context);
-
     return (
-        <div ref={featuresRef}>
+        <div>
             <section className="page-section" id="about">
                 <div className="container">
                     <div className="row">

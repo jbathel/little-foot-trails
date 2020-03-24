@@ -1,15 +1,11 @@
-import React, {useContext} from "react";
+import React from "react";
 import ryu from "../images/ryu.png";
 import jess from "../images/jess.png";
 import banu from "../images/banu.png";
 
-import {Context} from "../Context";
-
 export const AboutUs = () => {
-    const {about: aboutRef} = useContext(Context);
-
     return (
-        <div id="aboutus" ref={aboutRef}>
+        <div id="aboutus">
             <div className="container">
                 <div className="row justify-content-center">
                     <div className="col-lg-12 text-center">

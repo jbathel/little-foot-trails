@@ -6,7 +6,6 @@ import {Features} from "./Features";
 import {AboutUs} from "./AboutUs";
 
 export const HomePage = () => {
-
     return (
         <div>
             <header className="masthead text-center">

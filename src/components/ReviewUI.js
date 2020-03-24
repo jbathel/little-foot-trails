@@ -8,7 +8,6 @@ export function ReviewUI({review}) {
     return (
         <div>
             <div className="card mb-3">
-                {/* <div className="card-header">Quote</div> */}
                 <div className="card-body">
                     <blockquote className="blockquote mb-0">
                         <div className="row justify-content-left">

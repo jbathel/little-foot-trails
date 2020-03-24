@@ -4,7 +4,6 @@ import {Link} from "react-router-dom";
 import {HashLink} from 'react-router-hash-link';
 
 export const Footer = () => {
-
     return (
         <footer className="footer" style={{
             height: "auto"
