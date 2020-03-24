@@ -29,6 +29,5 @@ urlpatterns = [
          TokenRefreshView.as_view(), name='token_refresh'),
     path('current_user/', get_current_user),
     path('user/create/', CreateUserView.as_view()),
-
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) \
               + [re_path(r'^(?:.*)/?$', index, name='index')]

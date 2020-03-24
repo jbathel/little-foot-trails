@@ -22,23 +22,3 @@ class ReviewViewSet(viewsets.ModelViewSet):
     def get(self, request, format=None):
         content = {'status': 'OK'}
         return Response(content)
-
-    # def post(self, request):
-    #     name = request.body.get('name')
-    #     review = request.body.get('review')
-    #     stars = request.body.get('stars')
-    #     user = request.body.get('user')
-    #     trail = request.body.get('trail')
-    #     if not name or not review or not stars or not user or not trail:
-    #         return Response({}, status=status.HTTP_400_BAD_REQUEST)
-    #     serializer = ReviewSerializer(data={
-    #         'name': name,
-    #         'review': review,
-    #         'stars': stars,
-    #         'user': user,
-    #         'trail': trail
-    #     })
-    #     if serializer.is_valid():
-    #         serializer.save()
-    #         return Response(serializer.data, status=status.HTTP_201_CREATED)
-    #     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

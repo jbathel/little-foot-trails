@@ -10,12 +10,14 @@ def get_filename_ext(filepath):
     print(ext)
     return name, ext
 
+
 def upload_image_path(instance, filename):
     new_filename = instance.name.replace(' ', '_').lower()
     name, ext = get_filename_ext(filename)
     final_filename = f'{new_filename}{ext}'
     print(final_filename)
     return f'{final_filename}'
+
 
 class Trail(models.Model):
     name = models.CharField(max_length=30)
