@@ -5,7 +5,6 @@ import { ReviewForm } from "./ReviewForm";
 import "./../marker.css";
 import Button from "@material-ui/core/Button";
 import GoogleMapReact from "google-map-react";
-// import default_trail from "../images/trail_images/default.png";
 
 import { Context } from "../Context";
 
