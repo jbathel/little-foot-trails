@@ -22,6 +22,7 @@ router.register(r'reviews', ReviewViewSet)
 urlpatterns = [
     path('', index, name='index'),
     path('admin/', admin.site.urls),
+    path('docs/', include('docs.urls')),
     path('api/', include(router.urls)),
     path('api/token/',
          TokenObtainPairView.as_view(), name='token_obtain_pair'),

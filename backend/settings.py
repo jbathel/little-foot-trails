@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     # Third Party Libraries
     'rest_framework',
     'corsheaders',
+    'docs',
 ]
 
 MIDDLEWARE = [
@@ -192,6 +193,9 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'src', 'images', 'trail_images')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+DOCS_ROOT = os.path.join(BASE_DIR, 'docs', '_build', 'html')
+DOCS_ACCESS = 'staff'
 
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'index'

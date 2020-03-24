@@ -1,0 +1,251 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>tag package &#8212; Little-foot-trails 1.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="tag-package">
+<h1>tag package<a class="headerlink" href="#tag-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tag.migrations.html">tag.migrations package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tag.migrations.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tag.migrations.html#module-tag.migrations.0001_initial">tag.migrations.0001_initial module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tag.migrations.html#module-tag.migrations.0002_remove_tag_trail_id">tag.migrations.0002_remove_tag_trail_id module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tag.migrations.html#module-tag.migrations.0003_remove_tag_slug">tag.migrations.0003_remove_tag_slug module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tag.migrations.html#module-tag.migrations.0004_auto_20200304_2157">tag.migrations.0004_auto_20200304_2157 module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tag.migrations.html#module-tag.migrations">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-tag.admin">
+<span id="tag-admin-module"></span><h2>tag.admin module<a class="headerlink" href="#module-tag.admin" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-tag.apps">
+<span id="tag-apps-module"></span><h2>tag.apps module<a class="headerlink" href="#module-tag.apps" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="tag.apps.TagConfig">
+<em class="property">class </em><code class="sig-prename descclassname">tag.apps.</code><code class="sig-name descname">TagConfig</code><span class="sig-paren">(</span><em class="sig-param">app_name</em>, <em class="sig-param">app_module</em><span class="sig-paren">)</span><a class="headerlink" href="#tag.apps.TagConfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.apps.config.AppConfig</span></code></p>
+<dl class="attribute">
+<dt id="tag.apps.TagConfig.name">
+<code class="sig-name descname">name</code><em class="property"> = 'tag'</em><a class="headerlink" href="#tag.apps.TagConfig.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-tag.models">
+<span id="tag-models-module"></span><h2>tag.models module<a class="headerlink" href="#module-tag.models" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="tag.models.Tag">
+<em class="property">class </em><code class="sig-prename descclassname">tag.models.</code><code class="sig-name descname">Tag</code><span class="sig-paren">(</span><em class="sig-param">id</em>, <em class="sig-param">name</em>, <em class="sig-param">active</em>, <em class="sig-param">created_at</em><span class="sig-paren">)</span><a class="headerlink" href="#tag.models.Tag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="exception">
+<dt id="tag.models.Tag.DoesNotExist">
+<em class="property">exception </em><code class="sig-name descname">DoesNotExist</code><a class="headerlink" href="#tag.models.Tag.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="tag.models.Tag.MultipleObjectsReturned">
+<em class="property">exception </em><code class="sig-name descname">MultipleObjectsReturned</code><a class="headerlink" href="#tag.models.Tag.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="tag.models.Tag.active">
+<code class="sig-name descname">active</code><a class="headerlink" href="#tag.models.Tag.active" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="tag.models.Tag.created_at">
+<code class="sig-name descname">created_at</code><a class="headerlink" href="#tag.models.Tag.created_at" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="tag.models.Tag.get_next_by_created_at">
+<code class="sig-name descname">get_next_by_created_at</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">field=&lt;django.db.models.fields.DateTimeField: created_at&gt;</em>, <em class="sig-param">is_next=True</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#tag.models.Tag.get_next_by_created_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="tag.models.Tag.get_previous_by_created_at">
+<code class="sig-name descname">get_previous_by_created_at</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">field=&lt;django.db.models.fields.DateTimeField: created_at&gt;</em>, <em class="sig-param">is_next=False</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#tag.models.Tag.get_previous_by_created_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="tag.models.Tag.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#tag.models.Tag.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="tag.models.Tag.name">
+<code class="sig-name descname">name</code><a class="headerlink" href="#tag.models.Tag.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="tag.models.Tag.objects">
+<code class="sig-name descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#tag.models.Tag.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="tag.models.Tag.trail_set">
+<code class="sig-name descname">trail_set</code><a class="headerlink" href="#tag.models.Tag.trail_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the forward and reverse sides of
+a many-to-many relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Pizza</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">toppings</span> <span class="o">=</span> <span class="n">ManyToManyField</span><span class="p">(</span><span class="n">Topping</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;pizzas&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Pizza.toppings</span></code> and <code class="docutils literal notranslate"><span class="pre">Topping.pizzas</span></code> are <code class="docutils literal notranslate"><span class="pre">ManyToManyDescriptor</span></code>
+instances.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-tag.serializers">
+<span id="tag-serializers-module"></span><h2>tag.serializers module<a class="headerlink" href="#module-tag.serializers" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="tag.serializers.TagSerializer">
+<em class="property">class </em><code class="sig-prename descclassname">tag.serializers.</code><code class="sig-name descname">TagSerializer</code><span class="sig-paren">(</span><em class="sig-param">instance=None</em>, <em class="sig-param">data=&lt;class 'rest_framework.fields.empty'&gt;</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#tag.serializers.TagSerializer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.serializers.ModelSerializer</span></code></p>
+<dl class="class">
+<dt id="tag.serializers.TagSerializer.Meta">
+<em class="property">class </em><code class="sig-name descname">Meta</code><a class="headerlink" href="#tag.serializers.TagSerializer.Meta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="tag.serializers.TagSerializer.Meta.fields">
+<code class="sig-name descname">fields</code><em class="property"> = ('name', 'active', 'created_at')</em><a class="headerlink" href="#tag.serializers.TagSerializer.Meta.fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="tag.serializers.TagSerializer.Meta.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#tag.serializers.TagSerializer.Meta.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#tag.models.Tag" title="tag.models.Tag"><code class="xref py py-class docutils literal notranslate"><span class="pre">tag.models.Tag</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-tag.tests">
+<span id="tag-tests-module"></span><h2>tag.tests module<a class="headerlink" href="#module-tag.tests" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-tag.views">
+<span id="tag-views-module"></span><h2>tag.views module<a class="headerlink" href="#module-tag.views" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-tag">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-tag" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Little-foot-trails</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Banu Sapakova, Jessica Bathel, Ryuichi Miyazaki.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/tag.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

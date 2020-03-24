@@ -1,0 +1,448 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>user package &#8212; Little-foot-trails 1.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="user-package">
+<h1>user package<a class="headerlink" href="#user-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="user.migrations.html">user.migrations package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="user.migrations.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user.migrations.html#module-user.migrations.0001_initial">user.migrations.0001_initial module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user.migrations.html#module-user.migrations.0002_auto_20200228_2352">user.migrations.0002_auto_20200228_2352 module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user.migrations.html#module-user.migrations.0003_auto_20200304_0512">user.migrations.0003_auto_20200304_0512 module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user.migrations.html#module-user.migrations.0003_auto_20200304_2153">user.migrations.0003_auto_20200304_2153 module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user.migrations.html#module-user.migrations.0004_auto_20200304_2157">user.migrations.0004_auto_20200304_2157 module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user.migrations.html#module-user.migrations.0005_auto_20200305_1913">user.migrations.0005_auto_20200305_1913 module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user.migrations.html#module-user.migrations.0005_merge_20200305_2115">user.migrations.0005_merge_20200305_2115 module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user.migrations.html#module-user.migrations.0006_merge_20200315_1821">user.migrations.0006_merge_20200315_1821 module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user.migrations.html#module-user.migrations">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-user.admin">
+<span id="user-admin-module"></span><h2>user.admin module<a class="headerlink" href="#module-user.admin" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-user.apps">
+<span id="user-apps-module"></span><h2>user.apps module<a class="headerlink" href="#module-user.apps" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="user.apps.UserConfig">
+<em class="property">class </em><code class="sig-prename descclassname">user.apps.</code><code class="sig-name descname">UserConfig</code><span class="sig-paren">(</span><em class="sig-param">app_name</em>, <em class="sig-param">app_module</em><span class="sig-paren">)</span><a class="headerlink" href="#user.apps.UserConfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.apps.config.AppConfig</span></code></p>
+<dl class="attribute">
+<dt id="user.apps.UserConfig.name">
+<code class="sig-name descname">name</code><em class="property"> = 'user'</em><a class="headerlink" href="#user.apps.UserConfig.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-user.models">
+<span id="user-models-module"></span><h2>user.models module<a class="headerlink" href="#module-user.models" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="user.models.User">
+<em class="property">class </em><code class="sig-prename descclassname">user.models.</code><code class="sig-name descname">User</code><span class="sig-paren">(</span><em class="sig-param">id</em>, <em class="sig-param">password</em>, <em class="sig-param">last_login</em>, <em class="sig-param">email</em>, <em class="sig-param">full_name</em>, <em class="sig-param">phone_number</em>, <em class="sig-param">created_at</em>, <em class="sig-param">active</em>, <em class="sig-param">staff</em>, <em class="sig-param">admin</em><span class="sig-paren">)</span><a class="headerlink" href="#user.models.User" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.contrib.auth.base_user.AbstractBaseUser</span></code></p>
+<dl class="exception">
+<dt id="user.models.User.DoesNotExist">
+<em class="property">exception </em><code class="sig-name descname">DoesNotExist</code><a class="headerlink" href="#user.models.User.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="user.models.User.MultipleObjectsReturned">
+<em class="property">exception </em><code class="sig-name descname">MultipleObjectsReturned</code><a class="headerlink" href="#user.models.User.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="user.models.User.REQUIRED_FIELDS">
+<code class="sig-name descname">REQUIRED_FIELDS</code><em class="property"> = []</em><a class="headerlink" href="#user.models.User.REQUIRED_FIELDS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="user.models.User.USERNAME_FIELD">
+<code class="sig-name descname">USERNAME_FIELD</code><em class="property"> = 'email'</em><a class="headerlink" href="#user.models.User.USERNAME_FIELD" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="user.models.User.active">
+<code class="sig-name descname">active</code><a class="headerlink" href="#user.models.User.active" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="user.models.User.admin">
+<code class="sig-name descname">admin</code><a class="headerlink" href="#user.models.User.admin" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="user.models.User.created_at">
+<code class="sig-name descname">created_at</code><a class="headerlink" href="#user.models.User.created_at" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="user.models.User.email">
+<code class="sig-name descname">email</code><a class="headerlink" href="#user.models.User.email" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="user.models.User.favorites">
+<code class="sig-name descname">favorites</code><a class="headerlink" href="#user.models.User.favorites" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the forward and reverse sides of
+a many-to-many relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Pizza</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">toppings</span> <span class="o">=</span> <span class="n">ManyToManyField</span><span class="p">(</span><span class="n">Topping</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;pizzas&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Pizza.toppings</span></code> and <code class="docutils literal notranslate"><span class="pre">Topping.pizzas</span></code> are <code class="docutils literal notranslate"><span class="pre">ManyToManyDescriptor</span></code>
+instances.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="user.models.User.full_name">
+<code class="sig-name descname">full_name</code><a class="headerlink" href="#user.models.User.full_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="user.models.User.get_full_name">
+<code class="sig-name descname">get_full_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#user.models.User.get_full_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="user.models.User.get_next_by_created_at">
+<code class="sig-name descname">get_next_by_created_at</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">field=&lt;django.db.models.fields.DateTimeField: created_at&gt;</em>, <em class="sig-param">is_next=True</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#user.models.User.get_next_by_created_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="user.models.User.get_previous_by_created_at">
+<code class="sig-name descname">get_previous_by_created_at</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">field=&lt;django.db.models.fields.DateTimeField: created_at&gt;</em>, <em class="sig-param">is_next=False</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#user.models.User.get_previous_by_created_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="user.models.User.has_module_perms">
+<code class="sig-name descname">has_module_perms</code><span class="sig-paren">(</span><em class="sig-param">app_label</em><span class="sig-paren">)</span><a class="headerlink" href="#user.models.User.has_module_perms" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="user.models.User.has_perm">
+<code class="sig-name descname">has_perm</code><span class="sig-paren">(</span><em class="sig-param">perm</em>, <em class="sig-param">obj=None</em><span class="sig-paren">)</span><a class="headerlink" href="#user.models.User.has_perm" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="user.models.User.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#user.models.User.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="user.models.User.is_active">
+<em class="property">property </em><code class="sig-name descname">is_active</code><a class="headerlink" href="#user.models.User.is_active" title="Permalink to this definition">¶</a></dt>
+<dd><p>bool(x) -&gt; bool</p>
+<p>Returns True when the argument x is true, False otherwise.
+The builtins True and False are the only two instances of the class bool.
+The class bool is a subclass of the class int, and cannot be subclassed.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="user.models.User.is_admin">
+<em class="property">property </em><code class="sig-name descname">is_admin</code><a class="headerlink" href="#user.models.User.is_admin" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="user.models.User.is_staff">
+<em class="property">property </em><code class="sig-name descname">is_staff</code><a class="headerlink" href="#user.models.User.is_staff" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="user.models.User.logentry_set">
+<code class="sig-name descname">logentry_set</code><a class="headerlink" href="#user.models.User.logentry_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="user.models.User.objects">
+<code class="sig-name descname">objects</code><em class="property"> = &lt;user.models.UserManager object&gt;</em><a class="headerlink" href="#user.models.User.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="user.models.User.phone_number">
+<code class="sig-name descname">phone_number</code><a class="headerlink" href="#user.models.User.phone_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="user.models.User.review_set">
+<code class="sig-name descname">review_set</code><a class="headerlink" href="#user.models.User.review_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="user.models.User.staff">
+<code class="sig-name descname">staff</code><a class="headerlink" href="#user.models.User.staff" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="user.models.UserManager">
+<em class="property">class </em><code class="sig-prename descclassname">user.models.</code><code class="sig-name descname">UserManager</code><a class="headerlink" href="#user.models.UserManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.contrib.auth.base_user.BaseUserManager</span></code></p>
+<dl class="method">
+<dt id="user.models.UserManager.create_superuser">
+<code class="sig-name descname">create_superuser</code><span class="sig-paren">(</span><em class="sig-param">email</em>, <em class="sig-param">password=None</em>, <em class="sig-param">full_name=None</em><span class="sig-paren">)</span><a class="headerlink" href="#user.models.UserManager.create_superuser" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="user.models.UserManager.create_user">
+<code class="sig-name descname">create_user</code><span class="sig-paren">(</span><em class="sig-param">email</em>, <em class="sig-param">password</em>, <em class="sig-param">full_name=None</em>, <em class="sig-param">is_active=True</em>, <em class="sig-param">is_staff=False</em>, <em class="sig-param">is_admin=False</em><span class="sig-paren">)</span><a class="headerlink" href="#user.models.UserManager.create_user" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-user.serializers">
+<span id="user-serializers-module"></span><h2>user.serializers module<a class="headerlink" href="#module-user.serializers" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="user.serializers.UserSerializer">
+<em class="property">class </em><code class="sig-prename descclassname">user.serializers.</code><code class="sig-name descname">UserSerializer</code><span class="sig-paren">(</span><em class="sig-param">instance=None</em>, <em class="sig-param">data=&lt;class 'rest_framework.fields.empty'&gt;</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#user.serializers.UserSerializer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.serializers.ModelSerializer</span></code></p>
+<dl class="class">
+<dt id="user.serializers.UserSerializer.Meta">
+<em class="property">class </em><code class="sig-name descname">Meta</code><a class="headerlink" href="#user.serializers.UserSerializer.Meta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="user.serializers.UserSerializer.Meta.fields">
+<code class="sig-name descname">fields</code><em class="property"> = ('email', 'full_name')</em><a class="headerlink" href="#user.serializers.UserSerializer.Meta.fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="user.serializers.UserSerializer.Meta.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#user.serializers.UserSerializer.Meta.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#user.models.User" title="user.models.User"><code class="xref py py-class docutils literal notranslate"><span class="pre">user.models.User</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="user.serializers.UserSerializerWithToken">
+<em class="property">class </em><code class="sig-prename descclassname">user.serializers.</code><code class="sig-name descname">UserSerializerWithToken</code><span class="sig-paren">(</span><em class="sig-param">instance=None</em>, <em class="sig-param">data=&lt;class 'rest_framework.fields.empty'&gt;</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#user.serializers.UserSerializerWithToken" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.serializers.ModelSerializer</span></code></p>
+<dl class="class">
+<dt id="user.serializers.UserSerializerWithToken.Meta">
+<em class="property">class </em><code class="sig-name descname">Meta</code><a class="headerlink" href="#user.serializers.UserSerializerWithToken.Meta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="user.serializers.UserSerializerWithToken.Meta.fields">
+<code class="sig-name descname">fields</code><em class="property"> = ('token', 'email', 'password', 'full_name')</em><a class="headerlink" href="#user.serializers.UserSerializerWithToken.Meta.fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="user.serializers.UserSerializerWithToken.Meta.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#user.serializers.UserSerializerWithToken.Meta.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#user.models.User" title="user.models.User"><code class="xref py py-class docutils literal notranslate"><span class="pre">user.models.User</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="method">
+<dt id="user.serializers.UserSerializerWithToken.create">
+<code class="sig-name descname">create</code><span class="sig-paren">(</span><em class="sig-param">validated_data</em><span class="sig-paren">)</span><a class="headerlink" href="#user.serializers.UserSerializerWithToken.create" title="Permalink to this definition">¶</a></dt>
+<dd><p>We have a bit of extra checking around this in order to provide
+descriptive messages when something goes wrong, but this method is
+essentially just:</p>
+<blockquote>
+<div><p>return ExampleModel.objects.create(<a href="#id1"><span class="problematic" id="id2">**</span></a>validated_data)</p>
+</div></blockquote>
+<p>If there are many to many fields present on the instance then they
+cannot be set until the model is instantiated, in which case the
+implementation is like so:</p>
+<blockquote>
+<div><p>example_relationship = validated_data.pop(‘example_relationship’)
+instance = ExampleModel.objects.create(<a href="#id3"><span class="problematic" id="id4">**</span></a>validated_data)
+instance.example_relationship = example_relationship
+return instance</p>
+</div></blockquote>
+<p>The default implementation also does not handle nested relationships.
+If you want to support writable nested relationships you’ll need
+to write an explicit <cite>.create()</cite> method.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="user.serializers.UserSerializerWithToken.get_token">
+<code class="sig-name descname">get_token</code><span class="sig-paren">(</span><em class="sig-param">user</em><span class="sig-paren">)</span><a class="headerlink" href="#user.serializers.UserSerializerWithToken.get_token" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-user.tests">
+<span id="user-tests-module"></span><h2>user.tests module<a class="headerlink" href="#module-user.tests" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="user-urls-module">
+<h2>user.urls module<a class="headerlink" href="#user-urls-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-user.views">
+<span id="user-views-module"></span><h2>user.views module<a class="headerlink" href="#module-user.views" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="user.views.CreateUserView">
+<em class="property">class </em><code class="sig-prename descclassname">user.views.</code><code class="sig-name descname">CreateUserView</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#user.views.CreateUserView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.views.APIView</span></code></p>
+<dl class="attribute">
+<dt id="user.views.CreateUserView.permission_classes">
+<code class="sig-name descname">permission_classes</code><em class="property"> = (&lt;class 'rest_framework.permissions.AllowAny'&gt;,)</em><a class="headerlink" href="#user.views.CreateUserView.permission_classes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="user.views.CreateUserView.post">
+<code class="sig-name descname">post</code><span class="sig-paren">(</span><em class="sig-param">request</em><span class="sig-paren">)</span><a class="headerlink" href="#user.views.CreateUserView.post" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="user.views.get_current_user">
+<code class="sig-prename descclassname">user.views.</code><code class="sig-name descname">get_current_user</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">request</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#user.views.get_current_user" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-user">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-user" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Little-foot-trails</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Banu Sapakova, Jessica Bathel, Ryuichi Miyazaki.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/user.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
