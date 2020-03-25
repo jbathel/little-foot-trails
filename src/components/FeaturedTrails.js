@@ -12,7 +12,7 @@ export const FeaturedTrails = () => {
      * fetches Featured Trails and sets the trails array
      */
     async function fetchTrails() {
-        const results = await fetch("http://localhost:8000/api/trails/?featured=true");
+        const results = await fetch("https://little-foot-trails.herokuapp.com/api/trails/?featured=true");
         const trails = await results.json();
         setTrails(trails);
     }
