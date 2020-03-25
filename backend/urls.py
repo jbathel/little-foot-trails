@@ -21,6 +21,7 @@ router.register(r'reviews', ReviewViewSet)
 
 urlpatterns = [
     path('', index, name='index'),
+    path('admin/doc/', include('django.contrib.admindocs.urls')),
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
     path('api/token/',
@@ -29,6 +30,5 @@ urlpatterns = [
          TokenRefreshView.as_view(), name='token_refresh'),
     path('current_user/', get_current_user),
     path('user/create/', CreateUserView.as_view()),
-
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) \
               + [re_path(r'^(?:.*)/?$', index, name='index')]

@@ -7,14 +7,35 @@ from rest_framework import permissions, status
 
 @api_view(['GET'])
 def get_current_user(request):
+    """Retrieves the current User
+
+    Arguments:
+        request {GET} -- HTTP GET request
+
+    Returns:
+        JSON -- current User data
+    """
     serializer = UserSerializer(request.user)
     return Response(serializer.data)
 
 
 class CreateUserView(APIView):
+    """API Endpoint for creating new Users
+
+    Arguments:
+        APIView {APIView} -- Django builtin View
+    """
     permission_classes = (permissions.AllowAny, )
 
     def post(self, request):
+        """Creates a new User Instance
+
+        Arguments:
+            request {data} -- Serialized data of the new User
+
+        Returns:
+            Status -- HTTP Status
+        """
         email = request.data.get('email', None)
         password1 = request.data.get('password1', None)
         password2 = request.data.get('password2', None)

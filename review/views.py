@@ -8,37 +8,38 @@ from .models import Review
 
 
 class ReviewViewSet(viewsets.ModelViewSet):
+    """Review View Set - also RESTful API Endpoint
+
+    Arguments:
+        viewsets {ModelViewSet} -- Django builtin ViewSet
+    """
     queryset = Review.objects.all()
     serializer_class = ReviewSerializer
     permission_classes = (IsAuthenticatedOrReadOnly,)
     parser_classes = [JSONParser]
 
     def list(self, request, *args, **kwargs):
+        """A list function for Review Instances
+
+        Arguments:
+            request {trail} -- traid id of reviews
+
+        Returns:
+            Reviews -- Returns an array of Review Objects
+        """
         trail = request.query_params.get('trail', None)
         reviews = Review.objects.filter(trail=trail)
         serializer = ReviewSerializer(reviews, many=True)
         return Response(serializer.data)
 
     def get(self, request, format=None):
+        """Function to get a specific Review
+
+        Arguments:
+            request {review.id} -- Review id of the Review Object
+
+        Returns:
+            Review -- Returns a Review Object
+        """
         content = {'status': 'OK'}
         return Response(content)
-
-    # def post(self, request):
-    #     name = request.body.get('name')
-    #     review = request.body.get('review')
-    #     stars = request.body.get('stars')
-    #     user = request.body.get('user')
-    #     trail = request.body.get('trail')
-    #     if not name or not review or not stars or not user or not trail:
-    #         return Response({}, status=status.HTTP_400_BAD_REQUEST)
-    #     serializer = ReviewSerializer(data={
-    #         'name': name,
-    #         'review': review,
-    #         'stars': stars,
-    #         'user': user,
-    #         'trail': trail
-    #     })
-    #     if serializer.is_valid():
-    #         serializer.save()
-    #         return Response(serializer.data, status=status.HTTP_201_CREATED)
-    #     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

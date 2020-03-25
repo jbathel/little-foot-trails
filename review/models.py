@@ -4,6 +4,11 @@ from django.conf import settings
 
 
 class Review(models.Model):
+    """The Review model is for user reviews on each Trail.
+
+    Arguments:
+        models {Model} -- Django builtin Model
+    """
     name = models.CharField(max_length=30)
     review = models.CharField(max_length=1250)
     stars = models.IntegerField(default=5)

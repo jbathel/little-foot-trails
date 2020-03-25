@@ -6,8 +6,32 @@ from trail.models import Trail
 
 
 class UserManager(BaseUserManager):
+    """This is the Object Manager for the User Model
+
+    Arguments:
+        serializers {ModelSerializer} -- Django builtin Serializer
+    """
     def create_user(self, email, password, full_name=None,
                     is_active=True, is_staff=False, is_admin=False):
+        """Creates a User instance
+
+        Arguments:
+            email {string} -- email of the new user
+            password {string} -- password of the new user
+
+        Keyword Arguments:
+            full_name {string} -- Full name of the new user (default: {None})
+            is_active {bool} -- Status of if the user is active or not (default: {True})
+            is_staff {bool} -- Status of if the user is staff or not (default: {False})
+            is_admin {bool} -- Status of if the user is an admin or not (default: {False})
+
+        Raises:
+            ValueError: If there is no email
+            ValueError: If there is no password
+
+        Returns:
+            User -- Returns the new user instance
+        """
         if not email:
             raise ValueError('Users must have an email address')
         if not password:
@@ -26,6 +50,18 @@ class UserManager(BaseUserManager):
         return user
 
     def create_superuser(self, email, password=None, full_name=None):
+        """Creates a Superuser
+
+        Arguments:
+            email {string} -- email address of the superuser
+
+        Keyword Arguments:
+            password {string} -- password of the superuser (default: {None})
+            full_name {string} -- Full name of the superuser (default: {None})
+
+        Returns:
+            [type] -- [description]
+        """
         user = self.create_user(
             full_name=full_name,
             email=email,
@@ -38,6 +74,11 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractBaseUser):
+    """The User model for each registered user
+
+    Arguments:
+        models {Model} -- Django builtin Model
+    """
     email = models.EmailField(
         verbose_name='email address',
         max_length=255, unique=True
@@ -58,6 +99,11 @@ class User(AbstractBaseUser):
     objects = UserManager()
 
     def get_full_name(self):
+        """Retreives the full name of a User
+
+        Returns:
+            string -- Full name of the User
+        """
         return self.full_name
 
     def __str__(self):
