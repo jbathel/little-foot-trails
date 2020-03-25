@@ -1,68 +1,142 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# ![Logo](https://github.com/jbathel/little-foot-trails/blob/readme/src/images/LogoComp.png "Little Foot Trails") 
 
-## Available Scripts
+Welcome to Little Foot Trails an app to help parents and caregivers get outside more with their kids. Because parenting is an adventure.
 
-In the project directory, you can run:
+## Table of Contents
 
-### `npm start`
+- [Motivations](#motivations)
+- [Screenshots](#screenshots)
+- [Technologies](#technologies)
+- [Setup](#setup)
+- [Features](#features)
+- [Contact](#contact)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Motivations
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+As a group with two mothers who enjoy being active with their families we wanted to create something that would help kids and families be more active.
 
-### `npm test`
+- Each member learning learning an Framework of interest
+  - React
+    - Functional Components
+    - Hooks
+    - Context API
+  - Django
+    - Django Rest Framework
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Screenshots
 
-### `npm run build`
+<p align="center">Home Page</p>
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![Home Page](https://github.com/jbathel/little-foot-trails/blob/readme/src/images/homepage.png "Home Page")
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+<p align="center">Results Page</p>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![Results Page](https://github.com/jbathel/little-foot-trails/blob/readme/src/images/results.png "results")
 
-### `npm run eject`
+<p align="center">Detail Page</p>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+![Detail Page](https://github.com/jbathel/little-foot-trails/blob/readme/src/images/details_feature.png "Details Feature")
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<p align="center">Map</p>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+![Detail Page](https://github.com/jbathel/little-foot-trails/blob/readme/src/images/map_feature.png "Map")
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Technologies
 
-## Learn More
+### Architecture
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![Architecture](https://github.com/jbathel/little-foot-trails/blob/readme/src/images/architecture.png "Architecture")
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Tech Stack
+![Tech Stack](https://github.com/jbathel/little-foot-trails/blob/readme/src/images/tech_stack.png "Tech Stack")
 
-### Code Splitting
+### Models 
+![Models](https://github.com/jbathel/little-foot-trails/blob/readme/src/images/models.png "Models")
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
 
-### Analyzing the Bundle Size
+## Setup
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+Running the Django Server
+```
+python3 -m venv env
+source env/bin/activate
+pip install -r requirements.txt
+python3 manage.py runserver
+```
 
-### Making a Progressive Web App
+Running the React Server
+```
+npm install
+npm start
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+### Building
 
-### Advanced Configuration
+Build script will create a `build` directory with a compiled JavaScript code which will be compatible with most modern browsers. We are using `create-react-app` as a starting point in our app.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+```
+npm run build
+```
 
-### Deployment
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+## Code Examples
 
-### `npm run build` fails to minify
+All components are functional and written in Javascript:
+We used Context API to 'fetch' global variables 
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+```javascript
+export const Results = () => {
+  const [trails, setTrails] = useState([]);
+  const {
+    tags: [trailTags]
+  } = useContext(Context);
+
+  function makeQuery(array, param) {
+    let jsonObject = Object.assign({}, array);
+    var queryString = Object.keys(jsonObject)
+      .map(key => param + "=" + jsonObject[key])
+      .join("&");
+    return queryString;
+  }
+
+  useEffect(() => {
+    async function fetchTrails() {
+      let query = makeQuery(trailTags, "tags");
+      const results = await fetch("http://localhost:8000/api/trails/?" + query);
+      const trails = await results.json();
+      setTrails(trails);
+    }
+    fetchTrails();
+  }, [trailTags]);
+```
+
+## Features
+
+- Our Search bar allows you to filter Trails by Family friendly Amenities 
+- Users are authenticated using JWT Tokens 
+- Authenticated users are able to leave a Review on a Trail 
+- Detailed Trail data persists throughout browser sessions using localStorage
+- Each Trail has a interactive Map provided by Google Maps API 
+
+Considerations for improvement: 
+
+- Have authenticated users be able to edit and delete their own Reviews 
+- Update styling for the Search bar 
+- Creating a User profile 
+
+## Landing Page and Deployment
+
+Landing page: [here](https://little-foot-trails.herokuapp.com/#features)
+
+Project is deployed on Heroku!
+
+[Little Foot Trails](https://little-foot-trails.herokuapp.com)
+
+
+## Contact
+
+Created by:
+
+- [Banu Sapakova](https://github.com/banuaksom)
+- [Jessica Bathel](https://github.com/jbathel)
+- [Ryuichi Miyazaki](https://github.com/rmiyazaki6499)
