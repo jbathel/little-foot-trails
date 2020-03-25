@@ -1,4 +1,4 @@
-# ![Logo](https://github.com/jbathel/little-foot-trails/blob/readme/src/images/LogoComp.png "Little Foot Trails") 
+# ![Logo](https://github.com/jbathel/little-foot-trails/blob/master/src/images/LogoComp.png "Little Foot Trails") 
 
 Welcome to Little Foot Trails an app to help parents and caregivers get outside more with their kids. Because parenting is an adventure.
 
@@ -27,31 +27,31 @@ As a group with two mothers who enjoy being active with their families we wanted
 
 <p align="center">Home Page</p>
 
-![Home Page](https://github.com/jbathel/little-foot-trails/blob/readme/src/images/homepage.png "Home Page")
+![Home Page](https://github.com/jbathel/little-foot-trails/blob/master/src/images/homepage.png "Home Page")
 
 <p align="center">Results Page</p>
 
-![Results Page](https://github.com/jbathel/little-foot-trails/blob/readme/src/images/results.png "results")
+![Results Page](https://github.com/jbathel/little-foot-trails/blob/master/src/images/results.png "results")
 
 <p align="center">Detail Page</p>
 
-![Detail Page](https://github.com/jbathel/little-foot-trails/blob/readme/src/images/details_feature.png "Details Feature")
+![Detail Page](https://github.com/jbathel/little-foot-trails/blob/master/src/images/details_feature.png "Details Feature")
 
 <p align="center">Map</p>
 
-![Detail Page](https://github.com/jbathel/little-foot-trails/blob/readme/src/images/map_feature.png "Map")
+![Detail Page](https://github.com/jbathel/little-foot-trails/blob/master/src/images/map_feature.png "Map")
 
 ## Technologies
 
 ### Architecture
 
-![Architecture](https://github.com/jbathel/little-foot-trails/blob/readme/src/images/architecture.png "Architecture")
+![Architecture](https://github.com/jbathel/little-foot-trails/blob/master/src/images/architecture.png "Architecture")
 
 ### Tech Stack
-![Tech Stack](https://github.com/jbathel/little-foot-trails/blob/readme/src/images/tech_stack.png "Tech Stack")
+![Tech Stack](https://github.com/jbathel/little-foot-trails/blob/master/src/images/tech_stack.png "Tech Stack")
 
 ### Models 
-![Models](https://github.com/jbathel/little-foot-trails/blob/readme/src/images/models.png "Models")
+![Models](https://github.com/jbathel/little-foot-trails/blob/master/src/images/models.png "Models")
 
 
 ## Setup
