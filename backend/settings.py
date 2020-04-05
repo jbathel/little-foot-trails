@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     # Third Party Libraries
     'rest_framework',
     'corsheaders',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
@@ -193,6 +194,3 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'src', 'images', 'trail_images')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-LOGIN_URL = 'login'
-LOGIN_REDIRECT_URL = 'index'
